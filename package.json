@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint-plugin-react": "^7.12.4",
     "express": "^4.16.4",
     "mongoose": "^5.4.6",
     "react": "^16.7.0",
