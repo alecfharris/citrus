@@ -2,10 +2,6 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import PropTypes from "prop-types";
 
-InputField.propTypes = {
-  placeholder: PropTypes.string
-};
-
 const InputField = ({ placeholder }) => (
   <TextField
     id="filled-name"
@@ -15,5 +11,9 @@ const InputField = ({ placeholder }) => (
     variant="filled"
   />
 );
+
+InputField.propTypes = {
+  placeholder: PropTypes.string
+};
 
 export default InputField;
