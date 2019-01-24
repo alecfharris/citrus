@@ -7,6 +7,16 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Image from "../../food.jpg";
+import PropTypes from "prop-types";
+
+Typography.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.description
+};
+
+CardMedia.propTypes = {
+  title: PropTypes.string
+};
 
 const RecipeCard = props => (
   <Card>

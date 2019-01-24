@@ -1,5 +1,10 @@
 import React from "react";
 import Buttons from "@material-ui/core/Button";
+import PropTypes from "prop-types";
+
+Button.propTypes = {
+  text: PropTypes.string
+};
 
 const StyledButton = {
   backgroundColor: "#0097A7",
