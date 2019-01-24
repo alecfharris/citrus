@@ -1,11 +1,16 @@
 import React from "react";
 import StyledHome from "./style.js";
+import InputField from "../InputField";
 import Logo from "../Logo";
 import Button from "../Button";
 import HeaderText from "../HeaderText";
 import PropTypes from "prop-types";
 
-const Home = ({ text }) => (
+Login.propTypes = {
+  text: PropTypes.string
+};
+
+const Login = ({ text }) => (
   <StyledHome>
     <HeaderText text="CREATE AN ACCOUNT" />
     <Logo />
@@ -15,8 +20,4 @@ const Home = ({ text }) => (
   </StyledHome>
 );
 
-Home.propTypes = {
-  text: PropTypes.string
-};
-
-export default Home;
+export default Login;

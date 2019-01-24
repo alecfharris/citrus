@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledHome = styled.div`
+const StyledRecipe = styled.div`
   background-image: linear-gradient(#0097a7, #4fbf9e, #ccff90);
   display: flex;
   flex-direction: column;
@@ -10,4 +10,4 @@ const StyledHome = styled.div`
   min-width: 375px;
 `;
 
-export default StyledHome;
+export default StyledRecipe;
