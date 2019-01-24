@@ -1,8 +1,20 @@
-import React from 'react';
-import StyledButton from './style.js';
+import React from "react";
+import Buttons from "@material-ui/core/Button";
 
-const Button = ({text}) => (
-    <StyledButton>{text}</StyledButton>
+const StyledButton = {
+  backgroundColor: "#0097A7",
+  margin: "8px"
+};
+
+const Button = ({ text }) => (
+  <Buttons
+    variant="contained"
+    color="primary"
+    size="large"
+    style={StyledButton}
+  >
+    {text}
+  </Buttons>
 );
 
 export default Button;
