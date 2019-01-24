@@ -1,8 +1,13 @@
-import React from 'react';
-import StyledInput from './style.js'
+import React from "react";
+import StyledInput from "./style.js";
+import PropTypes from "prop-types";
 
-const InputField = ({placeholder}) => (
-    <StyledInput placeholder={placeholder}></StyledInput>
+InputField.propTypes = {
+  placeholder: PropTypes.string
+};
+
+const InputField = ({ placeholder }) => (
+  <StyledInput placeholder={placeholder} />
 );
 
 export default InputField;
