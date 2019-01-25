@@ -1,8 +1,22 @@
 import React from "react";
-import StyledButton from "./style.js";
+import Buttons from "@material-ui/core/Button";
 import PropTypes from "prop-types";
 
-const Button = ({ text }) => <StyledButton>{text}</StyledButton>;
+const StyledButton = {
+  backgroundColor: "#0097A7",
+  margin: "8px"
+};
+
+const Button = ({ text }) => (
+  <Buttons
+    variant="contained"
+    color="primary"
+    size="large"
+    style={StyledButton}
+  >
+    {text}
+  </Buttons>
+);
 
 Button.propTypes = {
   text: PropTypes.string
