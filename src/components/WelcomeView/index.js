@@ -1,11 +1,11 @@
 import React from "react";
-import StyledWelcome from "./style.js";
 import PropTypes from "prop-types";
+import StyledWelcome from "./style.js";
+
+const WelcomeView = ({ text }) => <StyledWelcome>{text}</StyledWelcome>;
 
 WelcomeView.propTypes = {
   text: PropTypes.string
 };
-
-const WelcomeView = ({ text }) => <StyledWelcome>{text}</StyledWelcome>;
 
 export default WelcomeView;

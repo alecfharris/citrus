@@ -6,27 +6,18 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Image from "../../food.jpg";
 import PropTypes from "prop-types";
+import Image from "../../food.jpg";
 
-Typography.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.description
-};
-
-CardMedia.propTypes = {
-  title: PropTypes.string
-};
-
-const RecipeCard = props => (
+const RecipeCard = ({ title, description }) => (
   <Card>
     <CardActionArea>
-      <CardMedia image={Image} title={props.title} />
+      <CardMedia image={Image} title={title} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
-          {props.title}
+          {title}
         </Typography>
-        <Typography component="p">{props.description}</Typography>
+        <Typography component="p">{description}</Typography>
       </CardContent>
     </CardActionArea>
     <CardActions>
@@ -39,5 +30,14 @@ const RecipeCard = props => (
     </CardActions>
   </Card>
 );
+
+RecipeCard.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string
+};
+
+CardMedia.propTypes = {
+  title: PropTypes.string
+};
 
 export default RecipeCard;

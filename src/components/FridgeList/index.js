@@ -1,11 +1,11 @@
 import React from "react";
-import StyledList from "./style.js";
 import PropTypes from "prop-types";
+import StyledList from "./style.js";
+
+const Fridgelist = ({ text }) => <StyledList>{text}</StyledList>;
 
 Fridgelist.propTypes = {
   text: PropTypes.string
 };
-
-const Fridgelist = ({ text }) => <StyledList>{text}</StyledList>;
 
 export default Fridgelist;
