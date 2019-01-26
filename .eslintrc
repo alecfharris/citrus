@@ -40,7 +40,7 @@
     "prefer-const": [
       "error",
       {
-        "destructuring": "all"
+        "destructuring": "all",
       }
     ],
     "arrow-body-style": [
@@ -102,7 +102,7 @@
       }
     ],
     "quotes": [
-      1,
+      2,
       "single",
       {
         "avoidEscape": true,
@@ -114,7 +114,7 @@
       {
         "trailingComma": "es5",
         "singleQuote": true,
-        "printWidth": 80
+        "printWidth": 80,
       }
     ],
     "jsx-a11y/href-no-hash": "off",
