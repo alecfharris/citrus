@@ -1,11 +1,13 @@
 import React from "react";
-import StyledWelcome from "./style.js";
-import PropTypes from "prop-types";
+import Recipe from "../Recipe";
+import FridgeList from "../FridgeList";
+import { Switch, Route } from "react-router-dom";
 
-Welcome.propTypes = {
-  text: PropTypes.string
+const Welcome = () => {
+  <Switch>
+    <Route exact path="/fridgelist" component={FridgeList} />
+    <Route path="/recipe" component={Recipe} />
+  </Switch>;
 };
-
-const Welcome = ({ text }) => <StyledWelcome>{text}</StyledWelcome>;
 
 export default Welcome;

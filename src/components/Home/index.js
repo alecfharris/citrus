@@ -1,26 +1,13 @@
 import React from "react";
-import StyledHome from "./style.js";
-import InputField from "../InputField";
-import Logo from "../Logo";
-import Button from "../Button";
-import HeaderText from "../HeaderText";
-import PasswordField from "../PasswordField";
-import RecipeCard from "../RecipeCard";
+import { Switch, Route } from "react-router-dom";
+import Login from "../Login";
+import Creation from "../Creation";
 
 const Home = () => (
-  <StyledHome>
-    <HeaderText text="CREATE AN ACCOUNT" />
-    <Logo />
-    <InputField placeholder="Username" />
-    <PasswordField placeholder="Password" />
-    <Button text="LOG IN" />
-    <Button text="CREATE ACCOUNT" />
-    <RecipeCard
-      imgsrc="https://picsum.photos/300/200/?random"
-      title="This is a recipe title"
-      description="This is a recipe description."
-    />
-  </StyledHome>
+  <Switch>
+    <Route exact path="/login" component={Login} />
+    <Route path="/create/" component={Creation} />
+  </Switch>
 );
 
 export default Home;
