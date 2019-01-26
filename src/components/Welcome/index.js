@@ -1,8 +1,8 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import Recipe from "../Recipe";
-import FridgeList from "../FridgeList";
-import Browse from "../Browse";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Recipe from '../Recipe';
+import FridgeList from '../FridgeList';
+import Browse from '../Browse';
 
 const Welcome = () => (
   <Switch>

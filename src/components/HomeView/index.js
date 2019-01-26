@@ -1,11 +1,11 @@
-import React from "react";
-import StyledHome from "./style.js";
-import InputField from "../InputField";
-import Logo from "../Logo";
-import Button from "../Button";
-import HeaderText from "../HeaderText";
-import PasswordField from "../PasswordField";
-import RecipeCard from "../RecipeCard";
+import React from 'react';
+import StyledHome from './style.js';
+import InputField from '../InputField';
+import Logo from '../Logo';
+import Button from '../Button';
+import HeaderText from '../HeaderText';
+import PasswordField from '../PasswordField';
+import RecipeCard from '../RecipeCard';
 
 const HomeView = () => (
   <StyledHome>

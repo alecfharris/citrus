@@ -1,7 +1,7 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import Login from "../Login";
-import Creation from "../Creation";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Login from '../Login';
+import Creation from '../Creation';
 
 const Home = () => (
   <Switch>

@@ -1,10 +1,10 @@
-import React from "react";
-import Buttons from "@material-ui/core/Button";
-import PropTypes from "prop-types";
+import React from 'react';
+import Buttons from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
 
 const StyledButton = {
-  backgroundColor: "#0097A7",
-  margin: "8px"
+  backgroundColor: '#0097A7',
+  margin: '8px',
 };
 
 const Button = ({ text }) => (
@@ -19,7 +19,7 @@ const Button = ({ text }) => (
 );
 
 Button.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
 };
 
 export default Button;

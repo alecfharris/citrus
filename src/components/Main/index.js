@@ -1,9 +1,9 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import Home from "../Home";
-import Recipe from "../Recipe";
-import FridgeList from "../FridgeList";
-import Browse from "../Browse";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Home from '../Home';
+import Recipe from '../Recipe';
+import FridgeList from '../FridgeList';
+import Browse from '../Browse';
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
