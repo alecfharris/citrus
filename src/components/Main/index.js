@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Recipe from "./Recipe";
-import FridgeInfo from "./FridgeInfo";
 import FridgeList from "./FridgeList";
 import Browse from "./Browse";
 
