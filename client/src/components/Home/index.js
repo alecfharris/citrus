@@ -5,21 +5,17 @@ import Logo from "../Logo";
 import Button from "../Button";
 import HeaderText from "../HeaderText";
 import PasswordField from "../PasswordField";
-import RecipeCard from "../RecipeCard";
+import FridgeList from "../FridgeList";
 
 const Home = () => (
   <StyledHome>
     <HeaderText text="CREATE AN ACCOUNT" />
     <Logo />
-    <InputField placeholder="Username" />
+    <InputField />
     <PasswordField placeholder="Password" />
     <Button text="LOG IN" />
     <Button text="CREATE ACCOUNT" />
-    <RecipeCard
-      imgsrc="https://picsum.photos/300/200/?random"
-      title="This is a recipe title"
-      description="This is a recipe description."
-    />
+    <FridgeList />
   </StyledHome>
 );
 

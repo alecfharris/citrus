@@ -5,8 +5,13 @@
   "main": "server.js",
   "dependencies": {
     "@material-ui/core": "^3.9.0",
+<<<<<<< HEAD
+    "@material-ui/icons": "^3.0.2",
+    "@material/list": "^0.43.0",
+=======
     "axios": "^0.18.0",
     "concurrently": "^4.1.0",
+>>>>>>> master
     "eslint": "5.6.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.6.0",
