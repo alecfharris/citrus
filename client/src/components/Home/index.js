@@ -6,6 +6,8 @@ import Button from "../Button";
 import HeaderText from "../HeaderText";
 import PasswordField from "../PasswordField";
 import FridgeList from "../FridgeList";
+import GoogleSignIn from "../GoogleSignIn";
+import FacebookLogin from "../FacebookLogin";
 
 const Home = () => (
   <StyledHome>
@@ -15,6 +17,8 @@ const Home = () => (
     <PasswordField placeholder="Password" />
     <Button text="LOG IN" />
     <Button text="CREATE ACCOUNT" />
+    <GoogleSignIn />
+    <FacebookLogin />
     <FridgeList />
   </StyledHome>
 );
