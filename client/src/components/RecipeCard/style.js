@@ -1,0 +1,26 @@
+import styled from 'styled-components';
+
+// const StyledRecipe = styled.div`
+//   background-image: linear-gradient(#0097a7, #4fbf9e, #ccff90);
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   min-height: 667px;
+//   min-width: 375px;
+// `;
+
+const MaterialStyles = {
+  card: {
+    maxWidth: 345,
+  },
+  media: {
+    // ⚠️ object-fit is not supported by IE 11.
+    objectFit: 'cover',
+  },
+  button: {
+    color: '#0097a7',
+  },
+};
+
+export default MaterialStyles;

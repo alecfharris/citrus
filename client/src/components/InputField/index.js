@@ -6,7 +6,6 @@ const InputField = ({ placeholder }) => (
   <TextField
     id="filled-name"
     label="Username"
-    value={placeholder}
     margin="normal"
     variant="filled"
   />
