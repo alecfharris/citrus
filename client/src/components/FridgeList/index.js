@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
-import FridgeInfo from "../FridgeInfo";
+import FridgeItem from "../FridgeItem";
 
 const styles = theme => ({
   root: {
@@ -16,8 +16,8 @@ function FridgeList(props) {
   const { classes } = props;
   return (
     <List className={classes.root}>
-      <FridgeInfo title="Apples" description="2 Remaining" />
-      <FridgeInfo title="Butter" description="1/4 Pound Remaining" />
+      <FridgeItem title="Apples" description="2 Remaining" />
+      <FridgeItem title="Butter" description="1/4 Pound Remaining" />
     </List>
   );
 }

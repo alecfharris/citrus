@@ -8,7 +8,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Image from "../../static/image/cards/food.jpg";
+import Image from "./food.jpg";
 
 const styles = {
   card: {
@@ -45,10 +45,10 @@ function RecipeCard(props) {
       </CardActionArea>
       <CardActions>
         <Button className={classes.button} size="small">
-          Share
+          Make Now
         </Button>
         <Button className={classes.button} size="small">
-          Learn More
+          Add to List
         </Button>
       </CardActions>
     </Card>
