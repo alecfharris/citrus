@@ -1,28 +1,20 @@
-import React from "react";
-import StyledHome from "./style.js";
-import InputField from "../InputField";
-import Logo from "../Logo";
-import Button from "../Button";
-import HeaderText from "../HeaderText";
-import PasswordField from "../PasswordField";
-import RecipeCard from "../RecipeCard";
-import FridgeList from "../FridgeList";
-import GoogleSignIn from "../GoogleSignIn";
-import FacebookLogin from "../FacebookLogin";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+// import Creation from '../Creation';
+import Login from '../Login';
+import FridgeInfo from '../FridgeInfo';
+import FridgeList from '../FridgeList';
+import Welcome from '../Welcome';
+// import RecipeBrowse from '../RecipeBrowse';
 
 const Home = () => (
-  <StyledHome>
-    <HeaderText text="CREATE AN ACCOUNT" />
-    <Logo />
-    <InputField />
-    <PasswordField placeholder="Password" />
-    <Button text="LOG IN" />
-    <Button text="CREATE ACCOUNT" />
-    <GoogleSignIn />
-    <FacebookLogin />
-    <RecipeCard title='Recipe Title' description='This is a description' />
-    <FridgeList />
-  </StyledHome>
+  <Switch>
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/fridgeinfo" component={FridgeInfo} />
+    <Route exact path="/fridgelist" component={FridgeList} />
+    <Route exact path="/welcome" component={Welcome} />
+    {/* <Route exact path="/recipes" component={RecipeBrowse} /> */}
+  </Switch>
 );
 
 export default Home;

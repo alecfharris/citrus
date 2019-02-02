@@ -1,5 +1,4 @@
-module.exports = {
-    Recipe: require("./recipe"),
-    FridgeItem: require("./fridgeItem")
-  };
-  
+// module.exports = {
+//   Recipe: require('./recipe'),
+//   FridgeItem: require('./fridgeItem'),
+// };

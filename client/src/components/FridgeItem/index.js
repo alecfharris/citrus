@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import Avatar from "@material-ui/core/Avatar";
+import React from 'react';
+import PropTypes from 'prop-types';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
 
 function FridgeItem({ title, description }) {
   return (
@@ -13,9 +13,9 @@ function FridgeItem({ title, description }) {
   );
 }
 
-ListItemText.propTypes = {
+FridgeItem.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
 };
 
 export default FridgeItem;

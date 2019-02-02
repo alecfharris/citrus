@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import FridgeItem from "../FridgeItem";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import FridgeItem from '../FridgeItem';
 
 const styles = theme => ({
   root: {
-    width: "100%",
+    width: '100%',
     maxWidth: 360,
-    background: "#FFF"
-  }
+    background: '#FFF',
+  },
 });
 
 function FridgeList(props) {
@@ -23,7 +23,7 @@ function FridgeList(props) {
 }
 
 FridgeList.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(FridgeList);

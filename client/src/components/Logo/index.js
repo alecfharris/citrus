@@ -1,12 +1,12 @@
-import React from "react";
-import StyledLogo from "./style.js";
-import PropTypes from "prop-types";
-import LogoImg from "./citrus-logo.svg";
+import React from 'react';
+import PropTypes from 'prop-types';
+import StyledLogo from './style.js';
+import LogoImg from './citrus-logo.svg';
 
-const Logo = () => <StyledLogo><img src={LogoImg} alt="citrus"></img></StyledLogo>;
-
-Logo.propTypes = {
-  text: PropTypes.string
-};
+const Logo = () => (
+  <StyledLogo>
+    <img src={LogoImg} alt="citrus" />
+  </StyledLogo>
+);
 
 export default Logo;
