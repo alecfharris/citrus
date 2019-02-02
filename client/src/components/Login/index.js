@@ -2,18 +2,14 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import StyledHome from './style.js';
 import Logo from '../Logo';
-import Button from '../Button';
 import HeaderText from '../HeaderText';
 import GoogleSignIn from '../GoogleSignIn';
 import FacebookLogin from '../FacebookLogin';
-import InputField from '../InputField';
-import PasswordField from '../PasswordField';
-import FridgeList from '../FridgeList';
 
 const Login = () => (
   <StyledHome>
     <HeaderText text="The Pantry Project" />
-    <Logo />
+    <Logo alt="citrus" />
     {/* <InputField placeholder="Username" />
     <PasswordField placeholder="Password" /> */}
     <div
