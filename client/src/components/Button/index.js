@@ -3,7 +3,7 @@ import Buttons from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 
 const StyledButton = {
-  backgroundColor: '#0097A7',
+  backgroundColor: '#fd9e61',
   margin: '8px',
 };
 
