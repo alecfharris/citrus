@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 // import Creation from '../Creation';
 import Login from '../Login';
 import FridgeInfo from '../FridgeInfo';
@@ -9,14 +9,15 @@ import Welcome from '../Welcome';
 import NoMatch from '../../pages/NoMatch';
 
 const Home = () => (
-  <Switch>
-    <Route exact path="/login" component={Login} />
-    <Route exact path="/fridgeinfo" component={FridgeInfo} />
-    <Route exact path="/fridgelist" component={FridgeList} />
-    <Route exact path="/welcome" component={Welcome} />
-    <Route component={NoMatch} />
-    {/* <Route exact path="/recipes" component={RecipeBrowse} /> */}
-  </Switch>
+  <BrowserRouter>
+    <Switch>
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/fridgeinfo" component={FridgeInfo} />
+      <Route exact path="/fridgelist" component={FridgeList} />
+      <Route exact path="/welcome" component={Welcome} />
+      {/* <Route exact path="/recipes" component={RecipeBrowse} /> */}
+    </Switch>
+  </BrowserRouter>
 );
 
 export default Home;
