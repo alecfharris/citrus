@@ -14,7 +14,7 @@ const Icon = props => (
 );
 
 Icon.propTypes = {
-  status: PropTypes.string.isRequired,
+  status: PropTypes.string,
 };
 
 export default Icon;

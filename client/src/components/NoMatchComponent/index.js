@@ -4,7 +4,7 @@ import { StyledNoMatch, StyledErrorMessage } from './style.js';
 function NoMatchComponent() {
   return (
     <StyledNoMatch>
-      <StyledErrorMessage />
+      <StyledErrorMessage>404 Page Not Found</StyledErrorMessage>
     </StyledNoMatch>
   );
 }

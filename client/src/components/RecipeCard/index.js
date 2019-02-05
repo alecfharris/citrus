@@ -8,7 +8,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import Image from './food.jpg';
 
 const styles = {
   card: {
@@ -24,7 +23,7 @@ const styles = {
 };
 
 function RecipeCard(props) {
-  const { title, description, classes } = props;
+  const { title, description, classes, image } = props;
   return (
     <Card className={classes.card}>
       <CardActionArea>
@@ -33,7 +32,7 @@ function RecipeCard(props) {
           alt={title}
           className={classes.media}
           height="140"
-          image={Image}
+          image={image}
           title={title}
         />
         <CardContent>
@@ -59,6 +58,7 @@ RecipeCard.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string,
   description: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default withStyles(styles)(RecipeCard);
