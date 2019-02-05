@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const StyledNoMatch = styled.div`
   background-image: linear-gradient(#0097a7, #4fbf9e, #ccff90);
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +17,8 @@ const StyledErrorMessage = styled.h1`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  color: white;
+  font-size: 72px;
 `;
 
 export { StyledNoMatch, StyledErrorMessage };
