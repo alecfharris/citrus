@@ -1,23 +1,17 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-// import Creation from '../Creation';
-import Login from '../Login';
-import FridgeInfo from '../FridgeInfo';
-import FridgeList from '../FridgeList';
-import Welcome from '../Welcome';
-// import RecipeBrowse from '../RecipeBrowse';
-// import NoMatch from '../../pages/NoMatch';
+import { Link } from 'react-router-dom';
+import Logo from '../Logo';
+import StyledHome from './style';
+import Button from '../Button';
 
 const Home = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/fridgeinfo" component={FridgeInfo} />
-      <Route exact path="/fridgelist" component={FridgeList} />
-      <Route exact path="/welcome" component={Welcome} />
-      {/* <Route exact path="/recipes" component={RecipeBrowse} /> */}
-    </Switch>
-  </BrowserRouter>
+  <StyledHome>
+    <Logo />
+    {/* TODO: This needs to take first name of user from user db! */}
+    <Link style={{ textDecoration: 'none' }} to="login">
+      <Button text="Log In" />
+    </Link>
+  </StyledHome>
 );
 
 export default Home;
