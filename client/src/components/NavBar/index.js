@@ -1,38 +1,38 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import Switch from "@material-ui/core/Switch";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import FormGroup from "@material-ui/core/FormGroup";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
 
 const styles = {
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20
+    marginRight: 20,
   },
   toolbar: {
-    backgroundColor: "#fd9e61"
-  }
+    backgroundColor: '#fd9e61',
+  },
 };
 
 class NavBar extends React.Component {
   state = {
     auth: true,
-    anchorEl: null
+    anchorEl: null,
   };
 
   handleChange = event => {
@@ -48,7 +48,7 @@ class NavBar extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, title } = this.props;
     const { auth, anchorEl } = this.state;
     const open = Boolean(anchorEl);
 
@@ -63,7 +63,7 @@ class NavBar extends React.Component {
                 aria-label="LoginSwitch"
               />
             }
-            label={auth ? "Logout" : "Login"}
+            label={auth ? 'Logout' : 'Login'}
           />
         </FormGroup>
         <AppBar position="static">
@@ -76,12 +76,12 @@ class NavBar extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" className={classes.grow}>
-              {this.props.title}
+              {title}
             </Typography>
             {auth && (
               <div>
                 <IconButton
-                  aria-owns={open ? "menu-appbar" : undefined}
+                  aria-owns={open ? 'menu-appbar' : undefined}
                   aria-haspopup="true"
                   onClick={this.handleMenu}
                   color="inherit"
@@ -92,12 +92,12 @@ class NavBar extends React.Component {
                   id="menu-appbar"
                   anchorEl={anchorEl}
                   anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right"
+                    vertical: 'top',
+                    horizontal: 'right',
                   }}
                   transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right"
+                    vertical: 'top',
+                    horizontal: 'right',
                   }}
                   open={open}
                   onClose={this.handleClose}
@@ -117,7 +117,7 @@ class NavBar extends React.Component {
 
 NavBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  title: PropTypes.string
+  title: PropTypes.string,
 };
 
 export default withStyles(styles)(NavBar);
