@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 const StyledRecipe = styled.div`
-  background-image: linear-gradient(#0097a7, #4fbf9e, #ccff90);
+  font-family: 'Roboto', sans-serif;
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 667px;
   min-width: 375px;
+  border-radius: 10px;
 `;
 
 export default StyledRecipe;
