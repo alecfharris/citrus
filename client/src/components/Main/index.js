@@ -1,24 +1,21 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Home from '../Home';
-import Recipe from '../Recipe';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import FridgeList from '../FridgeList';
 import Browse from '../Browse';
+import Welcome from '../Welcome';
+import Login from '../Login';
+import Home from '../Home';
 
-// The Main component renders one of the three provided
-// Routes (provided that one matches). Both the /roster
-// and /schedule routes will match any pathname that starts
-// with /roster or /schedule. The / route will only match
-// when the pathname is exactly the string "/"
 const Main = () => (
-  <main>
+  <BrowserRouter>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/recipe" component={Recipe} />
-      <Route path="/fridgelist" component={FridgeList} />
-      <Route path="/browse" component={Browse} />
+      <Route exact path="/welcome" component={Welcome} />
+      <Route exact path="/fridgelist" component={FridgeList} />
+      <Route exact path="/browse" component={Browse} />
+      <Route exact path="/login" component={Login} />
+      <Route path="/home" component={Home} />
     </Switch>
-  </main>
+  </BrowserRouter>
 );
 
 export default Main;
