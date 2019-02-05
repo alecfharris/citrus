@@ -6,7 +6,7 @@ import FridgeInfo from '../FridgeInfo';
 import FridgeList from '../FridgeList';
 import Welcome from '../Welcome';
 // import RecipeBrowse from '../RecipeBrowse';
-import NoMatch from '../../pages/NoMatch';
+// import NoMatch from '../../pages/NoMatch';
 
 const Home = () => (
   <BrowserRouter>

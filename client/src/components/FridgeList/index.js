@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import FridgeItem from '../FridgeItem';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     width: '100%',
     maxWidth: 360,
@@ -16,8 +16,12 @@ function FridgeList(props) {
   const { classes } = props;
   return (
     <List className={classes.root}>
-      <FridgeItem title="Apples" description="2 Remaining" />
-      <FridgeItem title="Butter" description="1/4 Pound Remaining" />
+      <FridgeItem status="red" title="Apples" description="2 Remaining" />
+      <FridgeItem
+        status="green"
+        title="Butter"
+        description="1/4 Pound Remaining"
+      />
     </List>
   );
 }
