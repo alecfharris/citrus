@@ -1,6 +1,7 @@
 import React from 'react';
 // import PropTypes from "prop-types";
 import { withStyles } from '@material-ui/core/styles';
+import FridgeEntry from '../FridgeEntry';
 import FridgeList from '../FridgeList';
 import StyledFridge from './style.js';
 import NavBar from '../NavBar';
@@ -19,6 +20,7 @@ function Fridge() {
     <div>
       <NavBar title="Citrus" />
       <StyledFridge>
+        <FridgeEntry />
         <FridgeList />
       </StyledFridge>
     </div>
