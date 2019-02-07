@@ -7,7 +7,7 @@ const StyledHeader = styled.div`
   flex-direction: column;
   line-height: 29px;
   color: #ffffff;
-  margin: 8px;
+  margin: 25px 8px 25px 8px;
 `;
 
 export default StyledHeader;
