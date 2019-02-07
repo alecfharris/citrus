@@ -6,7 +6,7 @@ const StyledInstructions = styled.p`
   justify-content: center;
   flex-direction: column;
   line-height: 29px;
-  margin: 8px;
+  margin: 8px 40px;
 `;
 
 export default StyledInstructions;
