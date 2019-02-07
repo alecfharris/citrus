@@ -42,7 +42,7 @@ const recipes = [
     missedIngredientCount: 8,
     likes: 46,
     summary: 'I like desserts but they make me fat',
-    dropdown: 'additional info tbd!',
+    instructions: 'additional info tbd!',
     estimatedTime: 55,
   },
   {
@@ -54,7 +54,7 @@ const recipes = [
     missedIngredientCount: 8,
     likes: 46,
     summary: 'I like desserts but they make me fat',
-    dropdown: 'additional info tbd!',
+    instructions: 'additional info tbd!',
     estimatedTime: 55,
   },
 ];
