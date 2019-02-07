@@ -5,6 +5,7 @@ import Browse from '../Browse';
 import Welcome from '../Welcome';
 import Login from '../Login';
 import Home from '../Home';
+import EnterRecipe from '../EnterRecipe';
 import RecipePage from '../RecipePage';
 
 const Main = () => (
@@ -14,6 +15,7 @@ const Main = () => (
       <Route exact path="/fridge" component={Fridge} />
       <Route exact path="/browse" component={Browse} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/enterrecipe" component={EnterRecipe} />
       <Route exact path="/recipe" component={RecipePage} />
       <Route path="/home" component={Home} />
     </Switch>

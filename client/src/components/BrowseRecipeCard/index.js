@@ -12,6 +12,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
+import RecipePage from '../RecipePage';
 
 const styles = theme => ({
   card: {
@@ -47,6 +49,13 @@ class BrowseRecipeCard extends React.Component {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
+  handleAddToList = id => {
+    console.log('adding to list with id, ', id);
+    // TODO: ALEC TO WRITE AXIOS CALL TO ADD RECIPE ID TO LIST
+  };
+
+  handleMakeNow = id => <Link to={`/recipe/${id}`} />;
+
   render() {
     const { recipe, classes } = this.props;
 
@@ -66,14 +75,27 @@ class BrowseRecipeCard extends React.Component {
             title={recipe.title}
           />
           <CardContent>
-            <Typography component="p">{`${recipe.summary}`}</Typography>
             <Typography component="p">
               {`Estimated Time: ${recipe.estimatedTime} minutes`}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">MAKE NOW</Button>
-            <Button size="small">ADD TO LIST</Button>
+            <Button
+              size="small"
+              onClick={() => {
+                this.handleMakeNow(recipe.id);
+              }}
+            >
+              MAKE NOW
+            </Button>
+            <Button
+              size="small"
+              onClick={() => {
+                this.handleAddToList(recipe.id);
+              }}
+            >
+              ADD TO LIST
+            </Button>
             <IconButton
               className={classnames(classes.expand, {
                 [classes.expandOpen]: this.state.expanded,
@@ -87,7 +109,7 @@ class BrowseRecipeCard extends React.Component {
           </CardActions>
           <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>{recipe.dropdown}</Typography>
+              <Typography paragraph>{recipe.instructions}</Typography>
             </CardContent>
           </Collapse>
         </Card>
