@@ -14,6 +14,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import RecipePage from '../RecipePage';
+import API from '../../utils/API';
 
 const styles = theme => ({
   card: {
@@ -51,7 +52,12 @@ class BrowseRecipeCard extends React.Component {
 
   handleAddToList = id => {
     console.log('adding to list with id, ', id);
-    // TODO: ALEC TO WRITE AXIOS CALL TO ADD RECIPE ID TO LIST
+    API.saveAPIRecipe({
+      recipeId: id,
+      // TODO change accountId to real value once possible
+      accountId: 't0d0r3m0v3l8rt3st64'
+  })
+    /* Use findAll to display all recipes that are saved */
   };
 
   handleMakeNow = id => <Link to={`/recipe/${id}`} />;
