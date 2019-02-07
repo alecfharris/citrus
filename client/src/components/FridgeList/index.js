@@ -8,7 +8,7 @@ import FridgeInfo from '../FridgeInfo';
 const styles = () => ({
   root: {
     width: '100%',
-    maxWidth: '360px',
+    maxWidth: '660px',
     maxHeight: '600px',
     background: '#FFF',
     overflowY: 'scroll',
