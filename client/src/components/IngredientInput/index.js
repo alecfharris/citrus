@@ -44,57 +44,6 @@ class IngredientInput extends Component {
   };
 
   onGenNewInput = () => {
-  state = {
-    ingredientDivs: [
-      {
-        name: ``,
-        quantity: ``,
-      },
-    ],
-    instructions: ``,
-  };
-
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  // Database Queries go here
-  saveRecipe = props => {
-    console.log();
-    const ingredientDivs = this.state.ingredientDivs;
-    ingredientDivs.map((currElement, index) => {
-      // This will update the state array with whatever text is currently in the values of the inputs so that they are saved
-      ingredientDivs[index].name = document.getElementById(
-        `ingredientName${index}`
-      ).value;
-      ingredientDivs[index].quantity = document.getElementById(
-        `ingredientQuantity${index}`
-      ).value;
-    });
-    ingredientDivs.push({
-      name: ``,
-      quantity: ``,
-    });
-    this.setState({ ingredientDivs });
-  };
-
-  handleChange(event) {
-    this.setState({ instructions: event.target.value });
-  }
-
-    this.setState({ ingredientDivs }, () => {
-      API.saveRecipe({
-        title: props.title,
-        ingredients: props.ingredients,
-        instructions: props.instructions,
-        // TODO change accountId to real value once possible
-        accountId: 't0d0r3m0v3l8rt3st64',
-      });
-    });
-  };
-
-  onGenNewInput = () => {
     const ingredientDivs = this.state.ingredientDivs;
     ingredientDivs.map((currElement, index) => {
       // This will update the state array with whatever text is currently in the values of the inputs so that they are saved
