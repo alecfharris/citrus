@@ -4,10 +4,6 @@ import RecipeForm from '../RecipeForm';
 import API from '../../utils/API';
 
 class IngredientInput extends Component {
-    // TODO map array to render input for each item in array
-    // TODO create array
-    // TODO increase length of array for each time add ingredient button is pressed
-    // TODO save items to array each time ingredient button is pressed so that they can be in the textbox when new element is generated
 
     state = {
         ingredientDivs: [{

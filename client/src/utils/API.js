@@ -5,16 +5,20 @@ export default {
     getRecipes: function () {
         return axios.get("/api/recipes");
     },
-    // Gets the book with the given id
+    // Gets the recipe with the given id
     getRecipe: function (id) {
         return axios.get("/api/recipes/" + id);
     },
-    // Deletes the book with the given id
+    // Deletes the recipe with the given id
     deleteRecipe: function (id) {
         return axios.delete("/api/recipes/" + id);
     },
-    // Saves a book to the database
+    // Saves a recipe to the database
     saveRecipe: function (recipeData) {
         return axios.post("/api/recipes", recipeData);
+    },
+     // Saves a recipe to the database
+     saveAPIRecipe: function (recipeData) {
+        return axios.post("/api/apirecipes", recipeData);
     }
 };
