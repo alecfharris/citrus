@@ -1,40 +1,46 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
 // import Divider from '@material-ui/core/Divider';
-import StyledRecipe from './style.js';
-import RecipeIngredient from '../RecipeIngredient';
-import RecipeInstruction from '../RecipeInstruction';
+import StyledRecipe from "./style.js";
+import RecipeIngredient from "../RecipeIngredient";
+import RecipeInstruction from "../RecipeInstruction";
+import Chip from "@material-ui/core/Chip";
 
 const styles = () => ({
   image: {
-    width: '100%',
+    width: "100%",
     maxWidth: 500,
-    background: '#FFF',
-    borderRadius: '10px',
+    background: "#FFF",
+    borderRadius: "10px"
   },
   line: {
-    color: '#c0c0c0',
-    width: '75%',
+    color: "#c0c0c0",
+    width: "75%"
   },
   title: {
-    fontSize: '24px',
-    fontWeight: 'bold',
+    fontSize: "24px",
+    fontWeight: "bold"
   },
   details: {
-    color: '#666',
-    padding: '10px',
-    display: 'table',
+    color: "#666",
+    padding: "10px",
+    display: "table"
   },
   table: {
-    display: 'table-row',
+    display: "table-row"
   },
   info: {
-    display: 'table-cell',
-    padding: '5px',
+    display: "table-cell",
+    padding: "5px"
   },
   a: {
-    color: 'red',
+    color: "red"
+  },
+  chip: {
+    margin: "8px",
+    backgroundColor: "#0097A7",
+    color: 'white',
   },
 });
 
@@ -48,6 +54,17 @@ function RecipeView(props) {
     readyIn,
     originalUrl,
     creditText,
+    vegetarian,
+    vegan,
+    glutenFree,
+    dairyFree,
+    veryHealthy,
+    cheap,
+    popular,
+    sustainable,
+    lowFodmap,
+    ketogenic,
+    whole30,
   } = props;
   console.log(readyIn);
   return (
@@ -55,6 +72,19 @@ function RecipeView(props) {
       <div className={classes.title}> {title} </div>
       <div className={classes.details}>
         <div className={classes.table}>
+          <div className={classes.info}>
+            {vegetarian && <Chip label="Vegetarian" className={classes.chip} />}
+            {vegan && <Chip label="Vegan" className={classes.chip} />}
+            {glutenFree && <Chip label="Gluten Free" className={classes.chip} />}
+            {dairyFree && <Chip label="Dairy Free" className={classes.chip} />}
+            {veryHealthy && <Chip label="Very Healthy" className={classes.chip} />}
+            {cheap && <Chip label="Cheap" className={classes.chip} />}
+            {popular && <Chip label="Popular" className={classes.chip} />}
+            {sustainable && <Chip label="Sustainable" className={classes.chip} />}
+            {lowFodmap && <Chip label="Low FODMAP" className={classes.chip} />}
+            {ketogenic && <Chip label="Ketogenic" className={classes.chip} />}
+            {whole30 && <Chip label="Whole 30" className={classes.chip} />}
+          </div>
           <div className={classes.info}>Ready in: {readyIn} Minutes </div>
           <div className={classes.info}> | </div>
           <div className={classes.info}>
@@ -86,6 +116,17 @@ RecipeView.propTypes = {
   readyIn: PropTypes.string,
   originalUrl: PropTypes.string,
   creditText: PropTypes.string,
+  vegetarian: PropTypes.bool,
+  vegan: PropTypes.bool,
+  glutenFree: PropTypes.bool,
+  dairyFree: PropTypes.bool,
+  veryHealthy: PropTypes.bool,
+  cheap: PropTypes.bool,
+  popular: PropTypes.bool,
+  sustainable: PropTypes.bool,
+  lowFodmap: PropTypes.bool,
+  ketogenic: PropTypes.bool,
+  whole30: PropTypes.bool,
 };
 
 export default withStyles(styles)(RecipeView);

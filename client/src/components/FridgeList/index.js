@@ -8,10 +8,12 @@ import FridgeInfo from '../FridgeInfo';
 const styles = () => ({
   root: {
     width: '100%',
-    maxWidth: '660px',
+    maxWidth: '350px',
     maxHeight: '600px',
     background: '#FFF',
     overflowY: 'scroll',
+    margin: '8px',
+    borderRadius: '4px',
   },
 });
 
