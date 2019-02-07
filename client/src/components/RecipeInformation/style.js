@@ -8,6 +8,9 @@ const StyledRecipe = styled.div`
   align-items: center;
   justify-content: center;
   min-width: 375px;
+  width: 80%;
+  margin: 10px;
+  padding: 20px;
   border-radius: 10px;
 `;
 
