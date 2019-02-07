@@ -5,6 +5,7 @@ import Login from '../Login';
 import FridgeInfo from '../FridgeInfo';
 import FridgeList from '../FridgeList';
 import Welcome from '../Welcome';
+import EnterRecipe from '../EnterRecipe';
 // import RecipeBrowse from '../RecipeBrowse';
 import NoMatch from '../../pages/NoMatch';
 
@@ -14,6 +15,7 @@ const Home = () => (
     <Route exact path="/fridgeinfo" component={FridgeInfo} />
     <Route exact path="/fridgelist" component={FridgeList} />
     <Route exact path="/welcome" component={Welcome} />
+    <Route exact path="/enterrecipe" component={EnterRecipe} />
     <Route component={NoMatch} />
     {/* <Route exact path="/recipes" component={RecipeBrowse} /> */}
   </Switch>

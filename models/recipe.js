@@ -5,9 +5,9 @@ const { Schema } = mongoose;
 const recipeSchema = new Schema({
   title: { type: String, required: true },
   ingredients: { type: Array, required: true },
-  description: String,
-  image: { type: Array, required: true },
-  link: { type: String, required: true, unique: true },
+  instructions: String,
+  // image: { type: Array, required: true },
+  // link: { type: String, required: true, unique: true },
   accountId: { type: String, required: true },
 });
 
