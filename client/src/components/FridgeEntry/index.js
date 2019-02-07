@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import StyledFridgeEntry from './style.js';
+// import StyledFridgeEntry from './style.js';
 
 const styles = () => ({
   root: {
