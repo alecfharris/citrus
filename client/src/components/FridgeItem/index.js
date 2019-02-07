@@ -2,10 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-// import Avatar from '@material-ui/core/Avatar';
 import Icon from '../StatusIcon';
 
-function FridgeItem({ status, title, description }) {
+function FridgeItem({ status, title, quantity, unit }) {
+  const quantityArray = Object.values({ quantity });
+  const quantityString = JSON.stringify(quantityArray[0]);
+  const unitArray = Object.values({ unit });
+  const unitString = unitArray[0];
+  console.log(unitString);
+  const combined = `${quantityString} ${unitString}`;
+  const description = unitString ? combined : quantityString;
+
   return (
     <ListItem>
       <Icon status={status} />
@@ -16,7 +23,8 @@ function FridgeItem({ status, title, description }) {
 
 FridgeItem.propTypes = {
   title: PropTypes.string,
-  description: PropTypes.string,
+  unit: PropTypes.string,
+  quantity: PropTypes.number,
   status: PropTypes.string,
 };
 

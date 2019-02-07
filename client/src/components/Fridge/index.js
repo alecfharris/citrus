@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import FridgeList from '../FridgeList';
 import StyledFridge from './style.js';
 import NavBar from '../NavBar';
+import FridgeInfo from '../FridgeInfo';
 
 const styles = () => ({
   root: {

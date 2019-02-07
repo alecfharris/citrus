@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import API from '../../utils/API';
+// import API from '../../utils/API';
 import IngredientInput from '../IngredientInput';
 
 // Database Queries go here
@@ -17,23 +17,22 @@ import IngredientInput from '../IngredientInput';
 // Event.target
 
 class EnterRecipe extends Component {
-    
-    render() {
-        return (
-            <div
+  render() {
+    return (
+      <div
         style={{
-            margin: '8px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
+          margin: '8px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
-    >
-            <IngredientInput />
-    </div>
-// Form Views go here (from a separate file)
-        )
-        }
+      >
+        <IngredientInput />
+      </div>
+      // Form Views go here (from a separate file)
+    );
+  }
 }
 
 export default EnterRecipe;
