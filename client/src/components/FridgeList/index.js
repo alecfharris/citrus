@@ -15,9 +15,17 @@ const styles = () => ({
   },
 });
 
+// Alphabetize inventory by name
+function compare(a, b) {
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
+  return 0;
+}
+
 function FridgeList(props) {
   const inventory = Inventory.fridge;
   const { classes } = props;
+  inventory.sort(compare);
   return (
     <List className={classes.root}>
       {inventory.map(item => (
@@ -26,6 +34,7 @@ function FridgeList(props) {
           title={item.name}
           quantity={item.quantity}
           unit={item.unit}
+          purchaseDate={item.purchaseDate}
         />
       ))}
     </List>

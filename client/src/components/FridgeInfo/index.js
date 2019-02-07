@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 // import TextField from "@material-ui/core/TextField";
 import Dialog from '@material-ui/core/Dialog';
@@ -7,9 +8,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import FridgeItem from '../FridgeItem';
-import Icon from '../StatusIcon';
 
 export default class FridgeInfo extends React.Component {
   state = {
@@ -44,6 +43,10 @@ export default class FridgeInfo extends React.Component {
           <DialogContent>
             <DialogContentText>
               {this.props.quantity} {this.props.unit} Remaining
+              <br />
+              Purchase Date: {this.props.purchaseDate}
+              <br />
+              Expiration Date:
             </DialogContentText>
           </DialogContent>
           <DialogActions>
@@ -62,3 +65,11 @@ export default class FridgeInfo extends React.Component {
     );
   }
 }
+
+FridgeInfo.propTypes = {
+  title: PropTypes.string,
+  unit: PropTypes.string,
+  quantity: PropTypes.number,
+  status: PropTypes.string,
+  purchaseDate: PropTypes.string,
+};
