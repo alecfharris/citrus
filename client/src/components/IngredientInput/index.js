@@ -4,7 +4,6 @@ import RecipeForm from '../RecipeForm';
 import API from '../../utils/API';
 
 class IngredientInput extends Component {
-
   state = {
     ingredientDivs: [
       {

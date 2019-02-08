@@ -13,7 +13,6 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import RecipePage from '../RecipePage';
 import API from '../../utils/API';
 
 const styles = theme => ({
@@ -55,8 +54,8 @@ class BrowseRecipeCard extends React.Component {
     API.saveAPIRecipe({
       recipeId: id,
       // TODO change accountId to real value once possible
-      accountId: 't0d0r3m0v3l8rt3st64'
-  })
+      accountId: 't0d0r3m0v3l8rt3st64',
+    });
     /* Use findAll to display all recipes that are saved */
   };
 
