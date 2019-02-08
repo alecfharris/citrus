@@ -63,32 +63,37 @@ class BrowseRecipeCard extends React.Component {
 
   render() {
     const { recipe, classes } = this.props;
+    const {
+      title,
+      image,
+      estimatedTime,
+      id,
+      usedIngredientCount,
+      missedIngredientCount,
+      instructions,
+    } = recipe;
+    const { media, card, expandOpen, expand } = classes;
+    const { expanded } = this.state;
 
     return (
       <React.Fragment>
-        <Card className={classes.card}>
+        <Card className={card}>
           <CardHeader
-            title={recipe.title}
-            subheader={`You have ${
-              recipe.usedIngredientCount
-            }/${recipe.usedIngredientCount +
-              recipe.missedIngredientCount} ingredients`}
+            title={title}
+            subheader={`You have ${usedIngredientCount}/${usedIngredientCount +
+              missedIngredientCount} ingredients`}
           />
-          <CardMedia
-            className={classes.media}
-            image={recipe.image}
-            title={recipe.title}
-          />
+          <CardMedia className={media} image={image} title={title} />
           <CardContent>
             <Typography component="p">
-              {`Estimated Time: ${recipe.estimatedTime} minutes`}
+              {`Estimated Time: ${estimatedTime} minutes`}
             </Typography>
           </CardContent>
           <CardActions>
             <Button
               size="small"
               onClick={() => {
-                this.handleMakeNow(recipe.id);
+                this.handleMakeNow(id);
               }}
             >
               MAKE NOW
@@ -96,25 +101,25 @@ class BrowseRecipeCard extends React.Component {
             <Button
               size="small"
               onClick={() => {
-                this.handleAddToList(recipe.id);
+                this.handleAddToList(id);
               }}
             >
               ADD TO LIST
             </Button>
             <IconButton
-              className={classnames(classes.expand, {
-                [classes.expandOpen]: this.state.expanded,
+              className={classnames(expand, {
+                [expandOpen]: expanded,
               })}
               onClick={this.handleExpandClick}
-              aria-expanded={this.state.expanded}
+              aria-expanded={expanded}
               aria-label="Show more"
             >
               <ExpandMoreIcon />
             </IconButton>
           </CardActions>
-          <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>{recipe.instructions}</Typography>
+              <Typography paragraph>{instructions}</Typography>
             </CardContent>
           </Collapse>
         </Card>
