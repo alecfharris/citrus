@@ -13,11 +13,12 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import API from '../../utils/API';
 
 const styles = theme => ({
   card: {
-    maxWidth: 400,
+    width: 400,
     margin: 8,
   },
   media: {
@@ -86,7 +87,7 @@ class BrowseRecipeCard extends React.Component {
           <CardMedia className={media} image={image} title={title} />
           <CardContent>
             <Typography component="p">
-              {`Estimated Time: ${estimatedTime} minutes`}
+              {`Estimated Time: ${estimatedTime || '?'} minutes`}
             </Typography>
           </CardContent>
           <CardActions>
