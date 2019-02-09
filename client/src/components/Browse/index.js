@@ -61,8 +61,8 @@ const recipes = [
 
 class Browse extends React.Component {
   render() {
-    console.log('browse');
-    console.log(this.props.location.selected);
+    const { selected = {} } = this.props;
+    console.log(selected.selected);
     return (
       <React.Fragment>
         <NavBar title="Citrus" />
@@ -77,7 +77,7 @@ class Browse extends React.Component {
 }
 
 Browse.propTypes = {
-  location: PropTypes.object.isRequired,
+  selected: PropTypes.object,
 };
 
 export default withStyles(styles)(Browse);
