@@ -1,23 +1,23 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 const styles = () => ({
   title: {
     fontSize: 24,
-    display: "flex",
-    justifyContent: "center"
+    display: 'flex',
+    justifyContent: 'center',
   },
   card: {
-    width: "90%",
+    width: '90%',
     margin: 8,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 8,
-    borderRadius: 4
-  }
+    borderRadius: 4,
+  },
 });
 
 class IngredientSearch extends React.Component {
