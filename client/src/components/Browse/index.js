@@ -85,7 +85,6 @@ class Browse extends React.Component {
       })
       .then(res => {
         const recipeData = res.data;
-        console.log('returned recipe data is ', recipeData);
         this.setState({ recipes: recipeData });
       });
   };
