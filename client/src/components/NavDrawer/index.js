@@ -35,7 +35,6 @@ class NavDrawer extends React.Component {
 
   render() {
     const { classes } = this.props;
-
     const sideList = (
       <div className={classes.list}>
         <List>
@@ -79,7 +78,7 @@ class NavDrawer extends React.Component {
       <div>
         <MenuIcon onClick={this.toggleDrawer('left', true)} />
         <Drawer
-          open={this.state.left}
+          open={this.state.left} // eslint-disable-line react/destructuring-assignment
           onClose={this.toggleDrawer('left', false)}
         >
           <div

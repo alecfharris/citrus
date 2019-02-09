@@ -1,48 +1,48 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import API from "../../utils/API";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import API from '../../utils/API';
 // import StyledRecipeInput from './style.js';
 
 const styles = () => ({
   root: {
-    width: "100%",
+    width: '100%',
     // maxWidth: 360,
-    background: "#FFF"
+    background: '#FFF',
   },
   container: {
-    display: "flex",
+    display: 'flex',
     margin: 8,
-    flexWrap: "wrap",
-    justifyContent: "center"
+    flexWrap: 'wrap',
+    justifyContent: 'center',
   },
   fullTextField: {
     margin: 8,
-    width: "100%"
+    width: '100%',
   },
   textField: {
-    margin: 8
+    margin: 8,
   },
   title: {
     fontSize: 32,
-    display: "flex",
-    justifyContent: "center"
+    display: 'flex',
+    justifyContent: 'center',
   },
   card: {
-    width: "90%",
+    width: '90%',
     margin: 8,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 8,
-    borderRadius: 4
+    borderRadius: 4,
   },
   button: {
-    justifyContent: "center",
-    display: "flex"
-  }
+    justifyContent: 'center',
+    display: 'flex',
+  },
 });
 
 // #ff9966
@@ -51,10 +51,10 @@ class RecipeInput extends React.Component {
     ingredientDivs: [
       {
         name: ``,
-        quantity: ``
+        quantity: ``,
       },
     ],
-    instructions: ``
+    instructions: ``,
   };
 
   constructor(props) {
@@ -81,7 +81,7 @@ class RecipeInput extends React.Component {
         ingredients: props.ingredients,
         instructions: props.instructions,
         // TODO change accountId to real value once possible
-        accountId: "t0d0r3m0v3l8rt3st64"
+        accountId: 't0d0r3m0v3l8rt3st64',
       });
     });
   };
@@ -99,7 +99,7 @@ class RecipeInput extends React.Component {
     });
     ingredientDivs.push({
       name: ``,
-      quantity: ``
+      quantity: ``,
     });
     this.setState({ ingredientDivs });
   };
@@ -127,7 +127,7 @@ class RecipeInput extends React.Component {
         ingredients: props.ingredients,
         instructions: props.instructions,
         // TODO change accountId to real value once possible
-        accountId: "t0d0r3m0v3l8rt3st64"
+        accountId: 't0d0r3m0v3l8rt3st64',
       });
     });
   };
@@ -145,7 +145,7 @@ class RecipeInput extends React.Component {
     });
     ingredientDivs.push({
       name: ``,
-      quantity: ``
+      quantity: ``,
     });
     this.setState({ ingredientDivs });
   };
@@ -156,7 +156,7 @@ class RecipeInput extends React.Component {
 
   handleChange = name => event => {
     this.setState({
-      [name]: event.target.value
+      [name]: event.target.value,
     });
   };
 
@@ -180,7 +180,7 @@ class RecipeInput extends React.Component {
             label="Recipe Title"
             className={classes.fullTextField}
             value={this.state.title}
-            onChange={this.handleChange("title")}
+            onChange={this.handleChange('title')}
             margin="normal"
             variant="outlined"
           />
@@ -188,7 +188,7 @@ class RecipeInput extends React.Component {
             label="Ingredient Name"
             className={classes.textField}
             value={this.state.name}
-            onChange={this.handleChange("ingredientName")}
+            onChange={this.handleChange('ingredientName')}
             margin="normal"
             variant="outlined"
             // id={`ingredientName${index}`}
@@ -197,7 +197,7 @@ class RecipeInput extends React.Component {
             label="Quantity"
             className={classes.textField}
             value={this.state.quantity}
-            onChange={this.handleChange("quantity")}
+            onChange={this.handleChange('quantity')}
             margin="normal"
             variant="outlined"
             // id={`ingredientQuantity${index}`}
@@ -207,7 +207,7 @@ class RecipeInput extends React.Component {
             label="Unit"
             className={classes.textField}
             value={this.state.unit}
-            onChange={this.handleChange("unit")}
+            onChange={this.handleChange('unit')}
             margin="normal"
             variant="outlined"
           />
@@ -226,7 +226,7 @@ class RecipeInput extends React.Component {
             multiline
             rows="4"
             value={this.state.multiline}
-            onChange={this.handleChange("multiline")}
+            onChange={this.handleChange('multiline')}
             className={classes.fullTextField}
             margin="normal"
             variant="outlined"

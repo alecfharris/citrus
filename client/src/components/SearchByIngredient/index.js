@@ -1,8 +1,6 @@
 import React from 'react';
-import { Component } from 'react';
 import StyledIngredientSearch from './style';
 import NavBar from '../NavBar';
-import IngredientSearch from '../IngredientSearch';
 import SelectFridge from '../SelectFridge';
 // Database Queries go here
 // const saveRecipe = (props) => {
@@ -17,22 +15,17 @@ import SelectFridge from '../SelectFridge';
 
 // Event.target
 
-class SearchByIngredient extends Component {
+class SearchByIngredient extends React.Component {
   render() {
     return (
       <div>
         <NavBar title="Citrus" />
         <StyledIngredientSearch>
-          {/* <div>
-            <IngredientSearch />
-          </div> */}
           <div>
             <SelectFridge />
           </div>
         </StyledIngredientSearch>
       </div>
-
-      // Form Views go here (from a separate file)
     );
   }
 }

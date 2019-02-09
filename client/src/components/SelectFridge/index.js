@@ -1,48 +1,48 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemText from "@material-ui/core/ListItemText";
-import Checkbox from "@material-ui/core/Checkbox";
-import Inventory from "../FridgeList/inventory";
-import Icon from "../StatusIcon";
-import Typography from "@material-ui/core/Typography";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-import Chip from "@material-ui/core/Chip";
-import { Link } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import ListItemText from '@material-ui/core/ListItemText';
+import Checkbox from '@material-ui/core/Checkbox';
+import Typography from '@material-ui/core/Typography';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip';
+import { Link } from 'react-router-dom';
+import Icon from '../StatusIcon';
+import Inventory from '../FridgeList/inventory';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
-    width: "100%",
-    maxWidth: "400px",
-    maxHeight: "600px",
-    background: "#FFF",
-    overflowY: "scroll",
-    margin: "8px",
-    borderRadius: "4px"
+    width: '100%',
+    maxWidth: '400px',
+    maxHeight: '600px',
+    background: '#FFF',
+    overflowY: 'scroll',
+    margin: '8px',
+    borderRadius: '4px',
   },
   title: {
     fontSize: 24,
-    display: "flex",
-    justifyContent: "center"
+    display: 'flex',
+    justifyContent: 'center',
   },
   card: {
-    width: "90%",
+    width: '90%',
     margin: 8,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 8,
-    borderRadius: 4
+    borderRadius: 4,
   },
   chip: {
-    margin: "8px",
-    fontSize: "18px",
-    backgroundColor: "#0097A7",
-    color: "white",
-    border: "none"
-  }
+    margin: '8px',
+    fontSize: '18px',
+    backgroundColor: '#0097A7',
+    color: 'white',
+    border: 'none',
+  },
 });
 
 // Alphabetize inventory by name
@@ -53,14 +53,14 @@ function compare(a, b) {
 }
 const selected = [];
 
-const newTo = { 
-    pathname: "/browse", 
-    param1: { selected }, 
-  };
+const newTo = {
+  pathname: '/browse',
+  selected: { selected },
+};
 
 class SelectFridge extends React.Component {
   state = {
-    checked: [0]
+    checked: [0],
   };
 
   handleToggle = item => () => {
@@ -76,7 +76,7 @@ class SelectFridge extends React.Component {
     }
 
     this.setState({
-      checked: newChecked
+      checked: newChecked,
     });
 
     console.log(selected);
@@ -85,6 +85,7 @@ class SelectFridge extends React.Component {
   render() {
     const inventory = Inventory.fridge;
     const { classes } = this.props;
+    const { checked } = this.state;
     inventory.sort(compare);
     return (
       <div>
@@ -103,7 +104,7 @@ class SelectFridge extends React.Component {
               <Chip label={item} className={classes.chip} variant="outlined" />
             ))}
           </div>
-          <Link to={newTo}>
+          <Link to={newTo} style={{ textDecoration: 'none' }}>
             <Button size="large" variant="contained" className={classes.button}>
               Submit
             </Button>
@@ -117,7 +118,7 @@ class SelectFridge extends React.Component {
               <ListItemSecondaryAction>
                 <Checkbox
                   onChange={this.handleToggle(item)}
-                  checked={this.state.checked.indexOf(item) !== -1}
+                  checked={{ checked }.checked.indexOf(item) !== -1}
                 />
               </ListItemSecondaryAction>
             </ListItem>

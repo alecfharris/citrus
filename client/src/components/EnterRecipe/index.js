@@ -1,7 +1,5 @@
 import React from 'react';
 import { Component } from 'react';
-import API from '../../utils/API';
-import IngredientInput from '../IngredientInput';
 import StyledRecipeEntry from './style';
 import NavBar from '../NavBar';
 import RecipeInput from '../RecipeInput';
