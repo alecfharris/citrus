@@ -1,66 +1,68 @@
-import React from 'react';
+import React from "react";
 // import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import StyledBrowse from './style.js';
-import NavBar from '../NavBar';
-import BrowseRecipeCard from '../BrowseRecipeCard';
+import { withStyles } from "@material-ui/core/styles";
+import StyledBrowse from "./style.js";
+import NavBar from "../NavBar";
+import BrowseRecipeCard from "../BrowseRecipeCard";
 
 const styles = theme => ({
   card: {
     maxWidth: 400,
-    margin: 8,
+    margin: 8
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: "56.25%" // 16:9
   },
   actions: {
-    display: 'flex',
+    display: "flex"
   },
   expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest
+    })
   },
   expandOpen: {
-    transform: 'rotate(180deg)',
+    transform: "rotate(180deg)"
   },
   avatar: {
-    backgroundColor: 'white',
-  },
+    backgroundColor: "white"
+  }
 });
 
 const recipes = [
   {
     id: 639487,
-    title: 'Cinnamon Sugar Fried Apples',
+    title: "Cinnamon Sugar Fried Apples",
     image:
-      'https://spoonacular.com/recipeImages/Cinnamon-Sugar-Fried-Apples-639487.jpg',
+      "https://spoonacular.com/recipeImages/Cinnamon-Sugar-Fried-Apples-639487.jpg",
     usedIngredientCount: 3,
     missedIngredientCount: 8,
     likes: 46,
-    summary: 'I like desserts but they make me fat',
-    instructions: 'additional info tbd!',
-    estimatedTime: 55,
+    summary: "I like desserts but they make me fat",
+    instructions: "additional info tbd!",
+    estimatedTime: 55
   },
   {
     id: 639488,
-    title: 'Cinnamon Sugar Fried Apples',
+    title: "Cinnamon Sugar Fried Apples",
     image:
-      'https://spoonacular.com/recipeImages/Cinnamon-Sugar-Fried-Apples-639487.jpg',
+      "https://spoonacular.com/recipeImages/Cinnamon-Sugar-Fried-Apples-639487.jpg",
     usedIngredientCount: 3,
     missedIngredientCount: 8,
     likes: 46,
-    summary: 'I like desserts but they make me fat',
-    instructions: 'additional info tbd!',
-    estimatedTime: 55,
-  },
+    summary: "I like desserts but they make me fat",
+    instructions: "additional info tbd!",
+    estimatedTime: 55
+  }
 ];
 
 class Browse extends React.Component {
-  render() {
+  render(props) {
+    console.log('browse');
+    console.log(this.props.location.param1);
     return (
       <React.Fragment>
         <NavBar title="Citrus" />
