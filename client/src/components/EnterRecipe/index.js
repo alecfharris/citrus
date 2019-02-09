@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import IngredientInput from '../IngredientInput';
+import NavBar from '../NavBar';
+import RecipeInput from '../RecipeInput';
+import StyledRecipeEntry from './style';
 
 class EnterRecipe extends Component {
   render() {
     return (
-      <div
-        style={{
-          margin: '8px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <IngredientInput />
+      <div>
+        <NavBar title="Citrus" />
+        <StyledRecipeEntry>
+          <div>
+            <RecipeInput />
+          </div>
+          {/* <div>
+            <IngredientInput />
+          </div> */}
+        </StyledRecipeEntry>
       </div>
     );
   }

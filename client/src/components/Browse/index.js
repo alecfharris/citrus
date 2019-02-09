@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import StyledBrowse from './style.js';
 import NavBar from '../NavBar';
@@ -61,9 +61,11 @@ const recipes = [
 
 class Browse extends React.Component {
   render() {
+    const { selected = {} } = this.props;
+    console.log(selected.selected);
     return (
       <React.Fragment>
-        <NavBar />
+        <NavBar title="Citrus" />
         <StyledBrowse>
           {recipes.map(recipe => (
             <BrowseRecipeCard recipe={recipe} key={recipe.id} />
@@ -73,5 +75,9 @@ class Browse extends React.Component {
     );
   }
 }
+
+Browse.propTypes = {
+  selected: PropTypes.object,
+};
 
 export default withStyles(styles)(Browse);

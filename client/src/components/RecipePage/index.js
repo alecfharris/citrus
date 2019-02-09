@@ -5,7 +5,6 @@ import StyledRecipePage from './style';
 import NavBar from '../NavBar';
 import Recipe from './recipe-test';
 
-
 function RecipePage() {
   return (
     <div>
