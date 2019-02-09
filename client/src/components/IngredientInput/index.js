@@ -22,7 +22,7 @@ class IngredientInput extends Component {
   // Database Queries go here
   saveRecipe = props => {
     console.log();
-    const ingredientDivs = this.state.ingredientDivs;
+    const { ingredientDivs } = this.state;
     ingredientDivs.map((currElement, index) => {
       // This will update the state array with whatever text is currently in the values of the inputs so that they are saved
       ingredientDivs[index].name = document.getElementById(
@@ -31,6 +31,7 @@ class IngredientInput extends Component {
       ingredientDivs[index].quantity = document.getElementById(
         `ingredientQuantity${index}`
       ).value;
+      return ingredientDivs;
     });
     this.setState({ ingredientDivs }, () => {
       API.saveRecipe({
@@ -44,7 +45,7 @@ class IngredientInput extends Component {
   };
 
   onGenNewInput = () => {
-    const ingredientDivs = this.state.ingredientDivs;
+    const { ingredientDivs } = this.state;
     ingredientDivs.map((currElement, index) => {
       // This will update the state array with whatever text is currently in the values of the inputs so that they are saved
       ingredientDivs[index].name = document.getElementById(
@@ -53,6 +54,7 @@ class IngredientInput extends Component {
       ingredientDivs[index].quantity = document.getElementById(
         `ingredientQuantity${index}`
       ).value;
+      return ingredientDivs;
     });
     ingredientDivs.push({
       name: ``,
@@ -66,14 +68,16 @@ class IngredientInput extends Component {
   }
 
   render() {
+    const { ingredientDivs } = this.state;
+    const { instructions } = this.state;
     return (
       <div>
         <RecipeTitle />
         <div>
-          {this.state.ingredientDivs.map((currElement, index) => (
+          {ingredientDivs.map((currElement, index) => (
             <React.Fragment>
               <div>
-                <label>
+                <div>
                   Name:
                   <input
                     type="text"
@@ -81,8 +85,8 @@ class IngredientInput extends Component {
                     id={`ingredientName${index}`}
                     defaultValue={currElement.name}
                   />
-                </label>
-                <label
+                </div>
+                <div
                   style={{
                     margin: '5px',
                   }}
@@ -94,7 +98,7 @@ class IngredientInput extends Component {
                     id={`ingredientQuantity${index}`}
                     defaultValue={currElement.quantity}
                   />
-                </label>
+                </div>
               </div>
             </React.Fragment>
           ))}
@@ -113,7 +117,7 @@ class IngredientInput extends Component {
               margin: '5px',
             }}
           >
-            <label>
+            <div>
               Instructions:
               <textarea
                 rows="8"
@@ -122,7 +126,7 @@ class IngredientInput extends Component {
                 onChange={this.handleChange}
                 id="recipe-instructions"
               />
-            </label>
+            </div>
           </div>
           <RecipeForm
             title={
@@ -130,11 +134,8 @@ class IngredientInput extends Component {
                 ? document.getElementById('recipe-title').value
                 : null
             }
-            ingredients={this.state.ingredientDivs}
-            instructions={
-              this.state
-                .instructions /* document.getElementById(`recipe-instructions`) ? document.getElementById('recipe-instructions').value : null */
-            }
+            ingredients={ingredientDivs}
+            instructions={instructions}
             saveRecipe={this.saveRecipe}
           />
         </form>
