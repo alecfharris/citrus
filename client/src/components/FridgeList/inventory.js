@@ -9,6 +9,13 @@ const Inventory = {
     },
     {
       status: 'green',
+      name: 'Yams',
+      quantity: 100000,
+      unit: null,
+      purchaseDate: 'February 9, 2019',
+    },
+    {
+      status: 'green',
       name: 'Butter',
       quantity: 4,
       unit: 'Pounds',
@@ -76,6 +83,13 @@ const Inventory = {
       quantity: 100000,
       unit: null,
       purchaseDate: 'February 2, 2019',
+    },
+    {
+      status: 'green',
+      name: 'Pineapple',
+      quantity: 100000,
+      unit: null,
+      purchaseDate: 'February 9, 2019',
     },
   ],
 };

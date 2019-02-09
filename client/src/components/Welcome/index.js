@@ -10,7 +10,7 @@ const Welcome = () => (
     <Logo />
     {/* TODO: This needs to take first name of user from user db! */}
     <WelcomeText text="Paul" />
-    <Link style={{ textDecoration: 'none' }} to="fridgelist">
+    <Link style={{ textDecoration: 'none' }} to="fridge">
       <Button text="My Fridge" />
     </Link>
     <Link style={{ textDecoration: 'none' }} to="browse">
