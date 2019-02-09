@@ -63,7 +63,7 @@ class Browse extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar />
+        <NavBar title="Citrus" />
         <StyledBrowse>
           {recipes.map(recipe => (
             <BrowseRecipeCard recipe={recipe} key={recipe.id} />

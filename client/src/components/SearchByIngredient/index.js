@@ -1,11 +1,9 @@
 import React from 'react';
 import { Component } from 'react';
-import API from '../../utils/API';
-import IngredientInput from '../IngredientInput';
-import StyledRecipeEntry from './style';
+import StyledIngredientSearch from './style';
 import NavBar from '../NavBar';
-import RecipeInput from '../RecipeInput';
-
+import IngredientSearch from '../IngredientSearch';
+import SelectFridge from '../SelectFridge';
 // Database Queries go here
 // const saveRecipe = (props) => {
 //     API.saveRecipe({
@@ -19,19 +17,19 @@ import RecipeInput from '../RecipeInput';
 
 // Event.target
 
-class EnterRecipe extends Component {
+class SearchByIngredient extends Component {
   render() {
     return (
       <div>
         <NavBar title="Citrus" />
-        <StyledRecipeEntry>
-          <div>
-            <RecipeInput />
-          </div>
+        <StyledIngredientSearch>
           {/* <div>
-            <IngredientInput />
+            <IngredientSearch />
           </div> */}
-        </StyledRecipeEntry>
+          <div>
+            <SelectFridge />
+          </div>
+        </StyledIngredientSearch>
       </div>
 
       // Form Views go here (from a separate file)
@@ -39,4 +37,4 @@ class EnterRecipe extends Component {
   }
 }
 
-export default EnterRecipe;
+export default SearchByIngredient;
