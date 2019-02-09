@@ -33,39 +33,15 @@ const styles = theme => ({
   },
 });
 
-const dummyRecipes = [
-  {
-    id: 639487,
-    title: 'Cinnamon Sugar Fried Apples',
-    image:
-      'https://spoonacular.com/recipeImages/Cinnamon-Sugar-Fried-Apples-639487.jpg',
-    usedIngredientCount: 3,
-    missedIngredientCount: 8,
-    likes: 46,
-    summary: 'I like desserts but they make me fat',
-    instructions: 'additional info tbd!',
-    estimatedTime: 55,
-  },
-  {
-    id: 639488,
-    title: 'Cinnamon Sugar Fried Apples',
-    image:
-      'https://spoonacular.com/recipeImages/Cinnamon-Sugar-Fried-Apples-639487.jpg',
-    usedIngredientCount: 3,
-    missedIngredientCount: 8,
-    likes: 46,
-    summary: 'I like desserts but they make me fat',
-    instructions: 'additional info tbd!',
-    estimatedTime: 55,
-  },
-];
-
-const dummyIngredients = ['apple', 'flour', 'oats'];
 class Browse extends React.Component {
   state = { recipes: [] };
 
   componentDidMount() {
-    this.getIngredientsList(dummyIngredients);
+    const { location = {} } = this.props;
+    const ingredients = location.selected
+      ? Object.values(location.selected)[0]
+      : []; // grab ingredients from selectfridge link
+    this.getIngredientsList(ingredients);
   }
 
   getIngredientsList = ingredients => {
@@ -73,9 +49,7 @@ class Browse extends React.Component {
     const ingredientList = ingredients
       .map(ingredient => `${ingredient}%2C`)
       .join('');
-    const queryString = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=${
-      dummyIngredients.length
-    }&ranking=1&ingredients=${ingredientList}`;
+    const queryString = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ranking=1&ingredients=${ingredientList}`;
     axios
       .get(queryString, {
         headers: {
@@ -91,8 +65,7 @@ class Browse extends React.Component {
 
   render() {
     const { recipes } = this.state;
-    const { selected = {} } = this.props;
-    console.log(selected.selected);
+
     return (
       <React.Fragment>
         <NavBar title="Citrus" />
@@ -107,7 +80,7 @@ class Browse extends React.Component {
 }
 
 Browse.propTypes = {
-  selected: PropTypes.object,
+  location: PropTypes.object,
 };
 
 export default withStyles(styles)(Browse);
