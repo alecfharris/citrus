@@ -59,16 +59,19 @@ const dummyRecipes = [
     estimatedTime: 55,
   },
 ];
-
 class Browse extends React.Component {
   state = { recipes: [] };
+
+  componentDidMount() {
+    this.getIngredientsList();
+  }
 
   getIngredientsList = () => {
     const dummyIngredients = ['apple', 'flour', 'oats'];
     // build query string https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=apples%2Cflour%2Csugar
-    const ingredientList = dummyIngredients.map(ingredient =>
-      `${ingredient}%2C`.join('')
-    );
+    const ingredientList = dummyIngredients
+      .map(ingredient => `${ingredient}%2C`)
+      .join('');
     const queryString = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=${
       dummyIngredients.length
     }&ranking=1&ingredients=${ingredientList}`;
@@ -83,7 +86,7 @@ class Browse extends React.Component {
         }
       )
       .then(res => {
-        const recipeData = res;
+        const recipeData = res.data;
         console.log('returned recipe data is ', recipeData);
         this.setState({ recipes: recipeData });
       });
