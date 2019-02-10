@@ -51,8 +51,12 @@ function compare(a, b) {
   if (a.name > b.name) return 1;
   return 0;
 }
-const selected = [];
 
+// empty arrays for selected and checked
+const selected = [];
+const newChecked = [];
+
+// link on submit sends 'selected' array to display recipe cards
 const newTo = {
   pathname: '/browse',
   selected: { selected },
@@ -66,13 +70,14 @@ class SelectFridge extends React.Component {
   handleToggle = item => () => {
     const { checked } = this.state;
     const currentIndex = checked.indexOf(item);
-    const newChecked = [...checked];
     if (currentIndex === -1) {
       newChecked.push(item);
       selected.push(item.name);
+      console.log(selected);
     } else {
       newChecked.splice(currentIndex, 1);
       selected.splice(currentIndex, 1);
+      console.log(selected);
     }
 
     this.setState({
@@ -80,6 +85,20 @@ class SelectFridge extends React.Component {
     });
 
     console.log(selected);
+  };
+
+  handleDelete = item => () => {
+    const { checked } = this.state;
+    const currentIndex = checked.indexOf(item);
+    selected.splice(currentIndex);
+    newChecked.splice(currentIndex);
+    console.log(selected);
+
+    this.setState({
+      checked: newChecked,
+    });
+
+    this.handleToggle();
   };
 
   render() {
@@ -101,7 +120,12 @@ class SelectFridge extends React.Component {
           </CardContent>
           <div>
             {selected.map(item => (
-              <Chip label={item} className={classes.chip} variant="outlined" />
+              <Chip
+                label={item}
+                className={classes.chip}
+                variant="outlined"
+                onDelete={this.handleDelete(item)}
+              />
             ))}
           </div>
           <Link to={newTo} style={{ textDecoration: 'none' }}>
@@ -119,6 +143,7 @@ class SelectFridge extends React.Component {
                 <Checkbox
                   onChange={this.handleToggle(item)}
                   checked={{ checked }.checked.indexOf(item) !== -1}
+                  key={item.name}
                 />
               </ListItemSecondaryAction>
             </ListItem>

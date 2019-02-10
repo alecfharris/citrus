@@ -65,7 +65,7 @@ class Browse extends React.Component {
 
   render() {
     const { recipes } = this.state;
-    const { selected = {} } = this.props;
+    // const { selected = {} } = this.props;
     return (
       <React.Fragment>
         <NavBar title="Citrus" />
