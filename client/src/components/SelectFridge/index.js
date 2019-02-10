@@ -19,8 +19,7 @@ const styles = () => ({
     alignContent: 'center',
   },
   list: {
-    minWidth: '600px',
-    maxHeight: '600px',
+    width: '100%',
     background: '#FFF',
     overflowY: 'scroll',
     margin: '8px',
@@ -32,7 +31,7 @@ const styles = () => ({
     justifyContent: 'center',
   },
   card: {
-    minWidth: '600px',
+    // maxWidth: '600px',
     margin: 8,
     backgroundColor: 'white',
     padding: 8,
@@ -136,6 +135,7 @@ class SelectFridge extends React.Component {
                 size="large"
                 variant="contained"
                 className={classes.button}
+                style={{ backgroundColor: '#ff9966', color: 'white' }}
               >
                 Submit
               </Button>

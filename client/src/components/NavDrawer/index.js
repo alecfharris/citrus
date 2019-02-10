@@ -54,6 +54,14 @@ class NavDrawer extends React.Component {
               <ListItemText primary="My Recipes" />
             </ListItem>
           </Link>
+          <Link style={{ textDecoration: 'none' }} to="searchbyingredient">
+            <ListItem button key="Search Recipes by Ingredients">
+              <ListItemIcon>
+                <ViewAgenda />
+              </ListItemIcon>
+              <ListItemText primary="Browse Recipes" />
+            </ListItem>
+          </Link>
           <Link style={{ textDecoration: 'none' }} to="browse">
             <ListItem button key="Browse Recipes">
               <ListItemIcon>
