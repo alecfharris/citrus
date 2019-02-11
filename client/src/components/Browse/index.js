@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import StyledBrowse from './style.js';
 import NavBar from '../NavBar';
 import BrowseRecipeCard from '../BrowseRecipeCard';
@@ -38,10 +39,11 @@ class Browse extends React.Component {
 
   componentDidMount() {
     const { location = {} } = this.props;
-    const ingredients = location.selected
-      ? Object.values(location.selected)[0]
-      : []; // grab ingredients from selectfridge link
-    this.getIngredientsList(ingredients);
+
+    // If route includes ingredients call API to do ingredient search, otherwise render favorite recipes
+    return location.selected
+      ? this.getIngredientsList(Object.values(location.selected)[0])
+      : this.renderFavoriteRecipes();
   }
 
   getIngredientsList = ingredients => {
@@ -63,16 +65,26 @@ class Browse extends React.Component {
       });
   };
 
+  // TODO: Due to API limitation need to store recipe info in DB for user. This will grab info and send array to render
+  renderFavoriteRecipes = recipes => {
+    // pass JSON stored in server to state to render
+    this.setState({ recipes });
+  };
+
   render() {
     const { recipes } = this.state;
-    const { selected = {} } = this.props;
+    // const { selected = {} } = this.props;
     return (
       <React.Fragment>
         <NavBar title="Citrus" />
         <StyledBrowse>
-          {recipes.map(recipe => (
-            <BrowseRecipeCard recipe={recipe} key={recipe.id} />
-          ))}
+          {recipes ? (
+            recipes.map(recipe => (
+              <BrowseRecipeCard recipe={recipe} key={recipe.id} />
+            ))
+          ) : (
+            <Link to="NoMatchComponent" />
+          )}
         </StyledBrowse>
       </React.Fragment>
     );

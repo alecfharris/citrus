@@ -13,14 +13,16 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import API from '../../utils/API';
 
 const styles = theme => ({
   card: {
     width: 400,
     margin: 8,
-    minHeight: 457,
+  },
+  cardHeader: {
+    display: 'flex',
+    justifyContent: 'flex-start',
   },
   media: {
     height: 0,
@@ -42,6 +44,12 @@ const styles = theme => ({
   avatar: {
     backgroundColor: 'white',
   },
+  titlePadding: {
+    paddingBottom: 32,
+  },
+  noTitlePadding: {
+    paddingBottom: 0,
+  },
 });
 
 class BrowseRecipeCard extends React.Component {
@@ -51,17 +59,17 @@ class BrowseRecipeCard extends React.Component {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
-  handleAddToList = id => {
-    console.log('adding to list with id, ', id);
+  handleAddToList = recipe => {
+    console.log('adding recipe to list ', recipe);
     API.saveAPIRecipe({
-      recipeId: id,
+      recipe,
       // TODO change accountId to real value once possible
       accountId: 't0d0r3m0v3l8rt3st64',
     });
     /* Use findAll to display all recipes that are saved */
   };
 
-  handleMakeNow = id => <Link to={`/recipe/${id}`} />;
+  // handleMakeNow = id => <Link to={`/recipe/${id}`} />;
 
   render() {
     const { recipe, classes } = this.props;
@@ -74,8 +82,17 @@ class BrowseRecipeCard extends React.Component {
       missedIngredientCount,
       instructions,
     } = recipe;
-    const { media, card, expandOpen, expand } = classes;
+    const {
+      media,
+      card,
+      expandOpen,
+      expand,
+      titlePadding,
+      noTitlePadding,
+    } = classes;
     const { expanded } = this.state;
+
+    const padTitle = title.length < 30 ? titlePadding : noTitlePadding;
 
     return (
       <React.Fragment>
@@ -84,6 +101,7 @@ class BrowseRecipeCard extends React.Component {
             title={title}
             subheader={`You have ${usedIngredientCount}/${usedIngredientCount +
               missedIngredientCount} ingredients`}
+            className={padTitle}
           />
           <CardMedia className={media} image={image} title={title} />
           <CardContent>
@@ -92,18 +110,13 @@ class BrowseRecipeCard extends React.Component {
             </Typography>
           </CardContent>
           <CardActions>
+            <Link to={`/recipe/${id}`} style={{ textDecoration: 'none' }}>
+              <Button size="small">MAKE NOW</Button>
+            </Link>
             <Button
               size="small"
               onClick={() => {
-                this.handleMakeNow(id);
-              }}
-            >
-              MAKE NOW
-            </Button>
-            <Button
-              size="small"
-              onClick={() => {
-                this.handleAddToList(id);
+                this.handleAddToList(recipe);
               }}
             >
               ADD TO LIST
