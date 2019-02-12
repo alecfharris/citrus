@@ -12,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+import { HashRouter as Link, Router } from 'react-router-dom';
 import axios from 'axios';
 import API from '../../utils/API';
 
@@ -46,7 +46,7 @@ const styles = theme => ({
     backgroundColor: 'white',
   },
   titlePadding: {
-    paddingBottom: 32,
+    paddingBottom: 40,
   },
   noTitlePadding: {
     paddingBottom: 8,
@@ -126,9 +126,11 @@ class BrowseRecipeCard extends React.Component {
           <CardHeader title={title} className={padTitle} />
           <CardMedia className={media} image={image} title={title} />
           <CardActions>
-            <Link to={`/recipe/${id}`} style={{ textDecoration: 'none' }}>
-              <Button size="small">MAKE NOW</Button>
-            </Link>
+            <Router>
+              <Link to={`/recipe/${id}`} style={{ textDecoration: 'none' }}>
+                <Button size="small">MAKE NOW</Button>
+              </Link>
+            </Router>
             <Button
               size="small"
               onClick={() => {

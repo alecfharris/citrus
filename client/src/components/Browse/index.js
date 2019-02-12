@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Router, Link } from 'react-router-dom';
 import StyledBrowse from './style.js';
 import NavBar from '../NavBar';
 import BrowseRecipeCard from '../BrowseRecipeCard';
@@ -73,7 +73,7 @@ class Browse extends React.Component {
 
   render() {
     const { recipes } = this.state;
-    
+
     return (
       <React.Fragment>
         <NavBar title="Citrus" />
@@ -83,7 +83,9 @@ class Browse extends React.Component {
               <BrowseRecipeCard recipe={recipe} key={recipe.id} />
             ))
           ) : (
-            <Link to="NoMatchComponent" />
+            <Router>
+              <Link to="NoMatchComponent" />
+            </Router>
           )}
         </StyledBrowse>
       </React.Fragment>
