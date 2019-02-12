@@ -73,11 +73,9 @@ class SelectFridge extends React.Component {
     if (currentIndex === -1) {
       newChecked.push(item);
       selected.push(item.name);
-      console.log(selected);
     } else {
       newChecked.splice(currentIndex, 1);
       selected.splice(currentIndex, 1);
-      console.log(selected);
     }
 
     this.setState({
