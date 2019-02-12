@@ -9,10 +9,8 @@ function FridgeItem({ status, title, quantity, unit }) {
   const quantityString = JSON.stringify(quantityArray[0]);
   const unitArray = Object.values({ unit });
   const unitString = unitArray[0];
-  console.log(unitString);
   const combined = `${quantityString} ${unitString}`;
   const description = unitString ? combined : quantityString;
-
   return (
     <ListItem>
       <Icon status={status} />

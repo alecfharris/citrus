@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-// import TextField from "@material-ui/core/TextField";
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import ListItem from '@material-ui/core/ListItem';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import FridgeItem from '../FridgeItem';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#ff9966' }, // peach
+    secondary: { main: '#0097A7' }, // teal
+  },
+});
 
 export default class FridgeInfo extends React.Component {
   state = {
@@ -24,43 +31,48 @@ export default class FridgeInfo extends React.Component {
   };
 
   render() {
+    const { status, title, quantity, unit, purchaseDate } = this.props;
+    const { open } = this.state;
     return (
       <div>
         <ListItem onClick={this.handleClickOpen}>
           <FridgeItem
-            status={this.props.status}
-            title={this.props.title}
-            quantity={this.props.quantity}
-            unit={this.props.unit}
+            status={status}
+            title={title}
+            quantity={quantity}
+            unit={unit}
           />
         </ListItem>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle id="form-dialog-title">{this.props.title}</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              {this.props.quantity} {this.props.unit} Remaining
-              <br />
-              Purchase Date: {this.props.purchaseDate}
-              <br />
-              Expiration Date:
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Update
-            </Button>
-            <Button onClick={this.handleClose} color="primary">
-              Remove
-            </Button>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
-          </DialogActions>
-        </Dialog>
+        <MuiThemeProvider theme={theme}>
+          <Dialog
+            open={open}
+            onClose={this.handleClose}
+            aria-labelledby="form-dialog-title"
+          >
+            <DialogTitle id="form-dialog-title">{title}</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                {quantity} {unit} Remaining
+                <br />
+                Purchase Date: {purchaseDate}
+                <br />
+                Expiration Date:
+              </DialogContentText>
+            </DialogContent>
+
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">
+                Update
+              </Button>
+              <Button onClick={this.handleClose} color="primary">
+                Remove
+              </Button>
+              <Button onClick={this.handleClose} color="primary">
+                Cancel
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </MuiThemeProvider>
       </div>
     );
   }

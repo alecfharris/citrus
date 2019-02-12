@@ -1,28 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import ListItemText from '@material-ui/core/ListItemText';
 import Checkbox from '@material-ui/core/Checkbox';
 import Typography from '@material-ui/core/Typography';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import { Link } from 'react-router-dom';
+import {
+  MuiThemeProvider,
+  createMuiTheme,
+  withStyles,
+} from '@material-ui/core/styles';
 import Icon from '../StatusIcon';
 import Inventory from '../FridgeList/inventory';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#0097A7' },
+  },
+});
 
 const styles = () => ({
   root: {
     width: '100%',
-    maxWidth: '400px',
-    maxHeight: '600px',
+    alignContent: 'center',
+  },
+  list: {
     background: '#FFF',
     overflowY: 'scroll',
     margin: '8px',
     borderRadius: '4px',
+    width: '75vw',
   },
   title: {
     fontSize: 24,
@@ -30,11 +42,12 @@ const styles = () => ({
     justifyContent: 'center',
   },
   card: {
-    width: '90%',
+    // maxWidth: '600px',
     margin: 8,
     backgroundColor: 'white',
     padding: 8,
     borderRadius: 4,
+    alignContent: 'center',
   },
   chip: {
     margin: '8px',
@@ -42,6 +55,12 @@ const styles = () => ({
     backgroundColor: '#0097A7',
     color: 'white',
     border: 'none',
+  },
+  div: {
+    margin: '8px',
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
   },
 });
 
@@ -81,8 +100,6 @@ class SelectFridge extends React.Component {
     this.setState({
       checked: newChecked,
     });
-
-    console.log(selected);
   };
 
   handleDelete = item => () => {
@@ -90,7 +107,6 @@ class SelectFridge extends React.Component {
     const currentIndex = checked.indexOf(item);
     selected.splice(currentIndex);
     newChecked.splice(currentIndex);
-    console.log(selected);
 
     this.setState({
       checked: newChecked,
@@ -105,18 +121,16 @@ class SelectFridge extends React.Component {
     const { checked } = this.state;
     inventory.sort(compare);
     return (
-      <div>
+      <div className={classes.root}>
         <div className={classes.card}>
-          <CardContent>
-            <Typography
-              className={classes.title}
-              color="textSecondary"
-              gutterBottom
-            >
-              Search Recipe by Ingredients
-            </Typography>
-          </CardContent>
-          <div>
+          <Typography
+            className={classes.title}
+            color="textSecondary"
+            gutterBottom
+          >
+            Search Recipe by Ingredients
+          </Typography>
+          <div className={classes.div}>
             {selected.map(item => (
               <Chip
                 label={item}
@@ -126,27 +140,43 @@ class SelectFridge extends React.Component {
               />
             ))}
           </div>
-          <Link to={newTo} style={{ textDecoration: 'none' }}>
-            <Button size="large" variant="contained" className={classes.button}>
-              Submit
-            </Button>
-          </Link>
+          <div className={classes.div}>
+            <Link to={newTo} style={{ textDecoration: 'none' }}>
+              <Button
+                size="large"
+                variant="contained"
+                className={classes.button}
+                style={{ backgroundColor: '#ff9966', color: 'white' }}
+              >
+                Submit
+              </Button>
+            </Link>
+          </div>
         </div>
-        <List className={classes.root}>
-          {inventory.map(item => (
-            <ListItem key={item.name} button>
-              <Icon status={item.status} />
-              <ListItemText primary={item.name} />
-              <ListItemSecondaryAction>
-                <Checkbox
-                  onChange={this.handleToggle(item)}
-                  checked={{ checked }.checked.indexOf(item) !== -1}
-                  key={item.name}
-                />
-              </ListItemSecondaryAction>
-            </ListItem>
-          ))}
-        </List>
+        <div className={classes.div}>
+          <List className={classes.list}>
+            {inventory.map(item => (
+              <ListItem
+                key={item.name}
+                button
+                onClick={this.handleToggle(item)}
+              >
+                <Icon status={item.status} />
+                <ListItemText primary={item.name} />
+                <ListItemSecondaryAction>
+                  <MuiThemeProvider theme={theme}>
+                    <Checkbox
+                      onChange={this.handleToggle(item)}
+                      checked={{ checked }.checked.indexOf(item) !== -1}
+                      key={item.name}
+                      color="primary"
+                    />
+                  </MuiThemeProvider>
+                </ListItemSecondaryAction>
+              </ListItem>
+            ))}
+          </List>
+        </div>
       </div>
     );
   }
