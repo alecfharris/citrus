@@ -11,6 +11,7 @@
     "classnames": "^2.2.6",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
+    "if-env": "^1.0.4",
     "material-ui": "^0.20.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
