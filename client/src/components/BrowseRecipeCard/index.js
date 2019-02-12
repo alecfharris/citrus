@@ -20,7 +20,10 @@ const styles = theme => ({
   card: {
     width: 400,
     margin: 8,
-    minHeight: 457,
+  },
+  cardHeader: {
+    display: 'flex',
+    justifyContent: 'flex-start',
   },
   media: {
     height: 0,
@@ -42,68 +45,94 @@ const styles = theme => ({
   avatar: {
     backgroundColor: 'white',
   },
+  titlePadding: {
+    paddingBottom: 32,
+  },
+  noTitlePadding: {
+    paddingBottom: 8,
+  },
+  instructionStyle: {
+    padding: 16,
+  },
 });
 
 class BrowseRecipeCard extends React.Component {
   state = { expanded: false };
 
-  handleExpandClick = () => {
-    this.setState(state => ({ expanded: !state.expanded }));
+  handleExpandClick = id => {
+    const recipeId = id;
+    if (!this.state.instructions) { // eslint-disable-line
+      // did we already get info for this card
+      // okay let's pull recipe info
+      const queryString = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeId}/information`;
+      axios
+        .get(queryString, {
+          headers: {
+            'X-RapidAPI-Key':
+              'MYPL92HY3cmshOzLkll6ixnLVAVlp1nZQhxjsnf245LFIJlc9D',
+          },
+        })
+        .then(res => {
+          const instructions =
+            res.data.instructions.length > 500
+              ? res.data.instructions.substring(0, 500)
+              : res.data.instructions;
+          this.setState(() => ({
+            instructions,
+            estimatedTime: res.data.readyInMinutes,
+          }));
+        });
+    }
+    this.setState(state => ({
+      expanded: !state.expanded,
+    }));
   };
 
-  handleAddToList = id => {
-    console.log('adding to list with id, ', id);
+  handleAddToList = recipe => {
+    console.log('adding recipe to list ', recipe);
     API.saveAPIRecipe({
-      recipeId: id,
+      recipe,
       // TODO change accountId to real value once possible
       accountId: 't0d0r3m0v3l8rt3st64',
     });
     /* Use findAll to display all recipes that are saved */
   };
 
-  handleMakeNow = id => <Link to={`/recipe/${id}`} />;
-
   render() {
     const { recipe, classes } = this.props;
     const {
       title,
       image,
-      estimatedTime,
       id,
       usedIngredientCount,
       missedIngredientCount,
-      instructions,
     } = recipe;
-    const { media, card, expandOpen, expand } = classes;
-    const { expanded } = this.state;
+    const {
+      media,
+      card,
+      expandOpen,
+      expand,
+      titlePadding,
+      noTitlePadding,
+      instructionStyle,
+    } = classes;
+    const { expanded, instructions, estimatedTime } = this.state;
+
+    const padTitle = title.length < 30 ? titlePadding : noTitlePadding;
 
     return (
       <React.Fragment>
         <Card className={card}>
-          <CardHeader
-            title={title}
-            subheader={`You have ${usedIngredientCount}/${usedIngredientCount +
-              missedIngredientCount} ingredients`}
-          />
+          <CardHeader title={title} className={padTitle} />
           <CardMedia className={media} image={image} title={title} />
-          <CardContent>
-            <Typography component="p">
-              {`Estimated Time: ${estimatedTime || '?'} minutes`}
-            </Typography>
-          </CardContent>
           <CardActions>
+            <Link to={`/recipe/${id}`} style={{ textDecoration: 'none' }}>
+              <Button size="small">MAKE NOW</Button>
+            </Link>
             <Button
               size="small"
               onClick={() => {
-                this.handleMakeNow(id);
-              }}
-            >
-              MAKE NOW
-            </Button>
-            <Button
-              size="small"
-              onClick={() => {
-                this.handleAddToList(id);
+                this.handleAddToList(recipe);
               }}
             >
               ADD TO LIST
@@ -112,7 +141,7 @@ class BrowseRecipeCard extends React.Component {
               className={classnames(expand, {
                 [expandOpen]: expanded,
               })}
-              onClick={this.handleExpandClick}
+              onClick={() => this.handleExpandClick(id)}
               aria-expanded={expanded}
               aria-label="Show more"
             >
@@ -121,7 +150,15 @@ class BrowseRecipeCard extends React.Component {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>{instructions}</Typography>
+              <CardHeader
+                title="Additional Information"
+                subheader={`You have ${usedIngredientCount} out of ${usedIngredientCount +
+                  missedIngredientCount} ingredients to make this recipe
+                  Estimated Time: ${estimatedTime || '?'} minutes`}
+              />
+              <Typography className={instructionStyle} paragraph>
+                {instructions}
+              </Typography>
             </CardContent>
           </Collapse>
         </Card>

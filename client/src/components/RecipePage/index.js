@@ -15,14 +15,15 @@ class RecipePage extends React.Component {
     this.getRecipeInfo();
   }
 
-  getRecipeInfo = recipeId => {
+  getRecipeInfo = () => {
+    const recipeId = this.props.match.params.id; // eslint-disable-line
     const queryString = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeId}/information`;
     if (recipeId) {
       axios
         .get(queryString, {
           headers: {
             'X-RapidAPI-Key':
-              'MYPL92HY3cmshOzLkll6ixnLVAVlp1nZQhxjsnf245LFIJlc9D',
+              'otjDFlURFBmshZdSBfRqP6wDBbczp1XNiRzjsnRi3Iqm6V0ZI7',
           },
         })
         .then(res => {
