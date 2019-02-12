@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -10,8 +10,19 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import { Link } from 'react-router-dom';
+import {
+  MuiThemeProvider,
+  createMuiTheme,
+  withStyles,
+} from '@material-ui/core/styles';
 import Icon from '../StatusIcon';
 import Inventory from '../FridgeList/inventory';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#0097A7' },
+  },
+});
 
 const styles = () => ({
   root: {
@@ -19,11 +30,11 @@ const styles = () => ({
     alignContent: 'center',
   },
   list: {
-    width: '100%',
     background: '#FFF',
     overflowY: 'scroll',
     margin: '8px',
     borderRadius: '4px',
+    width: '75vw',
   },
   title: {
     fontSize: 24,
@@ -153,11 +164,14 @@ class SelectFridge extends React.Component {
                 <Icon status={item.status} />
                 <ListItemText primary={item.name} />
                 <ListItemSecondaryAction>
-                  <Checkbox
-                    onChange={this.handleToggle(item)}
-                    checked={{ checked }.checked.indexOf(item) !== -1}
-                    key={item.name}
-                  />
+                  <MuiThemeProvider theme={theme}>
+                    <Checkbox
+                      onChange={this.handleToggle(item)}
+                      checked={{ checked }.checked.indexOf(item) !== -1}
+                      key={item.name}
+                      color="primary"
+                    />
+                  </MuiThemeProvider>
                 </ListItemSecondaryAction>
               </ListItem>
             ))}

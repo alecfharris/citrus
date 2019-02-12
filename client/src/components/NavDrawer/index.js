@@ -12,6 +12,7 @@ import Bookmarks from '@material-ui/icons/Bookmarks';
 import MenuIcon from '@material-ui/icons/Menu';
 import ViewAgenda from '@material-ui/icons/ViewAgenda';
 import Input from '@material-ui/icons/Input';
+import Search from '@material-ui/icons/Search';
 
 const styles = {
   list: {
@@ -46,20 +47,12 @@ class NavDrawer extends React.Component {
               <ListItemText primary="My Fridge" />
             </ListItem>
           </Link>
-          <Link style={{ textDecoration: 'none' }} to="#">
+          <Link style={{ textDecoration: 'none' }} to="myrecipes">
             <ListItem button key="My Recipes">
               <ListItemIcon>
                 <Bookmarks />
               </ListItemIcon>
               <ListItemText primary="My Recipes" />
-            </ListItem>
-          </Link>
-          <Link style={{ textDecoration: 'none' }} to="searchbyingredient">
-            <ListItem button key="Search Recipes by Ingredients">
-              <ListItemIcon>
-                <ViewAgenda />
-              </ListItemIcon>
-              <ListItemText primary="Browse Recipes" />
             </ListItem>
           </Link>
           <Link style={{ textDecoration: 'none' }} to="browse">
@@ -79,6 +72,14 @@ class NavDrawer extends React.Component {
             </ListItem>
           </Link>
         </List>
+        <Link style={{ textDecoration: 'none' }} to="searchbyingredient">
+          <ListItem button key="Search Recipes by Ingredients">
+            <ListItemIcon>
+              <Search />
+            </ListItemIcon>
+            <ListItemText primary="Search Recipes by Ingredients" />
+          </ListItem>
+        </Link>
       </div>
     );
 

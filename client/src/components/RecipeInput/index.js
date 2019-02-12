@@ -48,13 +48,7 @@ const styles = () => ({
 // #ff9966
 class RecipeInput extends React.Component {
   state = {
-    ingredientDivs: [
-      {
-        name: ``,
-        quantity: ``,
-      },
-    ],
-    instructions: ``,
+    ingredientDivs: [],
   };
 
   constructor(props) {
@@ -63,96 +57,48 @@ class RecipeInput extends React.Component {
   }
 
   // Database Queries go here
-  saveRecipe = props => {
+  saveRecipe = () => {
     console.log();
-    const ingredientDivs = this.state.ingredientDivs;
-    ingredientDivs.map((currElement, index) => {
-      // This will update the state array with whatever text is currently in the values of the inputs so that they are saved
-      ingredientDivs[index].name = document.getElementById(
-        `ingredientName${index}`
-      ).value;
-      ingredientDivs[index].quantity = document.getElementById(
-        `ingredientQuantity${index}`
-      ).value;
-    });
-    this.setState({ ingredientDivs }, () => {
-      API.saveRecipe({
-        title: props.title,
-        ingredients: props.ingredients,
-        instructions: props.instructions,
-        // TODO change accountId to real value once possible
-        accountId: 't0d0r3m0v3l8rt3st64',
+    const {
+      ingredientDivs,
+      ingredientName,
+      quantity,
+      unit,
+      multiline,
+      title,
+    } = this.state;
+    if (ingredientName && quantity && unit !== ``) {
+      ingredientDivs.push({
+        ingredientName,
+        quantity,
+        unit,
       });
+    }
+    API.saveRecipe({
+      title,
+      ingredients: ingredientDivs,
+      instructions: multiline,
+      // TODO change accountId to real value once possible
+      accountId: 't0d0r3m0v3l8rt3st64',
     });
   };
 
   onGenNewInput = () => {
-    const ingredientDivs = this.state.ingredientDivs;
-    ingredientDivs.map((currElement, index) => {
-      // This will update the state array with whatever text is currently in the values of the inputs so that they are saved
-      ingredientDivs[index].name = document.getElementById(
-        `ingredientName${index}`
-      ).value;
-      ingredientDivs[index].quantity = document.getElementById(
-        `ingredientQuantity${index}`
-      ).value;
-    });
+    const { ingredientDivs, ingredientName, quantity, unit } = this.state;
+    /* TODO push existing states to array, and then map through the array to create a text list of ingredients above the 
+   boxes, then empty the boxes */
     ingredientDivs.push({
-      name: ``,
+      ingredientName,
+      quantity,
+      unit,
+    });
+    this.setState({
+      ingredientDivs,
+      ingredientName: ``,
       quantity: ``,
-    });
-    this.setState({ ingredientDivs });
-  };
-
-  handleChange(event) {
-    this.setState({ instructions: event.target.value });
-  }
-
-  // Database Queries go here
-  saveRecipe = props => {
-    console.log();
-    const ingredientDivs = this.state.ingredientDivs;
-    ingredientDivs.map((currElement, index) => {
-      // This will update the state array with whatever text is currently in the values of the inputs so that they are saved
-      ingredientDivs[index].name = document.getElementById(
-        `ingredientName${index}`
-      ).value;
-      ingredientDivs[index].quantity = document.getElementById(
-        `ingredientQuantity${index}`
-      ).value;
-    });
-    this.setState({ ingredientDivs }, () => {
-      API.saveRecipe({
-        title: props.title,
-        ingredients: props.ingredients,
-        instructions: props.instructions,
-        // TODO change accountId to real value once possible
-        accountId: 't0d0r3m0v3l8rt3st64',
-      });
+      unit: ``,
     });
   };
-
-  onGenNewInput = () => {
-    const ingredientDivs = this.state.ingredientDivs;
-    ingredientDivs.map((currElement, index) => {
-      // This will update the state array with whatever text is currently in the values of the inputs so that they are saved
-      ingredientDivs[index].name = document.getElementById(
-        `ingredientName${index}`
-      ).value;
-      ingredientDivs[index].quantity = document.getElementById(
-        `ingredientQuantity${index}`
-      ).value;
-    });
-    ingredientDivs.push({
-      name: ``,
-      quantity: ``,
-    });
-    this.setState({ ingredientDivs });
-  };
-
-  handleChange(event) {
-    this.setState({ instructions: event.target.value });
-  }
 
   handleChange = name => event => {
     this.setState({
@@ -162,6 +108,14 @@ class RecipeInput extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const {
+      ingredientDivs,
+      title,
+      ingredientName,
+      quantity,
+      unit,
+      multiline,
+    } = this.state;
 
     return (
       <div className={classes.card}>
@@ -179,15 +133,25 @@ class RecipeInput extends React.Component {
             id="outlined-name"
             label="Recipe Title"
             className={classes.fullTextField}
-            value={this.state.title}
+            value={title}
             onChange={this.handleChange('title')}
             margin="normal"
             variant="outlined"
           />
+          <div>
+            {ingredientDivs.map(currElement => (
+              <div>
+                <p>
+                  {currElement.ingredientName} {` `} {currElement.quantity}
+                  {` `} {currElement.unit}
+                </p>
+              </div>
+            ))}
+          </div>
           <TextField
             label="Ingredient Name"
             className={classes.textField}
-            value={this.state.name}
+            value={ingredientName}
             onChange={this.handleChange('ingredientName')}
             margin="normal"
             variant="outlined"
@@ -196,7 +160,7 @@ class RecipeInput extends React.Component {
           <TextField
             label="Quantity"
             className={classes.textField}
-            value={this.state.quantity}
+            value={quantity}
             onChange={this.handleChange('quantity')}
             margin="normal"
             variant="outlined"
@@ -206,15 +170,15 @@ class RecipeInput extends React.Component {
             id="outlined-name"
             label="Unit"
             className={classes.textField}
-            value={this.state.unit}
+            value={unit}
             onChange={this.handleChange('unit')}
             margin="normal"
             variant="outlined"
           />
           <Button
-            // onClick={() => {
-            //   this.onGenNewInput();
-            // }}
+            onClick={() => {
+              this.onGenNewInput();
+            }}
             variant="contained"
             className={classes.button}
           >
@@ -225,13 +189,20 @@ class RecipeInput extends React.Component {
             label="Instructions"
             multiline
             rows="4"
-            value={this.state.multiline}
+            value={multiline}
             onChange={this.handleChange('multiline')}
             className={classes.fullTextField}
             margin="normal"
             variant="outlined"
           />
-          <Button size="large" variant="contained" className={classes.button}>
+          <Button
+            size="large"
+            variant="contained"
+            className={classes.button}
+            onClick={() => {
+              this.saveRecipe();
+            }}
+          >
             Submit
           </Button>
         </form>
