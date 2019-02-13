@@ -72,6 +72,7 @@
     "babel-preset-react-app": "^7.0.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
+    "if-env": "^1.0.4",
     "react-scripts": "^2.1.3"
   }
 }
