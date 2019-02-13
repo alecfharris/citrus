@@ -50,11 +50,36 @@ const styles = () => ({
 // #ff9966
 class FridgeEntry extends React.Component {
   state = {
+    // data: [],
     name: '',
     quantity: '',
     unit: '',
     date: '',
   };
+
+  componentDidMount() {
+    const { intervalIsSet } = this.state;
+    this.getDataFromDb();
+    if (!intervalIsSet) {
+      const interval = setInterval(this.getDataFromDb, 1000);
+      this.setState({ intervalIsSet: interval });
+    }
+  }
+
+  componentWillUnmount() {
+    const { intervalIsSet } = this.state;
+    if (intervalIsSet) {
+      clearInterval(intervalIsSet);
+      this.setState({ intervalIsSet: null });
+    }
+  }
+
+  // getDataFromDb = () => {
+  //   fetch('http://localhost:3001/api/fridgelist')
+  //     .then(data => data.json())
+  //     .then(res => this.setState({ data: res.data }))
+  //     .then(console.log(res.data));
+  // };
 
   handleChange = name => event => {
     this.setState({

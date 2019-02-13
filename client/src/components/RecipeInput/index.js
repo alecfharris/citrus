@@ -1,12 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {
+  withStyles,
+  MuiThemeProvider,
+  createMuiTheme,
+} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import API from '../../utils/API';
 // import StyledRecipeInput from './style.js';
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#ff9966' }, // peach
+    secondary: { main: '#0097A7' }, // teal
+  },
+});
 
 const styles = () => ({
   root: {
@@ -128,84 +138,88 @@ class RecipeInput extends React.Component {
             Add a Recipe
           </Typography>
         </CardContent>
-        <form className={classes.container} noValidate autoComplete="off">
-          <TextField
-            id="outlined-name"
-            label="Recipe Title"
-            className={classes.fullTextField}
-            value={title}
-            onChange={this.handleChange('title')}
-            margin="normal"
-            variant="outlined"
-          />
-          <div>
-            {ingredientDivs.map(currElement => (
-              <div>
-                <p>
-                  {currElement.ingredientName} {` `} {currElement.quantity}
-                  {` `} {currElement.unit}
-                </p>
-              </div>
-            ))}
-          </div>
-          <TextField
-            label="Ingredient Name"
-            className={classes.textField}
-            value={ingredientName}
-            onChange={this.handleChange('ingredientName')}
-            margin="normal"
-            variant="outlined"
-            // id={`ingredientName${index}`}
-          />
-          <TextField
-            label="Quantity"
-            className={classes.textField}
-            value={quantity}
-            onChange={this.handleChange('quantity')}
-            margin="normal"
-            variant="outlined"
-            // id={`ingredientQuantity${index}`}
-          />
-          <TextField
-            id="outlined-name"
-            label="Unit"
-            className={classes.textField}
-            value={unit}
-            onChange={this.handleChange('unit')}
-            margin="normal"
-            variant="outlined"
-          />
-          <Button
-            onClick={() => {
-              this.onGenNewInput();
-            }}
-            variant="contained"
-            className={classes.button}
-          >
-            Add Ingredient
-          </Button>
-          <TextField
-            id="outlined-multiline-flexible"
-            label="Instructions"
-            multiline
-            rows="4"
-            value={multiline}
-            onChange={this.handleChange('multiline')}
-            className={classes.fullTextField}
-            margin="normal"
-            variant="outlined"
-          />
-          <Button
-            size="large"
-            variant="contained"
-            className={classes.button}
-            onClick={() => {
-              this.saveRecipe();
-            }}
-          >
-            Submit
-          </Button>
-        </form>
+        <MuiThemeProvider theme={theme}>
+          <form className={classes.container} noValidate autoComplete="off">
+            <TextField
+              id="outlined-name"
+              label="Recipe Title"
+              className={classes.fullTextField}
+              value={title}
+              onChange={this.handleChange('title')}
+              margin="normal"
+              variant="outlined"
+            />
+            <div>
+              {ingredientDivs.map(currElement => (
+                <div>
+                  <p>
+                    {currElement.ingredientName} {` `} {currElement.quantity}
+                    {` `} {currElement.unit}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <TextField
+              label="Ingredient Name"
+              className={classes.textField}
+              value={ingredientName}
+              onChange={this.handleChange('ingredientName')}
+              margin="normal"
+              variant="outlined"
+              // id={`ingredientName${index}`}
+            />
+            <TextField
+              label="Quantity"
+              className={classes.textField}
+              value={quantity}
+              onChange={this.handleChange('quantity')}
+              margin="normal"
+              variant="outlined"
+              // id={`ingredientQuantity${index}`}
+            />
+            <TextField
+              id="outlined-name"
+              label="Unit"
+              className={classes.textField}
+              value={unit}
+              onChange={this.handleChange('unit')}
+              margin="normal"
+              variant="outlined"
+            />
+            <Button
+              color="secondary"
+              onClick={() => {
+                this.onGenNewInput();
+              }}
+              variant="contained"
+              className={classes.button}
+            >
+              Add Ingredient
+            </Button>
+            <TextField
+              id="outlined-multiline-flexible"
+              label="Instructions"
+              multiline
+              rows="4"
+              value={multiline}
+              onChange={this.handleChange('multiline')}
+              className={classes.fullTextField}
+              margin="normal"
+              variant="outlined"
+            />
+            <Button
+              size="large"
+              color="primary"
+              variant="contained"
+              className={classes.button}
+              onClick={() => {
+                this.saveRecipe();
+              }}
+            >
+              Submit
+            </Button>
+          </form>
+        </MuiThemeProvider>
       </div>
     );
   }
