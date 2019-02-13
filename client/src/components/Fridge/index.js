@@ -20,7 +20,9 @@ function Fridge() {
     <div>
       <NavBar title="Citrus" />
       <StyledFridge>
-        <FridgeEntry />
+        <div>
+          <FridgeEntry />
+        </div>
         <FridgeList />
       </StyledFridge>
     </div>

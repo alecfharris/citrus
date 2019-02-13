@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Citrus
+<img src="https://i.ibb.co/cwZtRkC/citrus-logo-multicolor.png" alt="citrus-logo-multicolor" border="0">
 
-## Available Scripts
+## Contributors
 
-In the project directory, you can run:
+<a href="https://github.com/PaulACoroneos">Paul Coroneos</a>
 
-### `npm start`
+<ul>
+  <li> Front End UI </li>
+  <li> API routing </li>
+  <li> Testing </li>
+</ul>
+  
+<a href="https://github.com/reneewysocki">Renée Wysocki</a>
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<ul>
+  <li> Graphic Design and layout </li>
+  <li> Front End UI </li>
+</ul>
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+<a href="https://github.com/alecfharris">Alec Harris</a>
 
-### `npm test`
+<ul>
+  <li> Netlify deployment </li>
+  <li> Back End (Mongo and Node Express) </li>
+</ul>
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## App overview
 
-### `npm run build`
+### Overview
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Citrus is an all in one cooking application that makes cooking a breeze. With persistence through either Google or Facebook authentication to a secure MongoDB backend Citrus gets you cooking with a responsive design from any web enabled device.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Technologies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Citrus is built with the following technologies:
 
-### `npm run eject`
+<ul> 
+  <li><a href="https://github.com/facebook/create-react-app">React CRA (Create React App)</a></li>
+  <li><a href="https://www.styled-components.com/">Styled Components</a></li>
+  <li><a href="https://www.mongodb.com/">MongoDB</a></li>
+  <li><a href="https://jestjs.io/">Jest/Enzyme</a></li>
+  <li><a href="https://material-ui.com/">Material UI</a></li>
+  <li><a href="https://www.netlify.com/">Netlify</a></li>
+  <li><a href="https://rapidapi.com/">RapidAPI</a></li>
+  <li><a href="https://expressjs.com/">Node Express</a></li>
+</ul>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Major Components
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Fridge List
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The fridge list view hold all the ingredients at the disposal of the user in their kitchen. From here the user may also add ingredients they have purchased or remove any ingredients that may have been consumed or have been disposed of.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Recipe Browser
 
-## Learn More
+Recipe browser provides a convenient way to display quick snippets of either favorite saved recipes or a list of recipes searched from a selection of user ingredients. From recipe browser certain recipes may be saved for future use or even immediately viewed for cooking.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Recipe Cards
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Recipe cards provide an easy to consume view for a recipe including ingredients, directions, helpful recipe designation types and other critical details. Recipe browser works for both custom recipes and saved recipes from the the Spoonacular Nutrition, Recipe, and Food API.
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+  

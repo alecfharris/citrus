@@ -8,11 +8,13 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import { Link } from 'react-router-dom';
 import NavDrawer from '../NavDrawer';
 
 const styles = {
   root: {
     flexGrow: 1,
+    width: '100vw',
   },
   grow: {
     flexGrow: 1,
@@ -94,9 +96,15 @@ class NavBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                  <MenuItem onClick={this.handleClose}>My Account</MenuItem>
-                  <MenuItem onClick={this.handleClose}>My Fridge</MenuItem>
-                  <MenuItem onClick={this.handleClose}>My Recipes</MenuItem>
+                  <Link style={{ textDecoration: 'none' }} to="#">
+                    <MenuItem>My Account</MenuItem>
+                  </Link>
+                  <Link style={{ textDecoration: 'none' }} to="fridge">
+                    <MenuItem>My Fridge</MenuItem>
+                  </Link>
+                  <Link style={{ textDecoration: 'none' }} to="myrecipes">
+                    <MenuItem>My Recipes</MenuItem>
+                  </Link>
                 </Menu>
               </div>
             )}

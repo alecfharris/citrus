@@ -6,8 +6,11 @@ const StyledInfo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 667px;
-  min-width: 375px;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
 `;
 
 export default StyledInfo;

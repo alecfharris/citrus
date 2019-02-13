@@ -9,12 +9,7 @@ class EnterRecipe extends Component {
       <div>
         <NavBar title="Citrus" />
         <StyledRecipeEntry>
-          <div>
-            <RecipeInput />
-          </div>
-          {/* <div>
-            <IngredientInput />
-          </div> */}
+          <RecipeInput />
         </StyledRecipeEntry>
       </div>
     );

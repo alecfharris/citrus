@@ -6,7 +6,14 @@ const StyledRecipeEntry = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 667px;
+  @media screen and (orientation: portrait) {
+    height: 100vh;
+    width: 100vw;
+  }
+  @media screen and (orientation: landscape) {
+    height: 100vh;
+    width: 100vw;
+  }
 `;
 
 export default StyledRecipeEntry;
