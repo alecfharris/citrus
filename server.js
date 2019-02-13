@@ -6,7 +6,7 @@ const routes = require('./routes');
 const app = express();
 
 // Define API routes here
-app.use(routes);
+// app.use(routes);
 
 // Serve the static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
