@@ -21,7 +21,6 @@ class IngredientInput extends Component {
 
   // Database Queries go here
   saveRecipe = props => {
-    console.log();
     const { ingredientDivs } = this.state;
     ingredientDivs.map((currElement, index) => {
       // This will update the state array with whatever text is currently in the values of the inputs so that they are saved

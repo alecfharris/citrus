@@ -21,4 +21,11 @@ export default {
   saveAPIRecipe(recipeData) {
     return axios.post('/api/apirecipes', recipeData);
   },
+  // Gets all recipes
+  getFridge() {
+    return axios.get('/api/fridgelist');
+  },
+  saveFridge() {
+    return axios.post('/api/fridgelist');
+  },
 };

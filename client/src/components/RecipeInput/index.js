@@ -11,7 +11,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import API from '../../utils/API';
 // import StyledRecipeInput from './style.js';
-
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#ff9966' }, // peach
@@ -188,12 +187,12 @@ class RecipeInput extends React.Component {
               variant="outlined"
             />
             <Button
+              color="secondary"
               onClick={() => {
                 this.onGenNewInput();
               }}
               variant="contained"
               className={classes.button}
-              color="secondary"
             >
               Add Ingredient
             </Button>

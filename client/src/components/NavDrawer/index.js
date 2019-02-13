@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {
+  MuiThemeProvider,
+  createMuiTheme,
+  withStyles,
+} from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -10,9 +14,15 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Kitchen from '@material-ui/icons/Kitchen';
 import Bookmarks from '@material-ui/icons/Bookmarks';
 import MenuIcon from '@material-ui/icons/Menu';
-import ViewAgenda from '@material-ui/icons/ViewAgenda';
 import Input from '@material-ui/icons/Input';
 import Search from '@material-ui/icons/Search';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#ff9966' }, // peach
+    secondary: { main: '#0097A7' }, // teal
+  },
+});
 
 const styles = {
   list: {
@@ -39,47 +49,41 @@ class NavDrawer extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-          <Link style={{ textDecoration: 'none' }} to="fridge">
-            <ListItem button key="My Fridge">
-              <ListItemIcon>
-                <Kitchen />
-              </ListItemIcon>
-              <ListItemText primary="My Fridge" />
-            </ListItem>
-          </Link>
-          <Link style={{ textDecoration: 'none' }} to="myrecipes">
+          <MuiThemeProvider theme={theme}>
+            <Link style={{ textDecoration: 'none' }} to="fridge">
+              <ListItem button key="My Fridge">
+                <ListItemIcon>
+                  <Kitchen />
+                </ListItemIcon>
+                <ListItemText primary="My Fridge" />
+              </ListItem>
+            </Link>
+            {/* <Link style={{ textDecoration: 'none' }} to="myrecipes"> */}
             <ListItem button key="My Recipes">
               <ListItemIcon>
                 <Bookmarks />
               </ListItemIcon>
               <ListItemText primary="My Recipes" />
             </ListItem>
-          </Link>
-          <Link style={{ textDecoration: 'none' }} to="browse">
-            <ListItem button key="Browse Recipes">
-              <ListItemIcon>
-                <ViewAgenda />
-              </ListItemIcon>
-              <ListItemText primary="Browse Recipes" />
-            </ListItem>
-          </Link>
-          <Link style={{ textDecoration: 'none' }} to="enterrecipe">
-            <ListItem button key="Add Recipes">
-              <ListItemIcon>
-                <Input />
-              </ListItemIcon>
-              <ListItemText primary="Add Recipe" />
-            </ListItem>
-          </Link>
+            {/* </Link> */}
+            <Link style={{ textDecoration: 'none' }} to="enterrecipe">
+              <ListItem button key="Add Recipes">
+                <ListItemIcon>
+                  <Input />
+                </ListItemIcon>
+                <ListItemText primary="Add Recipe" />
+              </ListItem>
+            </Link>
+            <Link style={{ textDecoration: 'none' }} to="searchbyingredient">
+              <ListItem button key="Search Recipes by Ingredients">
+                <ListItemIcon>
+                  <Search />
+                </ListItemIcon>
+                <ListItemText primary="Search Recipes by Ingredients" />
+              </ListItem>
+            </Link>
+          </MuiThemeProvider>
         </List>
-        <Link style={{ textDecoration: 'none' }} to="searchbyingredient">
-          <ListItem button key="Search Recipes by Ingredients">
-            <ListItemIcon>
-              <Search />
-            </ListItemIcon>
-            <ListItemText primary="Search Recipes by Ingredients" />
-          </ListItem>
-        </Link>
       </div>
     );
 

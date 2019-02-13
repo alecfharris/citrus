@@ -12,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
-import { HashRouter as Link, Router } from 'react-router-dom';
+import { HashRouter as Link } from 'react-router-dom';
 import axios from 'axios';
 import API from '../../utils/API';
 
@@ -93,7 +93,7 @@ class BrowseRecipeCard extends React.Component {
     API.saveAPIRecipe({
       recipe,
       // TODO change accountId to real value once possible
-      accountId: 't0d0r3m0v3l8rt3st64',
+      accountId: 'twtsjfskjdfnb',
     });
     /* Use findAll to display all recipes that are saved */
   };
@@ -126,11 +126,9 @@ class BrowseRecipeCard extends React.Component {
           <CardHeader title={title} className={padTitle} />
           <CardMedia className={media} image={image} title={title} />
           <CardActions>
-            <Router>
-              <Link to={`/recipe/${id}`} style={{ textDecoration: 'none' }}>
-                <Button size="small">MAKE NOW</Button>
-              </Link>
-            </Router>
+            <Link to={`/recipe/${id}`} style={{ textDecoration: 'none' }}>
+              <Button size="small">MAKE NOW</Button>
+            </Link>
             <Button
               size="small"
               onClick={() => {

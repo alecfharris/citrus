@@ -8,6 +8,9 @@ router
   .post(fridgeController.create);
 
 // Matches with "/api/search/:id"
-router.route('/:id').delete(fridgeController.remove);
+router
+  .route('/:id')
+  .get(fridgeController.findById)
+  .delete(fridgeController.remove);
 
 module.exports = router;

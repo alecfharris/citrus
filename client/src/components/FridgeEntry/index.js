@@ -10,7 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-// import StyledFridgeEntry from './style.js';
+import API from '../../utils/API';
 
 const theme = createMuiTheme({
   palette: {
@@ -56,6 +56,29 @@ class FridgeEntry extends React.Component {
     date: '',
   };
 
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    const { intervalIsSet } = this.state;
+    this.getFridge();
+    if (!intervalIsSet) {
+      const interval = setInterval(this.getDataFromDb, 1000);
+      this.setState({ intervalIsSet: interval });
+    }
+  }
+
+  getFridge = () => {
+    console.log('getFridge');
+    API.saveFridge({
+      name: 'Avocado',
+      quantity: '1',
+      unit: 'avocados',
+    });
+  };
+
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
@@ -82,7 +105,6 @@ class FridgeEntry extends React.Component {
               onChange={this.handleChange('name')}
               margin="normal"
               variant="outlined"
-              required="true"
             />
             <TextField
               id="outlined-quantity"
@@ -127,7 +149,7 @@ class FridgeEntry extends React.Component {
 }
 
 FridgeEntry.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
 };
 
 export default withStyles(styles)(FridgeEntry);
