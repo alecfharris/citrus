@@ -14,7 +14,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Kitchen from '@material-ui/icons/Kitchen';
 import Bookmarks from '@material-ui/icons/Bookmarks';
 import MenuIcon from '@material-ui/icons/Menu';
-import ViewAgenda from '@material-ui/icons/ViewAgenda';
 import Input from '@material-ui/icons/Input';
 import Search from '@material-ui/icons/Search';
 
@@ -59,22 +58,14 @@ class NavDrawer extends React.Component {
                 <ListItemText primary="My Fridge" />
               </ListItem>
             </Link>
-            <Link style={{ textDecoration: 'none' }} to="myrecipes">
-              <ListItem button key="My Recipes">
-                <ListItemIcon>
-                  <Bookmarks />
-                </ListItemIcon>
-                <ListItemText primary="My Recipes" />
-              </ListItem>
-            </Link>
-            <Link style={{ textDecoration: 'none' }} to="browse">
-              <ListItem button key="Browse Recipes">
-                <ListItemIcon>
-                  <ViewAgenda />
-                </ListItemIcon>
-                <ListItemText primary="Browse Recipes" />
-              </ListItem>
-            </Link>
+            {/* <Link style={{ textDecoration: 'none' }} to="myrecipes"> */}
+            <ListItem button key="My Recipes">
+              <ListItemIcon>
+                <Bookmarks />
+              </ListItemIcon>
+              <ListItemText primary="My Recipes" />
+            </ListItem>
+            {/* </Link> */}
             <Link style={{ textDecoration: 'none' }} to="enterrecipe">
               <ListItem button key="Add Recipes">
                 <ListItemIcon>
