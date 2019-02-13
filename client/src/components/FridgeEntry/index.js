@@ -10,7 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-// import StyledFridgeEntry from './style.js';
+import API from '../../utils/API';
 
 const theme = createMuiTheme({
   palette: {
@@ -50,36 +50,33 @@ const styles = () => ({
 // #ff9966
 class FridgeEntry extends React.Component {
   state = {
-    // data: [],
     name: '',
     quantity: '',
     unit: '',
     date: '',
   };
 
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
   componentDidMount() {
     const { intervalIsSet } = this.state;
-    this.getDataFromDb();
+    this.getFridge();
     if (!intervalIsSet) {
       const interval = setInterval(this.getDataFromDb, 1000);
       this.setState({ intervalIsSet: interval });
     }
   }
 
-  componentWillUnmount() {
-    const { intervalIsSet } = this.state;
-    if (intervalIsSet) {
-      clearInterval(intervalIsSet);
-      this.setState({ intervalIsSet: null });
-    }
-  }
-
-  // getDataFromDb = () => {
-  //   fetch('http://localhost:3001/api/fridgelist')
-  //     .then(data => data.json())
-  //     .then(res => this.setState({ data: res.data }))
-  //     .then(console.log(res.data));
-  // };
+  getFridge = () => {
+    API.saveFridge({
+      name: 'Avocado',
+      quantity: '1',
+      unit: 'avocados',
+    });
+  };
 
   handleChange = name => event => {
     this.setState({
@@ -107,7 +104,6 @@ class FridgeEntry extends React.Component {
               onChange={this.handleChange('name')}
               margin="normal"
               variant="outlined"
-              required="true"
             />
             <TextField
               id="outlined-quantity"
@@ -152,7 +148,7 @@ class FridgeEntry extends React.Component {
 }
 
 FridgeEntry.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object,
 };
 
 export default withStyles(styles)(FridgeEntry);
