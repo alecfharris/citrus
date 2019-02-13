@@ -71,6 +71,7 @@ class FridgeEntry extends React.Component {
   }
 
   getFridge = () => {
+    console.log('getFridge');
     API.saveFridge({
       name: 'Avocado',
       quantity: '1',
