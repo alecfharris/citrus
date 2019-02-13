@@ -35,6 +35,7 @@ const styles = () => ({
     margin: '8px',
     borderRadius: '4px',
     width: '75vw',
+    maxHeight: '600px',
   },
   title: {
     fontSize: 24,

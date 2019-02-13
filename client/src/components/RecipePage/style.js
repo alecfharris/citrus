@@ -6,7 +6,7 @@ const StyledRecipePage = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 667px;
+  height: 100vh;
 `;
 
 export default StyledRecipePage;
