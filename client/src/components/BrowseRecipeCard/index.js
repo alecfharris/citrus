@@ -12,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
-import { HashRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import API from '../../utils/API';
 
@@ -46,7 +46,7 @@ const styles = theme => ({
     backgroundColor: 'white',
   },
   titlePadding: {
-    paddingBottom: 40,
+    paddingBottom: 32,
   },
   noTitlePadding: {
     paddingBottom: 8,
@@ -93,7 +93,7 @@ class BrowseRecipeCard extends React.Component {
     API.saveAPIRecipe({
       recipe,
       // TODO change accountId to real value once possible
-      accountId: 'twtsjfskjdfnb',
+      accountId: 't0d0r3m0v3l8rt3st64',
     });
     /* Use findAll to display all recipes that are saved */
   };
@@ -118,7 +118,7 @@ class BrowseRecipeCard extends React.Component {
     } = classes;
     const { expanded, instructions, estimatedTime } = this.state;
 
-    const padTitle = title.length < 30 ? titlePadding : noTitlePadding;
+    const padTitle = title.length < 20 ? titlePadding : noTitlePadding;
 
     return (
       <React.Fragment>

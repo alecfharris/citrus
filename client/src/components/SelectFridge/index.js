@@ -135,6 +135,7 @@ class SelectFridge extends React.Component {
             {selected.map(item => (
               <Chip
                 label={item}
+                id={item}
                 className={classes.chip}
                 variant="outlined"
                 onDelete={this.handleDelete(item)}

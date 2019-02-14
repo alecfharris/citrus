@@ -48,6 +48,8 @@ class Browse extends React.Component {
 
   getIngredientsList = ingredients => {
     // build query string https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=apples%2Cflour%2Csugar
+
+    console.log(ingredients);
     const ingredientList = ingredients
       .map(ingredient => `${ingredient}%2C`)
       .join('');
@@ -78,13 +80,9 @@ class Browse extends React.Component {
       <React.Fragment>
         <NavBar title="Citrus" />
         <StyledBrowse>
-          {recipes ? (
-            recipes.map(recipe => (
-              <BrowseRecipeCard recipe={recipe} key={recipe.id} />
-            ))
-          ) : (
-            <Link to="NoMatchComponent" />
-          )}
+          {recipes.map(recipe => (
+            <BrowseRecipeCard recipe={recipe} key={recipe.id} />
+          ))}
         </StyledBrowse>
       </React.Fragment>
     );
