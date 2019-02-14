@@ -48,6 +48,8 @@ class Browse extends React.Component {
 
   getIngredientsList = ingredients => {
     // build query string https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=apples%2Cflour%2Csugar
+    console.log('running');
+    console.log(ingredients);
     const ingredientList = ingredients
       .map(ingredient => `${ingredient}%2C`)
       .join('');

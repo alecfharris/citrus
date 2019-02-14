@@ -93,7 +93,7 @@ class BrowseRecipeCard extends React.Component {
     API.saveAPIRecipe({
       recipe,
       // TODO change accountId to real value once possible
-      accountId: 'twtsjfskjdfnb',
+      accountId: 't0d0r3m0v3l8rt3st64',
     });
     /* Use findAll to display all recipes that are saved */
   };
