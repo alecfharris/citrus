@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '../components/Layout/Layout';
-import FridgeEntry from '../components/FridgeEntry';
-import FridgeList from '../components/FridgeList';
+import Layout from '../components/Layout';
+import FridgeEntry from '../components/Fridge/FridgeEntry';
+import FridgeList from '../components/Fridge/FridgeList';
 
 const Fridge = () => (
   <Layout>

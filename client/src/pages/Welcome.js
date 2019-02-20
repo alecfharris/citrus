@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/Layout';
 import WelcomeText from '../components/WelcomeText';
 import Logo from '../components/Logo';
 import Button from '../components/Button';

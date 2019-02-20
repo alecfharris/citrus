@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/Layout';
 import RecipePage from '../components/RecipePage';
 
 const Recipe = () => (

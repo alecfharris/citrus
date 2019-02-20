@@ -1,8 +1,8 @@
 import React from 'react';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/Layout';
 import Logo from '../components/Logo';
-import GoogleSignIn from '../components/GoogleSignIn';
-import FacebookLogin from '../components/FacebookLogin';
+import GoogleSignIn from '../components/Login/GoogleSignIn';
+import FacebookLogin from '../components/Login/FacebookLogin';
 
 const Login = () => (
   <Layout>

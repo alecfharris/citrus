@@ -4,8 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 // import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
 import StyledRecipe from './style.js';
-import RecipeIngredient from '../RecipeIngredient';
-import RecipeInstruction from '../RecipeInstruction';
+import RecipeIngredient from './RecipeIngredient';
+import RecipeInstruction from './RecipeInstruction';
 
 const styles = () => ({
   image: {

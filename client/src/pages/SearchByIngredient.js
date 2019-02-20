@@ -1,6 +1,6 @@
 import React from 'react';
-import Layout from '../components/Layout/Layout';
-import SelectFridge from '../components/SelectFridge';
+import Layout from '../components/Layout';
+import SelectFridge from '../components/Fridge/SelectFridge';
 
 const SearchByIngredient = () => (
   <Layout>

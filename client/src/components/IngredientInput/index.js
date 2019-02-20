@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import RecipeTitle from '../RecipeTitle';
-import RecipeForm from '../RecipeForm';
+import RecipeTitle from './RecipeTitle';
+import RecipeForm from './RecipeForm';
 import API from '../../utils/API';
 
 class IngredientInput extends Component {
