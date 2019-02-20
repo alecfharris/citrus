@@ -102,7 +102,7 @@ class RecipeInput extends React.Component {
       accountId: 't0d0r3m0v3l8rt3st64',
     };
 
-    this.postAPI('recipeCreate', newRecipe)
+    this.postAPI('recipe.create', newRecipe)
       .then(response => {
         console.log(response.msg);
 
