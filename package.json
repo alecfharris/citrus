@@ -2,13 +2,13 @@
   "name": "react-recipe-book",
   "version": "0.1.0",
   "private": true,
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "npm run start:dev",
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
+    "client": "cd client && npm run dev",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
@@ -68,17 +68,14 @@
   "dependencies": {
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-app": "^7.0.0",
-    "body-parser": "^1.18.3",
-    "cors": "^2.8.5",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.9.1",
-    "express": "^4.16.4",
     "if-env": "^1.0.4",
     "react-scripts": "^2.1.3",
     "mongoose": "^5.4.11",
     "concurrently": "^4.1.0",
+    "express": "^4.16.4",
     "material-ui": "^1.0.0-beta.47",
-    "morgan": "^1.9.1",
     "serve": "^10.1.2"
   }
 }

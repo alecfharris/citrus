@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Fridge from './components/Fridge';
 import Browse from './components/Browse';
 import Welcome from './components/Welcome';
@@ -12,8 +12,8 @@ import SearchByIngredient from './components/SearchByIngredient';
 
 class App extends Component {
   render() {
-    const App = () => (
-      <React.Fragment>
+    return (
+      <Router>
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route exact path="/welcome" component={Welcome} />
@@ -29,13 +29,7 @@ class App extends Component {
           <Route exact path="/recipe/:id" component={RecipePage} />
           <Route path="/home" component={Home} />
         </Switch>
-      </React.Fragment>
-    );
-
-    return (
-      <Switch>
-        <App />
-      </Switch>
+      </Router>
     );
   }
 }
