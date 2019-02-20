@@ -28,7 +28,7 @@
     "start": "concurrently \"start:app\" \"start:lambda\"",
     "start:app": "react-scripts start",
     "start:lambda": "netlify-lambda serve src/lambda",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run build:lambda",
     "build:dev": "concurrently \"build:app\" \"build:lambda\"",
     "build:app": "react-scripts build",
     "build:lambda": "netlify-lambda build src/lambda",
