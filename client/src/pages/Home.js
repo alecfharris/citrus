@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../Logo';
-import StyledHome from './style';
-import Button from '../Button';
+import Layout from '../components/Layout/Layout';
+import Logo from '../components/Logo';
+import Button from '../components/Button';
 
 const Home = () => (
-  <StyledHome>
+  <Layout>
     <Logo />
-    {/* TODO: This needs to take first name of user from user db! */}
     <Link style={{ textDecoration: 'none' }} to="login">
       <Button text="Log In" />
     </Link>
-  </StyledHome>
+  </Layout>
 );
 
 export default Home;

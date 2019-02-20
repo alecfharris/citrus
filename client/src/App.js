@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Fridge from './components/Fridge';
+import Fridge from './pages/Fridge';
 import Browse from './components/Browse';
-import Welcome from './components/Welcome';
-import Login from './components/Login';
-import Home from './components/Home';
-import EnterRecipe from './components/EnterRecipe';
-import RecipePage from './components/RecipePage';
-import SearchByIngredient from './components/SearchByIngredient';
+import Welcome from './pages/Welcome';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import EnterRecipe from './pages/EnterRecipe';
+import Recipe from './pages/Recipe';
+import SearchByIngredient from './pages/SearchByIngredient';
 
 class App extends Component {
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
             path="/searchbyingredient"
             component={SearchByIngredient}
           />
-          <Route exact path="/recipe/:id" component={RecipePage} />
+          <Route exact path="/recipe/:id" component={Recipe} />
           <Route path="/home" component={Home} />
         </Switch>
       </Router>

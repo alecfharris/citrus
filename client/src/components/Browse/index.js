@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import StyledBrowse from './style.js';
-import NavBar from '../NavBar';
 import BrowseRecipeCard from '../BrowseRecipeCard';
+import NavBar from '../Navigation/NavBar';
 
 const styles = theme => ({
   card: {
@@ -34,7 +33,7 @@ const styles = theme => ({
   },
 });
 
-class Browse extends React.Component {
+class BrowseRecipes extends React.Component {
   state = { recipes: [] };
 
   componentDidMount() {
@@ -78,7 +77,7 @@ class Browse extends React.Component {
 
     return (
       <React.Fragment>
-        <NavBar title="Citrus" />
+        <NavBar />
         <StyledBrowse>
           {recipes.map(recipe => (
             <BrowseRecipeCard recipe={recipe} key={recipe.id} />
@@ -89,8 +88,8 @@ class Browse extends React.Component {
   }
 }
 
-Browse.propTypes = {
+BrowseRecipes.propTypes = {
   location: PropTypes.object,
 };
 
-export default withStyles(styles)(Browse);
+export default withStyles(styles)(BrowseRecipes);

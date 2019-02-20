@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import StyledWelcome from './style';
-import Button from '../Button';
-import Logo from '../Logo';
-import WelcomeText from '../WelcomeText';
+import Layout from '../components/Layout/Layout';
+import WelcomeText from '../components/WelcomeText';
+import Logo from '../components/Logo';
+import Button from '../components/Button';
 
 const Welcome = () => (
-  <StyledWelcome>
+  <Layout>
     <Logo />
-    {/* TODO: This needs to take first name of user from user db! */}
     <WelcomeText text="Paul" />
     <Link style={{ textDecoration: 'none' }} to="fridge">
       <Button text="My Fridge" />
@@ -16,7 +15,7 @@ const Welcome = () => (
     <Link style={{ textDecoration: 'none' }} to="browse">
       <Button text="My Recipes" />
     </Link>
-  </StyledWelcome>
+  </Layout>
 );
 
 export default Welcome;

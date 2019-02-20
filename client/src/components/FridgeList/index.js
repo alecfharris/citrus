@@ -13,6 +13,7 @@ const styles = () => ({
     borderRadius: '4px',
     justifyContent: 'center',
     width: '75vw',
+    maxHeight: 500,
   },
 });
 

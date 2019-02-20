@@ -2,8 +2,6 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import axios from 'axios';
 import RecipeView from '../RecipeInformation';
-import StyledRecipePage from './style';
-import NavBar from '../NavBar';
 import Recipe from './recipe-test';
 
 class RecipePage extends React.Component {
@@ -73,19 +71,16 @@ class RecipePage extends React.Component {
 
     return (
       <React.Fragment>
-        <NavBar title="Citrus" />
-        <StyledRecipePage>
-          <RecipeView
-            title={title}
-            image={image}
-            instructions={instructions}
-            ingredients={extendedIngredients}
-            readyIn={readyInMinutes}
-            originalUrl={sourceUrl}
-            creditText={creditText}
-            dietaryRestrictions={dietaryRestriction}
-          />
-        </StyledRecipePage>
+        <RecipeView
+          title={title}
+          image={image}
+          instructions={instructions}
+          ingredients={extendedIngredients}
+          readyIn={readyInMinutes}
+          originalUrl={sourceUrl}
+          creditText={creditText}
+          dietaryRestrictions={dietaryRestriction}
+        />
       </React.Fragment>
     );
   }
