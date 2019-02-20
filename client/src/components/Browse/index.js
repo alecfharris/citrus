@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import StyledBrowse from './style.js';
-import BrowseRecipeCard from '../BrowseRecipeCard';
+import BrowseRecipeCard from './BrowseRecipeCard';
 import NavBar from '../Navigation/NavBar';
 
 const styles = theme => ({
