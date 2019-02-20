@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 // import Recipe from './recipeModel';
 
 // Load the server
-const conn = null;
+let conn = null;
 const uri = process.env.MONGODB_URI;
 
 exports.handler = async (event, context) => {
@@ -23,7 +23,6 @@ exports.handler = async (event, context) => {
     const Recipe = conn.model(
       'recipe',
       new mongoose.Schema({
-        _id: mongoose.Schema.Types.ObjectID,
         title: { type: String, required: true },
         ingredients: { type: Array, required: true },
         instructions: String,
@@ -32,15 +31,17 @@ exports.handler = async (event, context) => {
     );
 
     try {
-      const data = JSON.parse(event.body);
+      const data = await JSON.parse(event.body);
 
-      const { title } = data.title;
+      console.log(data);
 
-      const { ingredients } = data.ingredients;
+      const title  = data.title;
 
-      const { instructions } = data.instructions;
+      const ingredients = data.ingredients;
 
-      const { accountId } = data.accountId;
+      const instructions = data.instructions;
+
+      const accountId = data.accountId;
 
       const id = mongoose.Types.ObjectId();
 
@@ -57,6 +58,7 @@ exports.handler = async (event, context) => {
         data: recipe,
       };
 
+      console.log(`ingredients: ${ingredients}`);
       //   Use Recipe.Model to create a new recipe
       await Recipe.create(recipe);
 
