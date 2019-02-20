@@ -68,7 +68,7 @@ class RecipeInput extends React.Component {
 
   // CRUD
   postAPI = (source, data) =>
-    fetch(`/.netlify/functions/${source}`, {
+    fetch(`/.netlify/lambda/${source}`, {
       method: 'post',
       body: JSON.stringify(data),
     })
