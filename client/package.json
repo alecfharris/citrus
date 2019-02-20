@@ -14,6 +14,7 @@
     "enzyme-adapter-react-16": "^1.9.1",
     "if-env": "^1.0.4",
     "material-ui": "^0.20.2",
+    "mongoose": "^5.4.14",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -24,10 +25,20 @@
   },
   "scripts": {
     "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
+    "start": "run-p start:**",
+    "start:app": "react-scripts start",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build": "run-p build:**",
+    "build:app": "react-scripts build",
+    "build:lambda": "netlify-lambda build src/lambda",
     "heroku-postbuild": "npm run build",
     "test": "react-scripts test --env=jsdom --watch",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0",
+    "http-proxy-middleware": "^0.19.1",
+    "netlify-lambda": "^1.4.2",
+    "npm-run-all": "^4.1.5"
   }
 }

@@ -66,6 +66,74 @@ class RecipeInput extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  // CRUD
+  postAPI = (source, data) =>
+    fetch(`/.netlify/functions/${source}`, {
+      method: 'post',
+      body: JSON.stringify(data),
+    })
+      .then(res => res.json())
+      .catch(err => err);
+
+  // CRUD Handlers
+  handleCreate = () => {
+    const {
+      ingredientDivs,
+      ingredientName,
+      quantity,
+      unit,
+      multiline,
+      title,
+    } = this.state;
+
+    if (ingredientName && quantity && unit !== ``) {
+      ingredientDivs.push({
+        ingredientName,
+        quantity,
+        unit,
+      });
+    }
+
+    let newRecipe = {
+      title,
+      ingredients: ingredientDivs,
+      instructions: multiline,
+      // TODO change accountId to real value once possible
+      accountId: 't0d0r3m0v3l8rt3st64',
+    };
+
+    this.postAPI('recipeCreate', newRecipe)
+      .then(response => {
+        console.log(response.msg);
+
+        const recipe = response.data;
+
+        // const { recipes } = [...this.state];
+
+        // const { inputs } = [...this.state];
+
+        newRecipe = {
+          title: '',
+          ingredients: [],
+          instructions: '',
+          // TODO change accountId to real value once possible
+          accountId: 't0d0r3m0v3l8rt3st64',
+        };
+
+        // const recipeProps = this.setRecipeProps(recipe);
+
+        // inputs.push(recipeProps);
+        // recipes.push(recipe);
+
+        //   this.setState({
+        //     recipes,
+        //     inputs,
+        //     newRecipe,
+        //   });
+      })
+      .catch(err => console.log('recipe.create API error: ', err));
+  };
+
   // Database Queries go here
   saveRecipe = () => {
     console.log();
@@ -213,7 +281,7 @@ class RecipeInput extends React.Component {
               variant="contained"
               className={classes.button}
               onClick={() => {
-                this.saveRecipe();
+                this.handleCreate();
               }}
             >
               Submit
