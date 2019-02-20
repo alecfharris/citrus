@@ -68,7 +68,7 @@ class RecipeInput extends React.Component {
 
   // CRUD
   postAPI = (source, data) =>
-    fetch(`/.netlify/lambda/${source}`, {
+    fetch(`/.netlify/functions/${source}`, {
       method: 'post',
       body: JSON.stringify(data),
     })
@@ -102,7 +102,7 @@ class RecipeInput extends React.Component {
       accountId: 't0d0r3m0v3l8rt3st64',
     };
 
-    this.postAPI('recipe.create', newRecipe)
+    this.postAPI('recipeCreate', newRecipe)
       .then(response => {
         console.log(response.msg);
 
