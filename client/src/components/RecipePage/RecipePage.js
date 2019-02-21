@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import axios from 'axios';
 import RecipeView from '../RecipeInformation/RecipeInformation';
-import Recipe from './RecipePage.test';
+import Recipe from './RecipePage.temp';
 
 class RecipePage extends React.Component {
   state = {

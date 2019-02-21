@@ -16,7 +16,7 @@ import {
   withStyles,
 } from '@material-ui/core/styles';
 import Icon from '../../shared_components/StatusIcon/StatusIcon';
-import Inventory from '../FridgeList/FridgeList.test';
+import Inventory from '../FridgeList/FridgeList.temp';
 
 const theme = createMuiTheme({
   palette: {

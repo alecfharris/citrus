@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Inventory from './FridgeList.test';
+import Inventory from './FridgeList.temp';
 import FridgeInfo from '../FridgeInfo/FridgeInfo';
 import { StyledList, withStyles, List } from './FridgeList.styles';
 

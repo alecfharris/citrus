@@ -4,10 +4,11 @@ import Layout from '../Layout/Layout';
 import WelcomeText from '../WelcomeText/WelcomeText';
 import Logo from '../../shared_components/Logo/Logo';
 import Button from '../../shared_components/Button/Button';
+import { WelcomeContainer } from './Welcome.styles';
 
 const Welcome = () => (
   <Layout>
-    <div>
+    <WelcomeContainer>
       <Logo />
       <WelcomeText text="Paul" />
       <Link style={{ textDecoration: 'none' }} to="fridge">
@@ -16,7 +17,7 @@ const Welcome = () => (
       <Link style={{ textDecoration: 'none' }} to="browse">
         <Button text="My Recipes" />
       </Link>
-    </div>
+    </WelcomeContainer>
   </Layout>
 );
 
