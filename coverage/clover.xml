@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1549565075874" clover="3.2.0">
+  <project timestamp="1549565075874" name="All files">
+    <metrics statements="125" coveredstatements="71" conditionals="8" coveredconditionals="4" methods="59" coveredmethods="21" elements="192" coveredelements="96" complexity="0" loc="125" ncloc="125" packages="28" files="40" classes="40">
+      <package name="src">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="App.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\App.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Browse">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Browse\index.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="35" count="2" type="stmt"/>
+          <line num="64" count="1" type="stmt"/>
+          <line num="69" count="2" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Browse\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.BrowseRecipeCard">
+        <metrics statements="10" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="2"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\BrowseRecipeCard\index.js">
+          <metrics statements="10" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="2"/>
+          <line num="19" count="2" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="54" count="0" type="stmt"/>
+          <line num="55" count="0" type="stmt"/>
+          <line num="63" count="0" type="stmt"/>
+          <line num="66" count="2" type="stmt"/>
+          <line num="68" count="2" type="stmt"/>
+          <line num="92" count="0" type="stmt"/>
+          <line num="100" count="0" type="stmt"/>
+          <line num="127" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Button">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Button\index.js">
+          <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="5" count="3" type="stmt"/>
+          <line num="11" count="3" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="22" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.EnterRecipe">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\EnterRecipe\index.js">
+          <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="22" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.FacebookLogin">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\FacebookLogin\index.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="5" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Fridge">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Fridge\index.js">
+          <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Fridge\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.FridgeInfo">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\FridgeInfo\index.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="7" count="1" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\FridgeInfo\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.FridgeItem">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\FridgeItem\index.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="9" count="3" type="stmt"/>
+          <line num="17" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.FridgeList">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\FridgeList\index.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="29" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.GoogleSignIn">
+        <metrics statements="10" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\GoogleSignIn\index.js">
+          <metrics statements="10" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Home">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Home\index.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Home\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.IngredientInput">
+        <metrics statements="19" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="10" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\IngredientInput\index.js">
+          <metrics statements="19" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="10" coveredmethods="0"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="24" count="0" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="31" count="0" type="stmt"/>
+          <line num="44" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="48" count="0" type="stmt"/>
+          <line num="50" count="0" type="stmt"/>
+          <line num="54" count="0" type="stmt"/>
+          <line num="58" count="0" type="stmt"/>
+          <line num="63" count="0" type="stmt"/>
+          <line num="68" count="0" type="stmt"/>
+          <line num="85" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Login">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Login\index.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Login\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Logo">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Logo\index.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="6" count="5" type="stmt"/>
+          <line num="7" count="3" type="stmt"/>
+          <line num="12" count="5" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Logo\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="5" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Main">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Main\index.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.NavBar">
+        <metrics statements="9" coveredstatements="6" conditionals="6" coveredconditionals="4" methods="4" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\NavBar\index.js">
+          <metrics statements="9" coveredstatements="6" conditionals="6" coveredconditionals="4" methods="4" coveredmethods="1"/>
+          <line num="16" count="3" type="stmt"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="51" count="2" type="stmt"/>
+          <line num="52" count="2" type="stmt"/>
+          <line num="53" count="2" type="stmt"/>
+          <line num="55" count="2" type="stmt"/>
+          <line num="118" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.RecipeCard">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipeCard\index.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="57" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.RecipeForm">
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipeForm\index.js">
+          <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.RecipeInformation">
+        <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipeInformation\index.js">
+          <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+          <line num="9" count="3" type="stmt"/>
+          <line num="51" count="2" type="stmt"/>
+          <line num="52" count="2" type="stmt"/>
+          <line num="53" count="2" type="stmt"/>
+          <line num="70" count="0" type="stmt"/>
+          <line num="80" count="3" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipeInformation\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.RecipeIngredient">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipeIngredient\index.js">
+          <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="16" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.RecipeInstruction">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipeInstruction\index.js">
+          <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="5" count="3" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="9" count="3" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipeInstruction\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.RecipePage">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipePage\index.js">
+          <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="9" count="0" type="stmt"/>
+        </file>
+        <file name="recipe-test.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipePage\recipe-test.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="2" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipePage\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.RecipeTitle">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\RecipeTitle\index.js">
+          <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.StatusIcon">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\StatusIcon\index.js">
+          <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="4" count="5" type="stmt"/>
+          <line num="10" count="5" type="stmt"/>
+          <line num="11" count="3" type="stmt"/>
+          <line num="16" count="5" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.Welcome">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Welcome\index.js">
+          <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\Welcome\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.WelcomeText">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <file name="index.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\WelcomeText\index.js">
+          <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+        </file>
+        <file name="style.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\components\WelcomeText\style.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.utils">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <file name="API.js" path="D:\Bootcamp\code\Project 3\react-recipe-book\client\src\utils\API.js">
+          <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
