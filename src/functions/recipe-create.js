@@ -1,13 +1,12 @@
 // recipeCreate.js
 import mongoose from 'mongoose';
 
-// Load the Recipe Model
-
-// import Recipe from './recipeModel';
-
 // Load the server
 let conn = null;
 const uri = process.env.MONGODB_URI;
+
+// Load the Recipe Model
+let Recipe = Recipe;
 
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
@@ -19,8 +18,9 @@ exports.handler = async (event, context) => {
       bufferCommands: false, // Disable mongoose buffering
       bufferMaxEntries: 0, // and MongoDB driver buffering
     });
-
-    const Recipe = conn.model(
+  };
+    if(Recipe === undefined){
+    Recipe = conn.model(
       'recipe',
       new mongoose.Schema({
         title: { type: String, required: true },
@@ -29,6 +29,7 @@ exports.handler = async (event, context) => {
         accountId: { type: String, required: true },
       })
     );
+  }
 
     try {
       const data = await JSON.parse(event.body);
@@ -58,7 +59,6 @@ exports.handler = async (event, context) => {
         data: recipe,
       };
 
-      console.log(`ingredients: ${ingredients}`);
       //   Use Recipe.Model to create a new recipe
       await Recipe.create(recipe);
 
@@ -73,5 +73,4 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ msg: err.message }),
       };
     }
-  }
-};
+  };
