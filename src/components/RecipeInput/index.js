@@ -135,31 +135,31 @@ class RecipeInput extends React.Component {
   };
 
   // Database Queries go here
-  saveRecipe = () => {
-    console.log();
-    const {
-      ingredientDivs,
-      ingredientName,
-      quantity,
-      unit,
-      multiline,
-      title,
-    } = this.state;
-    if (ingredientName && quantity && unit !== ``) {
-      ingredientDivs.push({
-        ingredientName,
-        quantity,
-        unit,
-      });
-    }
-    API.saveRecipe({
-      title,
-      ingredients: ingredientDivs,
-      instructions: multiline,
-      // TODO change accountId to real value once possible
-      accountId: 't0d0r3m0v3l8rt3st64',
-    });
-  };
+  // saveRecipe = () => {
+  //   console.log();
+  //   const {
+  //     ingredientDivs,
+  //     ingredientName,
+  //     quantity,
+  //     unit,
+  //     multiline,
+  //     title,
+  //   } = this.state;
+  //   if (ingredientName && quantity && unit !== ``) {
+  //     ingredientDivs.push({
+  //       ingredientName,
+  //       quantity,
+  //       unit,
+  //     });
+  //   }
+  //   API.saveRecipe({
+  //     title,
+  //     ingredients: ingredientDivs,
+  //     instructions: multiline,
+  //     // TODO change accountId to real value once possible
+  //     accountId: 't0d0r3m0v3l8rt3st64',
+  //   });
+  // };
 
   onGenNewInput = () => {
     const { ingredientDivs, ingredientName, quantity, unit } = this.state;
