@@ -9,7 +9,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import API from '../../utils/API';
+
 // import StyledRecipeInput from './style.js';
 const theme = createMuiTheme({
   palette: {
