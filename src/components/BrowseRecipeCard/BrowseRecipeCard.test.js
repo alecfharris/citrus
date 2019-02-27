@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BrowseRecipeCard from './index';
+import BrowseRecipeCard from './BrowseRecipeCard';
 
 const recipe = {
   id: 639487,

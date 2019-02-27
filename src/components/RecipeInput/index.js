@@ -108,10 +108,6 @@ class RecipeInput extends React.Component {
 
         const recipe = response.data;
 
-        // const { recipes } = [...this.state];
-
-        // const { inputs } = [...this.state];
-
         newRecipe = {
           title: '',
           ingredients: [],
@@ -119,47 +115,9 @@ class RecipeInput extends React.Component {
           // TODO change accountId to real value once possible
           accountId: 't0d0r3m0v3l8rt3st64',
         };
-
-        // const recipeProps = this.setRecipeProps(recipe);
-
-        // inputs.push(recipeProps);
-        // recipes.push(recipe);
-
-        //   this.setState({
-        //     recipes,
-        //     inputs,
-        //     newRecipe,
-        //   });
       })
       .catch(err => console.log('recipe.create API error: ', err));
   };
-
-  // Database Queries go here
-  // saveRecipe = () => {
-  //   console.log();
-  //   const {
-  //     ingredientDivs,
-  //     ingredientName,
-  //     quantity,
-  //     unit,
-  //     multiline,
-  //     title,
-  //   } = this.state;
-  //   if (ingredientName && quantity && unit !== ``) {
-  //     ingredientDivs.push({
-  //       ingredientName,
-  //       quantity,
-  //       unit,
-  //     });
-  //   }
-  //   API.saveRecipe({
-  //     title,
-  //     ingredients: ingredientDivs,
-  //     instructions: multiline,
-  //     // TODO change accountId to real value once possible
-  //     accountId: 't0d0r3m0v3l8rt3st64',
-  //   });
-  // };
 
   onGenNewInput = () => {
     const { ingredientDivs, ingredientName, quantity, unit } = this.state;
@@ -234,7 +192,6 @@ class RecipeInput extends React.Component {
               onChange={this.handleChange('ingredientName')}
               margin="normal"
               variant="outlined"
-              // id={`ingredientName${index}`}
             />
             <TextField
               label="Quantity"
@@ -243,7 +200,6 @@ class RecipeInput extends React.Component {
               onChange={this.handleChange('quantity')}
               margin="normal"
               variant="outlined"
-              // id={`ingredientQuantity${index}`}
             />
             <TextField
               id="outlined-name"
