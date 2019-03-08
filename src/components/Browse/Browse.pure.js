@@ -1,11 +1,9 @@
 import React from 'react';
-import Layout from '../Layout/Layout';
-import Browse from './Browse';
+import BrowseRecipes from './Browse';
 
-const BrowseView = () => (
-  <Layout>
-    <Browse />
-  </Layout>
+/*eslint-disable */
+const BrowseView = props => (
+    <BrowseRecipes location={props.location} />
 );
 
 export default BrowseView;

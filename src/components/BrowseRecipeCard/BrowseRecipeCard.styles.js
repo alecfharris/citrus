@@ -11,13 +11,20 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
-  card: {
-    width: 400,
+  root: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, 4fl)',
     margin: 8,
   },
+  card: {
+    width: 400,
+    display: 'grid',
+    gridTemplateRows: '1fr auto',
+    minHeight: 375,
+  },
   cardHeader: {
-    display: 'flex',
-    justifyContent: 'flex-start',
+    textAlign: 'center',
+    padding: 8,
   },
   media: {
     height: 0,
@@ -25,6 +32,7 @@ const styles = theme => ({
   },
   actions: {
     display: 'flex',
+    justifyContent: 'space-between',
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -38,12 +46,6 @@ const styles = theme => ({
   },
   avatar: {
     backgroundColor: 'white',
-  },
-  titlePadding: {
-    paddingBottom: 32,
-  },
-  noTitlePadding: {
-    paddingBottom: 8,
   },
   instructionStyle: {
     padding: 16,

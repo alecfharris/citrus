@@ -1,17 +1,31 @@
 import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, 4fl)',
-    margin: 8,
+    width: '75%',
+    alignContent: 'center',
+    margin: 'auto',
   },
   card: {
-    width: 400,
-    display: 'grid',
-    gridTemplateRows: '1fr auto',
-    minHeight: 375,
+    alignContent: 'center',
+    margin: '8px',
+    padding: '8px',
+    borderRadius: '4px',
+    backgroundColor: 'white',
+  },
+  title: {
+    fontSize: 24,
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  div: {
+    margin: '8px',
+    alignItems: 'center',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
   },
 });
 
-export { styles, withStyles };
+export { styles, withStyles, Typography };

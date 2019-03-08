@@ -1,22 +1,25 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import axios from 'axios';
-import RecipeView from '../RecipeInformation/RecipeInformation';
 import Recipe from './RecipePage.temp';
+import RecipeInformation from '../RecipeInformation/RecipeInformation';
 
-class RecipePage extends React.Component {
-  state = {
-    Recipes: {},
-  };
-
-  componentDidMount() {
-    this.getRecipeInfo();
+export default class RecipePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      Recipes: {},
+    };
   }
 
-  getRecipeInfo = () => {
-    const recipeId = this.props.match.params.id; // eslint-disable-line
-    const queryString = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeId}/information`;
-    if (recipeId) {
+  componentDidMount() {
+    const id = this.props.id;// eslint-disable-line
+    this.getRecipeInfo(id);
+  }
+
+  getRecipeInfo = id => {
+    const queryString = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`;
+    if (id) {
       axios
         .get(queryString, {
           headers: {
@@ -70,24 +73,16 @@ class RecipePage extends React.Component {
     };
 
     return (
-      <React.Fragment>
-        <RecipeView
-          title={title}
-          image={image}
-          instructions={instructions}
-          ingredients={extendedIngredients}
-          readyIn={readyInMinutes}
-          originalUrl={sourceUrl}
-          creditText={creditText}
-          dietaryRestrictions={dietaryRestriction}
-        />
-      </React.Fragment>
+      <RecipeInformation
+        title={title}
+        image={image}
+        instructions={instructions}
+        ingredients={extendedIngredients}
+        readyIn={readyInMinutes}
+        originalUrl={sourceUrl}
+        creditText={creditText}
+        dietaryRestrictions={dietaryRestriction}
+      />
     );
   }
 }
-
-// RecipePage.propTypes = {
-//   title: PropTypes.string
-// };
-
-export default RecipePage;

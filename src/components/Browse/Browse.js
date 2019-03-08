@@ -4,6 +4,7 @@ import axios from 'axios';
 import { StyledBrowse, withStyles } from './Browse.styles';
 import BrowseRecipeCard from '../BrowseRecipeCard/BrowseRecipeCard';
 import NavBar from '../Navigation/NavBar';
+import BrowseModal from '../BrowseModal/BrowseModal';
 
 const styles = theme => ({
   card: {
@@ -33,16 +34,21 @@ const styles = theme => ({
 });
 
 class BrowseRecipes extends React.Component {
-  state = { recipes: [] };
+  state = { recipes: [], showModal: false };
 
   componentDidMount() {
-    const { location = {} } = this.props;
-
+    const { location } = this.props;
+    console.log('ingredients selected are ', location.selected);
     // If route includes ingredients call API to do ingredient search, otherwise render favorite recipes
-    return location.selected
-      ? this.getIngredientsList(Object.values(location.selected)[0])
-      : this.renderFavoriteRecipes();
+    if (location.selected)
+      return this.getIngredientsList(Object.values(location.selected)[0]);
+    if (this.renderFavoriteRecipes()) return this.renderFavoriteRecipes();
+    return this.showModal();
   }
+
+  showModal = () => {
+    this.setstate({ showModal: true });
+  };
 
   getIngredientsList = ingredients => {
     // build query string https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=apples%2Cflour%2Csugar
@@ -76,11 +82,13 @@ class BrowseRecipes extends React.Component {
 
     return (
       <React.Fragment>
+        <BrowseModal />
         <NavBar />
         <StyledBrowse>
-          {recipes.map(recipe => (
-            <BrowseRecipeCard recipe={recipe} key={recipe.id} />
-          ))}
+          {recipes &&
+            recipes.map(recipe => (
+              <BrowseRecipeCard recipe={recipe} key={recipe.id} />
+            ))}
         </StyledBrowse>
       </React.Fragment>
     );

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Inventory from './FridgeList.temp';
 import FridgeInfo from '../FridgeInfo/FridgeInfo';
-import { StyledList, withStyles, List } from './FridgeList.styles';
+import { withStyles, List } from './FridgeList.styles';
 
 const styles = () => ({
   root: {

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FridgeItem from '../FridgeItem/FridgeItem';
 import {
-  StyledInfo,
   Button,
   Dialog,
   DialogActions,

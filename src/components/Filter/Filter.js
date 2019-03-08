@@ -1,25 +1,60 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
-import Chip from '@material-ui/core/Chip';
-import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
-import { styles, withStyles } from './Filter.styles';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { styles, withStyles, Typography } from './Filter.styles';
 
-const dietaryRestrictions = [];
-// empty arrays for selected and checked
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#0097A7' },
+  },
+});
+
 const selected = [];
-const newChecked = [];
+
+const options = [
+  'Vegetarian',
+  'Vegan',
+  'Gluten Free',
+  'Dairy Free',
+  'Healthy',
+  'Popular',
+  'Sustainable',
+  'Low FODMAP',
+  'Ketogenic',
+  'Whole 30',
+];
 
 class Filter extends React.Component {
+  state = {
+    checked: [0],
+  };
+
+  handleToggle = item => () => {
+    const { checked } = this.state;
+    const currentIndex = checked.indexOf(item);
+    if (currentIndex === -1) {
+      selected.push(item);
+      console.log(selected);
+    } else {
+      selected.splice(currentIndex, 1);
+      console.log(selected);
+    }
+
+    this.setState({
+      checked: selected,
+    });
+  };
+
   handleDelete = item => () => {
     const { checked } = this.state;
     const currentIndex = checked.indexOf(item);
+
     selected.splice(currentIndex);
-    newChecked.splice(currentIndex);
 
     this.setState({
-      checked: newChecked,
+      checked: selected,
     });
 
     this.handleToggle();
@@ -27,39 +62,29 @@ class Filter extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { card, title, div, chip, button } = classes;
+    const { root, card, title, div } = classes;
     return (
-      <div className={card}>
-        <Typography className={title} color="textSecondary" gutterBottom>
-          Filter Dietary Restrictions
-        </Typography>
-        <div className={div}>
-          <Chip
-            label="Vegetarian"
-            id="Vegetarian"
-            className={chip}
-            variant="outlined"
-            onDelete={this.handleDelete()}
-          />
-          <Chip
-            label="Vegan"
-            id="Vegan"
-            className={chip}
-            variant="outlined"
-            onDelete={this.handleDelete()}
-          />
-        </div>
-        <div className={div}>
-          {/* <Link style={{ textDecoration: 'none' }}> */}
-          <Button
-            size="large"
-            variant="contained"
-            className={button}
-            style={{ backgroundColor: '#ff9966', color: 'white' }}
-          >
-            Submit
-          </Button>
-          {/* </Link> */}
+      <div className={root}>
+        <div className={card}>
+          <Typography className={title} color="textSecondary" gutterBottom>
+            Dietary Restrictions
+          </Typography>
+          <div className={div}>
+            <MuiThemeProvider theme={theme}>
+              {options.map(item => (
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      onChange={this.handleToggle(item)}
+                      key={item.name}
+                      color="primary"
+                    />
+                  }
+                  label={item}
+                />
+              ))}
+            </MuiThemeProvider>
+          </div>
         </div>
       </div>
     );
