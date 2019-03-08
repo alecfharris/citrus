@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/IngredientInput/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\..\..\prettify.css" />
+    <link rel="stylesheet" href="..\..\..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\..\..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\..\..\index.html">All files</a> / <a href="index.html">src/components/IngredientInput</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/19</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react';
+import RecipeTitle from '../RecipeTitle';
+import RecipeForm from '../RecipeForm';
+import API from '../../utils/API';
+&nbsp;
+class IngredientInput extends Component {
+&nbsp;
+    state = {
+        ingredientDivs: [{
+            name: ``,
+            quantity: ``
+        }],
+        instructions: ``
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    co</span>nstructor(props) {
+<span class="cstat-no" title="statement not covered" >        super(props);</span>
+<span class="cstat-no" title="statement not covered" >        this.handleChange = this.handleChange.bind(this);</span>
+      }
+&nbsp;
+    // Database Queries go here
+    saveRecipe = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+<span class="cstat-no" title="statement not covered" >        console.log();</span>
+        const ingredientDivs = <span class="cstat-no" title="statement not covered" >this.state.ingredientDivs;</span>
+<span class="cstat-no" title="statement not covered" >        ingredientDivs.map(<span class="fstat-no" title="function not covered" >(c</span>urrElement, index) =&gt; {</span>
+            // This will update the state array with whatever text is currently in the values of the inputs so that they are saved
+<span class="cstat-no" title="statement not covered" >            ingredientDivs[index].name = document.getElementById(`ingredientName${index}`).value;</span>
+<span class="cstat-no" title="statement not covered" >            ingredientDivs[index].quantity = document.getElementById(`ingredientQuantity${index}`).value;</span>
+        })
+<span class="cstat-no" title="statement not covered" >        this.setState({ ingredientDivs }, <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            API.saveRecipe({</span>
+                title: props.title,
+                ingredients: props.ingredients,
+                instructions: props.instructions,
+                // TODO change accountId to real value once possible
+                accountId: 't0d0r3m0v3l8rt3st64'
+            })
+        });
+&nbsp;
+&nbsp;
+    }
+&nbsp;
+    onGenNewInput = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+        const ingredientDivs = <span class="cstat-no" title="statement not covered" >this.state.ingredientDivs;</span>
+<span class="cstat-no" title="statement not covered" >        ingredientDivs.map(<span class="fstat-no" title="function not covered" >(c</span>urrElement, index) =&gt; {</span>
+            // This will update the state array with whatever text is currently in the values of the inputs so that they are saved
+<span class="cstat-no" title="statement not covered" >            ingredientDivs[index].name = document.getElementById(`ingredientName${index}`).value;</span>
+<span class="cstat-no" title="statement not covered" >            ingredientDivs[index].quantity = document.getElementById(`ingredientQuantity${index}`).value;</span>
+        })
+<span class="cstat-no" title="statement not covered" >        ingredientDivs.push({</span>
+            name: ``,
+            quantity: ``
+        })
+<span class="cstat-no" title="statement not covered" >        this.setState({ ingredientDivs });</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    ha</span>ndleChange(event) {
+<span class="cstat-no" title="statement not covered" >        this.setState({ instructions: event.target.value })</span>
+    }
+&nbsp;
+&nbsp;
+<span class="fstat-no" title="function not covered" >    re</span>nder() {
+<span class="cstat-no" title="statement not covered" >        return (</span>
+            &lt;div&gt;
+                &lt;RecipeTitle /&gt;
+                &lt;div&gt;
+                    {this.state.ingredientDivs.map(<span class="fstat-no" title="function not covered" >(c</span>urrElement, index) =&gt; {
+<span class="cstat-no" title="statement not covered" >                        return (</span>
+                            &lt;React.Fragment&gt;
+                                &lt;div&gt;
+                                    &lt;label&gt;
+                                        Name:
+            &lt;input type="text" name="ingredient-name" id={`ingredientName${index}`} defaultValue={currElement.name} /&gt;
+                                    &lt;/label&gt;
+                                    &lt;label style={{
+                                        margin: "5px"
+                                    }} &gt;
+                                        Quantity:
+                &lt;input type="text" name="ingredient-quantity" id={`ingredientQuantity${index}`} defaultValue={currElement.quantity} /&gt;
+                                    &lt;/label&gt;
+                                &lt;/div&gt;
+                            &lt;/React.Fragment&gt;
+                        )
+                    })}
+                    &lt;button type="submit" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {<span class="cstat-no" title="statement not covered" >this.onGenNewInput()}</span>}&gt;Add Another Ingredient&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;form&gt;
+                &lt;div
+            style={{
+                margin: '5px'
+            }}&gt;
+            &lt;label&gt;
+                Instructions:
+    &lt;textarea rows="8" cols="50" name="instructions" onChange={this.handleChange} id='recipe-instructions'/&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+                &lt;RecipeForm
+                    title={document.getElementById(`recipe-title`) ? document.getElementById('recipe-title').value : null}
+                    ingredients={this.state.ingredientDivs}
+                    instructions={ this.state.instructions /*document.getElementById(`recipe-instructions`) ? document.getElementById('recipe-instructions').value : null */}
+                    saveRecipe={this.saveRecipe} /&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        )
+    }
+&nbsp;
+&nbsp;
+}
+&nbsp;
+export default IngredientInput;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 07 2019 12:44:35 GMT-0600 (Central Standard Time)
+</div>
+</div>
+<script src="..\..\..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\..\..\sorter.js"></script>
+</body>
+</html>
