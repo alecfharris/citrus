@@ -4,7 +4,9 @@ import SelectFridge from '../SelectFridge/SelectFridge';
 
 const SearchByIngredient = () => (
   <Layout>
-    <SelectFridge />
+    <React.Fragment>
+      <SelectFridge />
+    </React.Fragment>
   </Layout>
 );
 

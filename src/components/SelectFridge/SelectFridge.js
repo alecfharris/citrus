@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core/styles';
 import Icon from '../../shared_components/StatusIcon/StatusIcon';
 import Inventory from '../FridgeList/FridgeList.temp';
+import Filter from '../Filter/Filter';
 
 const theme = createMuiTheme({
   palette: {
@@ -43,8 +44,8 @@ const styles = () => ({
     justifyContent: 'center',
   },
   card: {
-    // maxWidth: '600px',
-    margin: 8,
+    margin: 'auto',
+    width: '75%',
     backgroundColor: 'white',
     padding: 8,
     borderRadius: 4,
@@ -82,6 +83,8 @@ const newTo = {
   selected: { selected },
 };
 
+// TODO: Send Selected Dietary Restrictions from Filter component
+
 class SelectFridge extends React.Component {
   state = {
     checked: [0],
@@ -97,6 +100,8 @@ class SelectFridge extends React.Component {
       newChecked.splice(currentIndex, 1);
       selected.splice(currentIndex, 1);
     }
+
+    console.log(selected);
 
     this.setState({
       checked: newChecked,
@@ -155,6 +160,7 @@ class SelectFridge extends React.Component {
             </Link>
           </div>
         </div>
+        <Filter />
         <div className={classes.div}>
           <List className={classes.list}>
             {inventory.map(item => (

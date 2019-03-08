@@ -50,7 +50,7 @@ class NavDrawer extends React.Component {
       <div className={classes.list}>
         <List>
           <MuiThemeProvider theme={theme}>
-            <Link style={{ textDecoration: 'none' }} to="fridge">
+            <Link style={{ textDecoration: 'none' }} to="/fridge">
               <ListItem button key="My Fridge">
                 <ListItemIcon>
                   <Kitchen />
@@ -58,7 +58,7 @@ class NavDrawer extends React.Component {
                 <ListItemText primary="My Fridge" />
               </ListItem>
             </Link>
-            <Link style={{ textDecoration: 'none' }} to="recipe/479101">
+            <Link style={{ textDecoration: 'none' }} to="/recipe/479101">
               <ListItem button key="My Recipes">
                 <ListItemIcon>
                   <Bookmarks />
@@ -66,7 +66,7 @@ class NavDrawer extends React.Component {
                 <ListItemText primary="My Recipes" />
               </ListItem>
             </Link>
-            <Link style={{ textDecoration: 'none' }} to="enterrecipe">
+            <Link style={{ textDecoration: 'none' }} to="/enterrecipe">
               <ListItem button key="Add Recipes">
                 <ListItemIcon>
                   <Input />
@@ -74,7 +74,7 @@ class NavDrawer extends React.Component {
                 <ListItemText primary="Add Recipe" />
               </ListItem>
             </Link>
-            <Link style={{ textDecoration: 'none' }} to="searchbyingredient">
+            <Link style={{ textDecoration: 'none' }} to="/searchbyingredient">
               <ListItem button key="Search Recipes by Ingredients">
                 <ListItemIcon>
                   <Search />

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import API from '../../utils/API';
 import {
-  StyledFridgeEntry,
   withStyles,
   MuiThemeProvider,
   createMuiTheme,

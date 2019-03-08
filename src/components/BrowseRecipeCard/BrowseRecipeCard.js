@@ -75,57 +75,57 @@ class BrowseRecipeCard extends React.Component {
       card,
       expandOpen,
       expand,
-      titlePadding,
-      noTitlePadding,
       instructionStyle,
+      root,
+      cardHeader,
     } = classes;
     const { expanded, instructions, estimatedTime } = this.state;
 
-    const padTitle = title.length < 20 ? titlePadding : noTitlePadding;
-
     return (
-      <React.Fragment>
+      <div className={root}>
         <Card className={card}>
-          <CardHeader title={title} className={padTitle} />
-          <CardMedia className={media} image={image} title={title} />
-          <CardActions>
-            <Link to={`/recipe/${id}`} style={{ textDecoration: 'none' }}>
-              <Button size="small">MAKE NOW</Button>
-            </Link>
-            <Button
-              size="small"
-              onClick={() => {
-                this.handleAddToList(recipe);
-              }}
-            >
-              ADD TO LIST
-            </Button>
-            <IconButton
-              className={classnames(expand, {
-                [expandOpen]: expanded,
-              })}
-              onClick={() => this.handleExpandClick(id)}
-              aria-expanded={expanded}
-              aria-label="Show more"
-            >
-              <ExpandMoreIcon />
-            </IconButton>
-          </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <CardContent>
-              <CardHeader
-                title="Additional Information"
-                subheader={`You have ${usedIngredientCount} out of ${usedIngredientCount +
-                  missedIngredientCount} ingredients to make this recipe
+          <CardHeader title={title} className={cardHeader} />
+          <div>
+            <CardMedia className={media} image={image} title={title} />
+            <CardActions>
+              <Link to={`/recipe/${id}`} style={{ textDecoration: 'none' }}>
+                <Button size="small">MAKE NOW</Button>
+              </Link>
+              <Button
+                size="small"
+                onClick={() => {
+                  this.handleAddToList(recipe);
+                }}
+              >
+                ADD TO LIST
+              </Button>
+              <IconButton
+                className={classnames(expand, {
+                  [expandOpen]: expanded,
+                })}
+                onClick={() => this.handleExpandClick(id)}
+                aria-expanded={expanded}
+                aria-label="Show more"
+              >
+                <ExpandMoreIcon />
+              </IconButton>
+            </CardActions>
+            <Collapse in={expanded} timeout="auto" unmountOnExit>
+              <CardContent>
+                <CardHeader
+                  title="Additional Information"
+                  subheader={`You have ${usedIngredientCount} out of ${usedIngredientCount +
+                    missedIngredientCount} ingredients to make this recipe
                   Estimated Time: ${estimatedTime || '?'} minutes`}
-              />
-              <Typography className={instructionStyle} paragraph>
-                {instructions}
-              </Typography>
-            </CardContent>
-          </Collapse>
+                />
+                <Typography className={instructionStyle} paragraph>
+                  {instructions}
+                </Typography>
+              </CardContent>
+            </Collapse>
+          </div>
         </Card>
-      </React.Fragment>
+      </div>
     );
   }
 }

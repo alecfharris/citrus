@@ -1,57 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import API from '../../utils/API';
 import {
+  styles,
   withStyles,
   MuiThemeProvider,
   createMuiTheme,
-} from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+  TextField,
+  Typography,
+  CardContent,
+  Button,
+} from './RecipeInput.styles';
 
-// import StyledRecipeInput from './style.js';
+// TODO: MOVE THIS TO THEME PROVIDER
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#ff9966' }, // peach
     secondary: { main: '#0097A7' }, // teal
-  },
-});
-
-const styles = () => ({
-  root: {
-    width: '100%',
-    // maxWidth: 360,
-    background: '#FFF',
-  },
-  container: {
-    display: 'flex',
-    margin: 8,
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-  },
-  fullTextField: {
-    margin: 8,
-    width: '100%',
-  },
-  textField: {
-    margin: 8,
-  },
-  title: {
-    fontSize: 32,
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  card: {
-    width: '90%',
-    margin: 8,
-    backgroundColor: 'white',
-    padding: 8,
-    borderRadius: 4,
-  },
-  button: {
-    justifyContent: 'center',
-    display: 'flex',
   },
 });
 
@@ -66,17 +31,9 @@ class RecipeInput extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  // CRUD
-  postAPI = (source, data) =>
-    fetch(`/.netlify/functions/${source}`, {
-      method: 'post',
-      body: JSON.stringify(data),
-    })
-      .then(res => res.json())
-      .catch(err => err);
-
-  // CRUD Handlers
-  handleCreate = () => {
+  // Database Queries go here
+  saveRecipe = () => {
+    console.log();
     const {
       ingredientDivs,
       ingredientName,
@@ -85,7 +42,6 @@ class RecipeInput extends React.Component {
       multiline,
       title,
     } = this.state;
-
     if (ingredientName && quantity && unit !== ``) {
       ingredientDivs.push({
         ingredientName,
@@ -93,30 +49,13 @@ class RecipeInput extends React.Component {
         unit,
       });
     }
-
-    let newRecipe = {
+    API.saveRecipe({
       title,
       ingredients: ingredientDivs,
       instructions: multiline,
       // TODO change accountId to real value once possible
       accountId: 't0d0r3m0v3l8rt3st64',
-    };
-
-    this.postAPI('recipe-create', newRecipe)
-      .then(response => {
-        console.log(response.msg);
-
-        const recipe = response.data;
-
-        newRecipe = {
-          title: '',
-          ingredients: [],
-          instructions: '',
-          // TODO change accountId to real value once possible
-          accountId: 't0d0r3m0v3l8rt3st64',
-        };
-      })
-      .catch(err => console.log('recipe.create API error: ', err));
+    });
   };
 
   onGenNewInput = () => {
@@ -192,6 +131,7 @@ class RecipeInput extends React.Component {
               onChange={this.handleChange('ingredientName')}
               margin="normal"
               variant="outlined"
+              // id={`ingredientName${index}`}
             />
             <TextField
               label="Quantity"
@@ -200,6 +140,7 @@ class RecipeInput extends React.Component {
               onChange={this.handleChange('quantity')}
               margin="normal"
               variant="outlined"
+              // id={`ingredientQuantity${index}`}
             />
             <TextField
               id="outlined-name"
@@ -237,7 +178,7 @@ class RecipeInput extends React.Component {
               variant="contained"
               className={classes.button}
               onClick={() => {
-                this.handleCreate();
+                this.saveRecipe();
               }}
             >
               Submit

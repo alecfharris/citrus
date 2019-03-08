@@ -33,7 +33,7 @@ function getModalStyle() {
 
 class BrowseModal extends React.Component {
   state = {
-    // open: false,
+    open: false,
   };
 
   handleClose = () => <Link to={SearchByIngredient} />;
