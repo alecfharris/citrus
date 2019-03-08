@@ -18,8 +18,8 @@ exports.handler = async (event, context) => {
       bufferCommands: false, // Disable mongoose buffering
       bufferMaxEntries: 0, // and MongoDB driver buffering
     });
-  };
-    if(Recipe === undefined){
+  }
+  if (Recipe === undefined) {
     Recipe = conn.model(
       'recipe',
       new mongoose.Schema({
@@ -31,46 +31,46 @@ exports.handler = async (event, context) => {
     );
   }
 
-    try {
-      const data = await JSON.parse(event.body);
+  try {
+    const data = await JSON.parse(event.body);
 
-      console.log(data);
+    console.log(data);
 
-      const title  = data.title;
+    const title = data.title;
 
-      const ingredients = data.ingredients;
+    const ingredients = data.ingredients;
 
-      const instructions = data.instructions;
+    const instructions = data.instructions;
 
-      const accountId = data.accountId;
+    const accountId = data.accountId;
 
-      const id = mongoose.Types.ObjectId();
+    const id = mongoose.Types.ObjectId();
 
-      const recipe = {
-        _id: id,
-        title,
-        ingredients,
-        instructions,
-        accountId,
-      };
+    const recipe = {
+      _id: id,
+      title,
+      ingredients,
+      instructions,
+      accountId,
+    };
 
-      const response = {
-        msg: 'Recipe successfully created',
-        data: recipe,
-      };
+    const response = {
+      msg: 'Recipe successfully created',
+      data: recipe,
+    };
 
-      //   Use Recipe.Model to create a new recipe
-      await Recipe.create(recipe);
+    //   Use Recipe.Model to create a new recipe
+    await Recipe.create(recipe);
 
-      return {
-        statusCode: 201,
-        body: JSON.stringify(response),
-      };
-    } catch (err) {
-      console.log('recipe.create', err); // output to netlify function log
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ msg: err.message }),
-      };
-    }
-  };
+    return {
+      statusCode: 201,
+      body: JSON.stringify(response),
+    };
+  } catch (err) {
+    console.log('recipe.create', err); // output to netlify function log
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ msg: err.message }),
+    };
+  }
+};
