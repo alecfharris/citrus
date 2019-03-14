@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import API from '../../utils/API';
 import {
   withStyles,
   MuiThemeProvider,
@@ -61,14 +60,6 @@ class FridgeEntry extends React.Component {
           date,
         } = this.state;
     
-        // if (name && quantity && unit !== ``) {
-        //   ingredientDivs.push({
-        //     ingredientName,
-        //     quantity,
-        //     unit,
-        //   });
-        // }
-    
         let newFridge = {
           name,
           quantity,
@@ -97,11 +88,6 @@ class FridgeEntry extends React.Component {
 
   getFridge = () => {
     console.log('getFridge');
-    API.saveFridge({
-      name: 'Avocado',
-      quantity: '1',
-      unit: 'avocados',
-    });
   };
 
   handleChange = name => event => {
