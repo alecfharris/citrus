@@ -43,6 +43,58 @@ class FridgeEntry extends React.Component {
     }
   }
 
+  // CRUD
+  postAPI = (source, data) =>
+    fetch(`/.netlify/functions/${source}`, {
+      method: 'post',
+      body: JSON.stringify(data),
+    })
+      .then(res => res.json())
+      .catch(err => err);
+
+  // CRUD Handlers
+  handleCreate = () => {
+        const {
+          name,
+          quantity,
+          unit,
+          date,
+        } = this.state;
+    
+        // if (name && quantity && unit !== ``) {
+        //   ingredientDivs.push({
+        //     ingredientName,
+        //     quantity,
+        //     unit,
+        //   });
+        // }
+    
+        let newFridge = {
+          name,
+          quantity,
+          unit,
+          date,
+          // TODO change accountId to real value once possible
+          accountId: 't0d0r3m0v3l8rt3st64',
+        };
+    
+        this.postAPI('fridge-create', newFridge)
+          .then(response => {
+            console.log(response.msg);
+    
+            const fridge = response.data;
+    
+            newFridge = {
+              title: '',
+              ingredients: [],
+              instructions: '',
+              // TODO change accountId to real value once possible
+              accountId: 't0d0r3m0v3l8rt3st64',
+            };
+          })
+          .catch(err => console.log('fridge.create API error: ', err));
+      };
+
   getFridge = () => {
     console.log('getFridge');
     API.saveFridge({
@@ -99,7 +151,7 @@ class FridgeEntry extends React.Component {
             />
             <TextField
               id="outlined-date"
-              label="Date (DD/MM/YYYY)"
+              label="Date (MM/DD/YYYY)"
               className={classes.textField}
               value={date}
               onChange={this.handleChange('date')}
@@ -111,6 +163,9 @@ class FridgeEntry extends React.Component {
               variant="contained"
               className={classes.button}
               color="secondary"
+              onClick={() => {
+                this.handleCreate();
+              }}
             >
               Add to fridge
             </Button>
