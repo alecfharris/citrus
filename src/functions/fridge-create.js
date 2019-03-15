@@ -3,8 +3,7 @@ import mongoose from 'mongoose';
 
 // Load the server
 let conn = null;
-const uri = 'mongodb://citrus:co5RRDQ65qBfgo6d@citrus-shard-00-00-ot2tv.mongodb.net:27017,citrus-shard-00-01-ot2tv.mongodb.net:27017,citrus-shard-00-02-ot2tv.mongodb.net:27017/test?ssl=true&replicaSet=Citrus-shard-0&authSource=admin&retryWrites=true';
-// process.env.MONGODB_URI;
+const uri = process.env.MONGODB_URI;
 
 // Load the Fridge Model
 let Fridge = Fridge;
@@ -27,7 +26,7 @@ exports.handler = async (event, context) => {
         name: { type: String, required: true },
         quantity: { type: Number, required: true },
         unit: String,
-        date: { type: Date, required: true},
+        date: { type: Date, required: true },
         accountId: { type: String, required: true },
       })
     );
