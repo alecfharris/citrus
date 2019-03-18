@@ -76,7 +76,13 @@ export default class FridgeInfo extends React.Component {
               <Button onClick={this.handleClose} color="primary">
                 Update
               </Button>
-              <Button onClick={() => deleteItem(id)} color="primary">
+              <Button
+                onClick={() => {
+                  deleteItem(id);
+                  this.handleClose();
+                }}
+                color="primary"
+              >
                 Remove
               </Button>
               <Button onClick={this.handleClose} color="primary">
