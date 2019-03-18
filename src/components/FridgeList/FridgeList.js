@@ -40,7 +40,6 @@ class FridgeList extends React.Component {
       this.setState({ promiseIsResolved: false });
       this.handleList();
     });
-    // .then(this.handleList());
   };
 
   handleList() {
