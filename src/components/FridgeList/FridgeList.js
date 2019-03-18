@@ -39,7 +39,7 @@ class FridgeList extends React.Component {
     axios
       .delete(`/.netlify/functions/fridge-remove?id=${id}`)
       .then(res => {
-        console.log(this.state);
+        // console.log(this.state);
       })
       .then(this.handleList());
   };
@@ -47,6 +47,7 @@ class FridgeList extends React.Component {
   handleList() {
     axios.get('/.netlify/functions/fridge-read').then(res => {
       this.setState({ inventory: res.data.data });
+      this.setState({ promiseIsResolved: false });
       this.setState({ promiseIsResolved: true });
       console.log(this.state);
     });
