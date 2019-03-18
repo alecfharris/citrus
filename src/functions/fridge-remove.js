@@ -1,4 +1,4 @@
-// recipeCreate.js
+// fridgeCreate.js
 import mongoose from 'mongoose';
 
 require('dotenv').config();
@@ -7,8 +7,8 @@ require('dotenv').config();
 let conn = null;
 const uri = process.env.MONGODB_URI;
 
-// Load the Recipe Model
-let Recipe = Recipe;
+// Load the Fridge Model
+let Fridge = Fridge;
 
 exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
@@ -21,55 +21,34 @@ exports.handler = async (event, context) => {
       bufferMaxEntries: 0, // and MongoDB driver buffering
     });
   }
-  if (Recipe === undefined) {
-    Recipe = conn.model(
-      'recipe',
+  if (Fridge === undefined) {
+    Fridge = conn.model(
+      'fridge',
       new mongoose.Schema({
-        title: { type: String, required: true },
-        ingredients: { type: Array, required: true },
-        instructions: String,
+        name: { type: String, required: true },
+        quantity: { type: Number, required: true },
+        unit: String,
+        date: { type: Date, required: true },
         accountId: { type: String, required: true },
       })
     );
   }
 
   try {
-    const data = await JSON.parse(event.body);
-
-    console.log(data);
-
-    const title = data.title;
-
-    const ingredients = data.ingredients;
-
-    const instructions = data.instructions;
-
-    const accountId = data.accountId;
-
-    const id = mongoose.Types.ObjectId();
-
-    const recipe = {
-      _id: id,
-      title,
-      ingredients,
-      instructions,
-      accountId,
-    };
+    //   Use Fridge.Model to read Fridge
+    const doc = await Fridge.deleteOne({ _id: event.queryStringParameters.id });
 
     const response = {
-      msg: 'Recipe successfully created',
-      data: recipe,
+      msg: 'Fridge item successfully deleted',
+      data: doc,
     };
-
-    //   Use Recipe.Model to create a new recipe
-    await Recipe.create(recipe);
 
     return {
       statusCode: 201,
       body: JSON.stringify(response),
     };
   } catch (err) {
-    console.log('recipe.create', err); // output to netlify function log
+    console.log('fridge.remove', err); // output to netlify function log
     return {
       statusCode: 500,
       body: JSON.stringify({ msg: err.message }),

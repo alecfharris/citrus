@@ -1,6 +1,8 @@
 // fridgeCreate.js
 import mongoose from 'mongoose';
 
+require('dotenv').config();
+
 // Load the server
 let conn = null;
 const uri = process.env.MONGODB_URI;
