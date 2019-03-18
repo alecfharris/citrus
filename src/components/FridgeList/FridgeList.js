@@ -36,18 +36,16 @@ class FridgeList extends React.Component {
   }
 
   handleDelete = id => {
-    axios
-      .delete(`/.netlify/functions/fridge-remove?id=${id}`)
-      .then(res => {
-        // console.log(this.state);
-      })
-      .then(this.handleList());
+    axios.delete(`/.netlify/functions/fridge-remove?id=${id}`).then(res => {
+      this.setState({ promiseIsResolved: false });
+      this.handleList();
+    });
+    // .then(this.handleList());
   };
 
   handleList() {
     axios.get('/.netlify/functions/fridge-read').then(res => {
       this.setState({ inventory: res.data.data });
-      this.setState({ promiseIsResolved: false });
       this.setState({ promiseIsResolved: true });
       console.log(this.state);
     });
