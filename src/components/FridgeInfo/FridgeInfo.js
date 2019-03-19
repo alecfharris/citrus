@@ -24,6 +24,7 @@ const theme = createMuiTheme({
 export default class FridgeInfo extends React.Component {
   state = {
     open: false,
+    updating: false,
   };
 
   handleClickOpen = () => {
@@ -34,7 +35,19 @@ export default class FridgeInfo extends React.Component {
     this.setState({ open: false });
   };
 
+  toggleUpdating = () => {
+    const { updating } = this.state;
+    this.setState({ updating: !updating });
+  };
+
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+
   render() {
+    const { updating, newUnit, newQuantity } = this.state;
     const {
       status,
       title,
@@ -43,56 +56,126 @@ export default class FridgeInfo extends React.Component {
       purchaseDate,
       id,
       deleteItem,
+      updateItem,
     } = this.props;
     const { open } = this.state;
-    return (
-      <div>
-        <ListItem onClick={this.handleClickOpen}>
-          <FridgeItem
-            status={status}
-            title={title}
-            quantity={quantity}
-            unit={unit}
-          />
-        </ListItem>
-        <MuiThemeProvider theme={theme}>
-          <Dialog
-            open={open}
-            onClose={this.handleClose}
-            aria-labelledby="form-dialog-title"
-          >
-            <DialogTitle id="form-dialog-title">{title}</DialogTitle>
-            <DialogContent>
-              <DialogContentText>
-                {quantity} {unit} Remaining
-                <br />
-                Purchase Date: {purchaseDate}
-                <br />
-                Expiration Date:
-              </DialogContentText>
-            </DialogContent>
+    if (!updating) {
+      return (
+        <div>
+          <ListItem onClick={this.handleClickOpen}>
+            <FridgeItem
+              status={status}
+              title={title}
+              quantity={quantity}
+              unit={unit}
+            />
+          </ListItem>
+          <MuiThemeProvider theme={theme}>
+            <Dialog
+              open={open}
+              onClose={this.handleClose}
+              aria-labelledby="form-dialog-title"
+            >
+              <DialogTitle id="form-dialog-title">{title}</DialogTitle>
+              <DialogContent>
+                <DialogContentText>
+                  {quantity} {unit} Remaining
+                  <br />
+                  Purchase Date: {purchaseDate}
+                  <br />
+                  Expiration Date:
+                </DialogContentText>
+              </DialogContent>
 
-            <DialogActions>
-              <Button onClick={this.handleClose} color="primary">
-                Update
-              </Button>
-              <Button
-                onClick={() => {
-                  deleteItem(id);
-                  this.handleClose();
-                }}
-                color="primary"
-              >
-                Remove
-              </Button>
-              <Button onClick={this.handleClose} color="primary">
-                Cancel
-              </Button>
-            </DialogActions>
-          </Dialog>
-        </MuiThemeProvider>
-      </div>
-    );
+              <DialogActions>
+                <Button onClick={this.toggleUpdating} color="primary">
+                  Update
+                </Button>
+                <Button
+                  onClick={() => {
+                    deleteItem(id);
+                    this.handleClose();
+                  }}
+                  color="primary"
+                >
+                  Remove
+                </Button>
+                <Button onClick={this.handleClose} color="primary">
+                  Cancel
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </MuiThemeProvider>
+        </div>
+      );
+    }
+
+    if (updating) {
+      return (
+        <div>
+          <ListItem onClick={this.handleClickOpen}>
+            <FridgeItem
+              status={status}
+              title={title}
+              quantity={quantity}
+              unit={unit}
+            />
+          </ListItem>
+          <MuiThemeProvider theme={theme}>
+            <Dialog
+              open={open}
+              onClose={this.handleClose}
+              aria-labelledby="form-dialog-title"
+            >
+              <DialogTitle id="form-dialog-title">{title}</DialogTitle>
+              <DialogContent>
+                <DialogContentText>
+                  <input
+                    type="text"
+                    name="quantity"
+                    defaultValue={quantity}
+                    onChange={this.handleChange('newQuantity')}
+                  />
+                  <input
+                    type="text"
+                    name="unit"
+                    defaultValue={unit}
+                    onChange={this.handleChange('newUnit')}
+                  />{' '}
+                  Remaining
+                  <br />
+                  Purchase Date: {purchaseDate}
+                  <br />
+                  Expiration Date:
+                </DialogContentText>
+              </DialogContent>
+
+              <DialogActions>
+                <Button
+                  onClick={() => {
+                    console.log(newQuantity, newUnit);
+                    updateItem(id, newQuantity, newUnit);
+                    this.toggleUpdating();
+                  }}
+                  color="primary"
+                >
+                  Confirm
+                </Button>
+                <Button
+                  onClick={() => {
+                    this.toggleUpdating();
+                    this.handleClose();
+                  }}
+                  color="primary"
+                >
+                  Cancel
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </MuiThemeProvider>
+        </div>
+      );
+    }
   }
 }
 
@@ -104,4 +187,5 @@ FridgeInfo.propTypes = {
   purchaseDate: PropTypes.string,
   id: PropTypes.string,
   deleteItem: PropTypes.func,
+  updateItem: PropTypes.func,
 };
