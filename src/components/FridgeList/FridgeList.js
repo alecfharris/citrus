@@ -28,15 +28,26 @@ class FridgeList extends React.Component {
 
   componentDidMount() {
     const { intervalIsSet } = this.state;
+    this.handleList();
+    if (!intervalIsSet) {
+      const interval = setInterval(this.getDataFromDb, 1000);
+      this.setState({ intervalIsSet: interval });
+    }
+  }
+
+  handleDelete = id => {
+    axios.delete(`/.netlify/functions/fridge-remove?id=${id}`).then(res => {
+      this.setState({ promiseIsResolved: false });
+      this.handleList();
+    });
+  };
+
+  handleList() {
     axios.get('/.netlify/functions/fridge-read').then(res => {
       this.setState({ inventory: res.data.data });
       this.setState({ promiseIsResolved: true });
       console.log(this.state);
     });
-    if (!intervalIsSet) {
-      const interval = setInterval(this.getDataFromDb, 1000);
-      this.setState({ intervalIsSet: interval });
-    }
   }
 
   // Alphabetize inventory by name
@@ -49,6 +60,7 @@ class FridgeList extends React.Component {
   render() {
     // Prevents page from loading until GET request is complete, preventing error
     if (!this.state.promiseIsResolved) {
+      // TODO add 'Loading...' component
       return null;
     }
     if (this.state.promiseIsResolved) {
@@ -65,6 +77,8 @@ class FridgeList extends React.Component {
               quantity={item.quantity}
               unit={item.unit}
               purchaseDate={item.date}
+              id={item._id}
+              deleteItem={this.handleDelete}
             />
           ))}
         </List>

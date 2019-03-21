@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import FridgeItem from '../FridgeItem/FridgeItem';
 import {
   Button,
@@ -34,7 +35,15 @@ export default class FridgeInfo extends React.Component {
   };
 
   render() {
-    const { status, title, quantity, unit, purchaseDate } = this.props;
+    const {
+      status,
+      title,
+      quantity,
+      unit,
+      purchaseDate,
+      id,
+      deleteItem,
+    } = this.props;
     const { open } = this.state;
     return (
       <div>
@@ -67,7 +76,13 @@ export default class FridgeInfo extends React.Component {
               <Button onClick={this.handleClose} color="primary">
                 Update
               </Button>
-              <Button onClick={this.handleClose} color="primary">
+              <Button
+                onClick={() => {
+                  deleteItem(id);
+                  this.handleClose();
+                }}
+                color="primary"
+              >
                 Remove
               </Button>
               <Button onClick={this.handleClose} color="primary">
@@ -87,4 +102,6 @@ FridgeInfo.propTypes = {
   quantity: PropTypes.number,
   status: PropTypes.string,
   purchaseDate: PropTypes.string,
+  id: PropTypes.string,
+  deleteItem: PropTypes.func,
 };
