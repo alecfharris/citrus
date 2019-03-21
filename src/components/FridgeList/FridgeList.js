@@ -42,6 +42,18 @@ class FridgeList extends React.Component {
     });
   };
 
+  handleUpdate = (id, quantity, unit) => {
+    axios
+      .post(
+        `/.netlify/functions/fridge-update?id=${id}&quantity=${quantity}&unit=${unit}`
+      )
+      .then(res => {
+        this.setState({ promiseIsResolved: false });
+        this.handleList();
+        console.log(res);
+      });
+  };
+
   handleList() {
     axios.get('/.netlify/functions/fridge-read').then(res => {
       this.setState({ inventory: res.data.data });
@@ -79,6 +91,7 @@ class FridgeList extends React.Component {
               purchaseDate={item.date}
               id={item._id}
               deleteItem={this.handleDelete}
+              updateItem={this.handleUpdate}
             />
           ))}
         </List>
