@@ -8,6 +8,7 @@ import LoginPure from './components/Login/Login.pure';
 import HomePure from './components/Home/Home.pure';
 import EnterRecipePure from './components/EnterRecipe/EnterRecipe.pure';
 import RecipePageView from './components/RecipePage/RecipePage.pure';
+import UserRecipePageView from './components/UserRecipePage/UserRecipePage.pure';
 import SearchByIngredient from './components/SearchByIngredient/SearchByIngredient.pure';
 
 export default class App extends Component {
@@ -28,6 +29,7 @@ export default class App extends Component {
             component={SearchByIngredient}
           />
           <Route exact path="/recipe/:id" component={RecipePageView} />
+          <Route exact path="/recipes/" component={UserRecipePageView} />
           <Route path="/home" component={HomePure} />
         </Switch>
       </BrowserRouter>
