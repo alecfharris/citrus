@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import moment from 'moment';
 import FridgeItem from '../FridgeItem/FridgeItem';
 import {
   Button,
@@ -22,10 +23,15 @@ const theme = createMuiTheme({
 });
 
 export default class FridgeInfo extends React.Component {
-  state = {
-    open: false,
-    updating: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      updating: false,
+      newQuantity: props.quantity,
+      newUnit: props.unit,
+    };
+  }
 
   handleClickOpen = () => {
     this.setState({ open: true });
@@ -58,6 +64,10 @@ export default class FridgeInfo extends React.Component {
       deleteItem,
       updateItem,
     } = this.props;
+    const newPurchaseDate = moment(purchaseDate, 'YYYY MM DD, h:mm:ss').format(
+      'MM/DD/YYYY'
+    );
+
     const { open } = this.state;
     if (!updating) {
       return (
@@ -81,9 +91,9 @@ export default class FridgeInfo extends React.Component {
                 <DialogContentText>
                   {quantity} {unit} Remaining
                   <br />
-                  Purchase Date: {purchaseDate}
-                  <br />
-                  Expiration Date:
+                  Purchase Date: {newPurchaseDate}
+                  {/* <br />
+                  Expiration Date: */}
                 </DialogContentText>
               </DialogContent>
 
@@ -144,9 +154,9 @@ export default class FridgeInfo extends React.Component {
                   />{' '}
                   Remaining
                   <br />
-                  Purchase Date: {purchaseDate}
-                  <br />
-                  Expiration Date:
+                  Purchase Date: {newPurchaseDate}
+                  {/* <br />
+                  Expiration Date: */}
                 </DialogContentText>
               </DialogContent>
 
