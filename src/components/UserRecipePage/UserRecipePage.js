@@ -46,7 +46,7 @@ export default class RecipePage extends React.Component {
       const recipes = this.state.Recipes.data; // eslint-disable-line react/destructuring-assignment
       recipes.sort(this.compare);
       return (
-        <div>
+        <React.Fragment>
           {recipes.map(recipe => (
             <UserRecipeInformation
               title={recipe.title}
@@ -54,7 +54,7 @@ export default class RecipePage extends React.Component {
               ingredients={recipe.ingredients}
             />
           ))}
-        </div>
+        </React.Fragment>
       );
     }
   }
