@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import Inventory from './FridgeList.temp';
 import FridgeInfo from '../FridgeInfo/FridgeInfo';
+import Loading from '../Loading/Loading';
 import { withStyles, List } from './FridgeList.styles';
 
 const styles = () => ({
@@ -81,7 +82,7 @@ class FridgeList extends React.Component {
     // Prevents page from loading until GET request is complete, preventing error
     if (!promiseIsResolved) {
       // TODO add 'Loading...' component
-      return null;
+      return <Loading />;
     }
     if (promiseIsResolved) {
       const { inventory } = this.props;
