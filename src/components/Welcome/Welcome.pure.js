@@ -10,7 +10,7 @@ const Welcome = () => (
   <Layout>
     <WelcomeContainer>
       <Logo />
-      <WelcomeText text="Paul" />
+      <WelcomeText text="Alec" />
       <Link style={{ textDecoration: 'none' }} to="fridge">
         <Button text="My Fridge" />
       </Link>

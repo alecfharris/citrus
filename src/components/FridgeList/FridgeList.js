@@ -21,46 +21,47 @@ class FridgeList extends React.Component {
     promiseIsResolved: false,
   };
 
-  constructor(props) {
-    super(props);
-    this.setState = this.setState.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.setState = this.setState.bind(this);
+  // }
 
   componentDidMount() {
+    const { handleList } = this.props;
     const { intervalIsSet } = this.state;
-    this.handleList();
+    handleList();
     if (!intervalIsSet) {
       const interval = setInterval(this.getDataFromDb, 1000);
       this.setState({ intervalIsSet: interval });
     }
   }
 
-  handleDelete = id => {
-    axios.delete(`/.netlify/functions/fridge-remove?id=${id}`).then(res => {
-      this.setState({ promiseIsResolved: false });
-      this.handleList();
-    });
-  };
+  // handleDelete = id => {
+  //   axios.delete(`/.netlify/functions/fridge-remove?id=${id}`).then(res => {
+  //     this.setState({ promiseIsResolved: false });
+  //     this.handleList();
+  //   });
+  // };
 
-  handleUpdate = (id, quantity, unit) => {
-    axios
-      .post(
-        `/.netlify/functions/fridge-update?id=${id}&quantity=${quantity}&unit=${unit}`
-      )
-      .then(res => {
-        this.setState({ promiseIsResolved: false });
-        this.handleList();
-        console.log(res);
-      });
-  };
+  // handleUpdate = (id, quantity, unit) => {
+  //   axios
+  //     .post(
+  //       `/.netlify/functions/fridge-update?id=${id}&quantity=${quantity}&unit=${unit}`
+  //     )
+  //     .then(res => {
+  //       this.setState({ promiseIsResolved: false });
+  //       this.handleList();
+  //       console.log(res);
+  //     });
+  // };
 
-  handleList() {
-    axios.get('/.netlify/functions/fridge-read').then(res => {
-      this.setState({ inventory: res.data.data });
-      this.setState({ promiseIsResolved: true });
-      console.log(this.state);
-    });
-  }
+  // handleList() {
+  //   axios.get('/.netlify/functions/fridge-read').then(res => {
+  //     this.setState({ inventory: res.data.data });
+  //     this.setState({ promiseIsResolved: true });
+  //     console.log(this.state);
+  //   });
+  // }
 
   // Alphabetize inventory by name
   compare(a, b) {
@@ -70,15 +71,21 @@ class FridgeList extends React.Component {
   }
 
   render() {
+    const {
+      classes,
+      handleList,
+      promiseIsResolved,
+      handleDelete,
+      handleUpdate,
+    } = this.props;
     // Prevents page from loading until GET request is complete, preventing error
-    if (!this.state.promiseIsResolved) {
+    if (!promiseIsResolved) {
       // TODO add 'Loading...' component
       return null;
     }
-    if (this.state.promiseIsResolved) {
-      const { inventory } = this.state;
-      console.log(inventory);
-      const { classes } = this.props;
+    if (promiseIsResolved) {
+      const { inventory } = this.props;
+
       inventory.sort(this.compare);
       return (
         <List disablePadding className={classes.root}>
@@ -90,8 +97,8 @@ class FridgeList extends React.Component {
               unit={item.unit}
               purchaseDate={item.date}
               id={item._id}
-              deleteItem={this.handleDelete}
-              updateItem={this.handleUpdate}
+              deleteItem={handleDelete}
+              updateItem={handleUpdate}
             />
           ))}
         </List>
@@ -99,5 +106,13 @@ class FridgeList extends React.Component {
     }
   }
 }
+
+FridgeList.propTypes = {
+  classes: PropTypes.object,
+  promiseIsResolved: PropTypes.bool,
+  handleList: PropTypes.func,
+  handleDelete: PropTypes.func,
+  handleUpdate: PropTypes.func,
+};
 
 export default withStyles(styles)(FridgeList);

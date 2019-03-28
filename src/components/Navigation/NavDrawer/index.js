@@ -59,11 +59,19 @@ class NavDrawer extends React.Component {
               </ListItem>
             </Link>
             <Link style={{ textDecoration: 'none' }} to="/recipe/479101">
-              <ListItem button key="My Recipes">
+              <ListItem button key="My Saved Recipes">
                 <ListItemIcon>
                   <Bookmarks />
                 </ListItemIcon>
-                <ListItemText primary="My Recipes" />
+                <ListItemText primary="My Saved Recipes" />
+              </ListItem>
+            </Link>
+            <Link style={{ textDecoration: 'none' }} to="/recipes">
+              <ListItem button key="My Added Recipes">
+                <ListItemIcon>
+                  <Bookmarks />
+                </ListItemIcon>
+                <ListItemText primary="My Added Recipes" />
               </ListItem>
             </Link>
             <Link style={{ textDecoration: 'none' }} to="/enterrecipe">
