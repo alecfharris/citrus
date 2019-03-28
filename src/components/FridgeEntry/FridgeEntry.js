@@ -93,7 +93,7 @@ class FridgeEntry extends React.Component {
 
   render() {
     const { name, quantity, unit, date } = this.state;
-    const { classes, unresolvePromise } = this.props;
+    const { classes, unresolvePromise, handleList } = this.props;
     return (
       <MuiThemeProvider theme={theme}>
         <Card className={classes.container}>
@@ -147,6 +147,7 @@ class FridgeEntry extends React.Component {
               onClick={() => {
                 this.handleCreate();
                 unresolvePromise();
+                handleList();
               }}
             >
               Add to fridge
@@ -161,6 +162,7 @@ class FridgeEntry extends React.Component {
 FridgeEntry.propTypes = {
   classes: PropTypes.object,
   unresolvePromise: PropTypes.func,
+  handleList: PropTypes.func,
 };
 
 export default withStyles(styles)(FridgeEntry);
