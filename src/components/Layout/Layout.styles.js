@@ -4,14 +4,16 @@ const StyledLayout = styled.div`
   background-image: linear-gradient(#0097a7, #4fbf9e, #ccff90);
   align-items: left;
   justify-content: center;
-  height: 100% !important;
+
+  height: 100%;
+
   @media screen and (orientation: portrait) {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
   }
   @media screen and (orientation: landscape) {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
   }
 `;
 

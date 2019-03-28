@@ -22,6 +22,9 @@ const theme = createMuiTheme({
 class RecipeInput extends React.Component {
   state = {
     ingredientDivs: [],
+    ingredientName: '',
+    quantity: '',
+    unit: '',
   };
 
   constructor(props) {
@@ -83,9 +86,8 @@ class RecipeInput extends React.Component {
   };
 
   onGenNewInput = () => {
+    console.log(this.state);
     const { ingredientDivs, ingredientName, quantity, unit } = this.state;
-    /* TODO push existing states to array, and then map through the array to create a text list of ingredients above the 
-   boxes, then empty the boxes */
     ingredientDivs.push({
       ingredientName,
       quantity,

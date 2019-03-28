@@ -10,11 +10,11 @@ const Welcome = () => (
   <Layout>
     <WelcomeContainer>
       <Logo />
-      <WelcomeText text="Paul" />
+      <WelcomeText text="Alec" />
       <Link style={{ textDecoration: 'none' }} to="fridge">
         <Button text="My Fridge" />
       </Link>
-      <Link style={{ textDecoration: 'none' }} to="browse">
+      <Link style={{ textDecoration: 'none' }} to="recipes">
         <Button text="My Recipes" />
       </Link>
     </WelcomeContainer>

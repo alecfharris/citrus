@@ -53,38 +53,33 @@ class FridgeEntry extends React.Component {
 
   // CRUD Handlers
   handleCreate = () => {
-        const {
-          name,
-          quantity,
-          unit,
-          date,
-        } = this.state;
-    
-        let newFridge = {
-          name,
-          quantity,
-          unit,
-          date,
+    const { name, quantity, unit, date } = this.state;
+
+    let newFridge = {
+      name,
+      quantity,
+      unit,
+      date,
+      // TODO change accountId to real value once possible
+      accountId: 't0d0r3m0v3l8rt3st64',
+    };
+
+    this.postAPI('fridge-create', newFridge)
+      .then(response => {
+        console.log(response.msg);
+
+        const fridge = response.data;
+
+        newFridge = {
+          title: '',
+          ingredients: [],
+          instructions: '',
           // TODO change accountId to real value once possible
           accountId: 't0d0r3m0v3l8rt3st64',
         };
-    
-        this.postAPI('fridge-create', newFridge)
-          .then(response => {
-            console.log(response.msg);
-    
-            const fridge = response.data;
-    
-            newFridge = {
-              title: '',
-              ingredients: [],
-              instructions: '',
-              // TODO change accountId to real value once possible
-              accountId: 't0d0r3m0v3l8rt3st64',
-            };
-          })
-          .catch(err => console.log('fridge.create API error: ', err));
-      };
+      })
+      .catch(err => console.log('fridge.create API error: ', err));
+  };
 
   getFridge = () => {
     console.log('getFridge');
@@ -98,7 +93,7 @@ class FridgeEntry extends React.Component {
 
   render() {
     const { name, quantity, unit, date } = this.state;
-    const { classes } = this.props;
+    const { classes, unresolvePromise, handleList } = this.props;
     return (
       <MuiThemeProvider theme={theme}>
         <Card className={classes.container}>
@@ -151,6 +146,8 @@ class FridgeEntry extends React.Component {
               color="secondary"
               onClick={() => {
                 this.handleCreate();
+                unresolvePromise();
+                handleList();
               }}
             >
               Add to fridge
@@ -164,6 +161,8 @@ class FridgeEntry extends React.Component {
 
 FridgeEntry.propTypes = {
   classes: PropTypes.object,
+  unresolvePromise: PropTypes.func,
+  handleList: PropTypes.func,
 };
 
 export default withStyles(styles)(FridgeEntry);
